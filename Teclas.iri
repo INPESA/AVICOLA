@@ -1,0 +1,49 @@
+handler N0Keypressed;
+begin
+  ZeroScale(1);
+end;
+                  
+handler N1Keypressed;
+begin
+  ZeroScale(2);
+end;
+
+handler N2Keypressed;
+begin
+   ZeroScale(3);
+end;
+
+handler N3Keypressed;
+begin
+    ZeroScale(4);
+end;                     
+
+handler N4Keypressed;
+begin
+   Temporizador(9, VOn, TimerOneShot, Accion);
+end;
+
+handler N5Keypressed; 
+begin
+  Temporizador(10, VOn, TimerOneShot, Accion);
+end;
+  
+handler N6Keypressed;
+begin
+    Temporizador(11, VOn, TimerOneShot, Accion);
+end;
+                  
+handler N7Keypressed;
+begin
+    Temporizador(12, VOn, TimerOneShot, Accion);
+end;
+                         
+handler N8Keypressed;
+begin
+    DisplayStatus("Prurbas");
+end;
+   
+handler N9Keypressed;
+begin
+   ModoPruebas;
+end;

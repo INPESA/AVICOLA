@@ -1,0 +1,482 @@
+type    FechaHora	is  (Fecha,Hora);  
+  
+  function ArreglaDato(DatoEntrada : integer):string; --Funcion Revisada y Terminada
+ DatoSalida  : string;
+ begin
+    DatoSalida := IntegerToString(DatoEntrada,1);
+    return("0" + DatoSalida);
+end;
+
+function ObtenerFechaHora(Retorno : FechaHora) : string; --Funcion Revisada y Terminada
+ DT          : datetime;
+ Year_i      : integer;
+ Mes_i       : integer;          
+ Dia_i       : integer;
+ Hora_i      : integer;
+
+ Minuto_i    : integer;
+ Segundo_i   : integer;
+ Hora_s      : string;
+ Minuto_s    : string;
+ Segundo_s   : string;
+ Dia_s       : string;
+ Mes_s       : string;
+ Year_s      : string;
+ Dato_i      : integer;
+ Dato_s      : string;
+ begin
+    DT := SystemTime;
+    GetDate(DT,Year_i,Mes_i,Dia_i);
+    Year_i := (2000 + Year_i);
+    GetTime(DT,Hora_i,Minuto_i,Segundo_i);
+    DT := SystemTime;
+    Hora_s    := IntegerToString(Hora_i,2);
+    Minuto_s  := IntegerToString(Minuto_i,2);
+    Segundo_s := IntegerToString(Segundo_i,2);
+    Mes_s     := IntegerToString(Mes_i,2);
+    Dia_s     := IntegerToString(Dia_i,2);
+    if Hora_i<=9 then
+        Hora_s := ArreglaDato(Hora_i);
+    end if;
+    if Minuto_i<=9 then
+        Minuto_s := ArreglaDato(Minuto_i);
+    end if;
+    if Segundo_i<=9 then
+        Segundo_s := ArreglaDato(Segundo_i);
+    end if;
+    if Dia_i<=9 then
+        Dia_s := ArreglaDato(Dia_i);
+    end if;
+    if Mes_i<=9 then
+        Mes_s := ArreglaDato(Mes_i);
+    end if;
+    Year_s := IntegerToString(Year_i,4); 
+    if Retorno = Fecha then
+        return(Dia_s + "/" + Mes_s + "/" + Right$(Year_s,2));
+    else 
+        return(Hora_s + ":" + Minuto_s + ":" + Segundo_s);
+    end if;
+end;
+
+procedure Temporizador(T : integer; ON : OnOffType; TM : TimerMode; V : integer); --Funcion Revisada y Terminada
+ begin
+	if On = VOn then
+		SetTimer(T,V); SetTimerMode(T,TM); StartTimer(T);  
+		
+	else
+ 		StopTimer(T); ResetTimer(T);
+    end if;
+ end;
+ 
+ procedure CargarCategorias;
+ begin
+      BD_Categoria.GetFirst;
+      Categoria1Min := StringToReal(BD_Categoria.Min);
+      Categoria1Max := StringToReal(BD_Categoria.Max);  
+      
+      BD_Categoria.GetNext;
+      Categoria2Min := StringToReal(BD_Categoria.Min);
+      Categoria2Max := StringToReal(BD_Categoria.Max);
+      
+      BD_Categoria.GetNext;
+      Categoria3Min := StringToReal(BD_Categoria.Min);
+      Categoria3Max := StringToReal(BD_Categoria.Max);
+      
+      BD_Categoria.GetNext;
+      Categoria4Min := StringToReal(BD_Categoria.Min);
+      Categoria4Max := StringToReal(BD_Categoria.Max);
+ end;               
+
+-- Este codigo se usa principalmente para actualizar los SoftKeys
+procedure ActualizarData(Pantalla : integer);
+begin
+  if pantalla = 1 then   
+        --InitPollito;
+        --DrawGraphic(1, 250, 10, g_r,Black);
+        SetSoftkeyText(1,"Categoria");
+        SetSoftkeyText(2,"Velocidad");
+        SetSoftkeyText(3,"Pruebas");
+        SetSoftkeyText(4,"Limpiar");
+        SetSoftkeyText(5,"");
+        
+        SetLabelText(cont1, IntegerToString(CantCategoria1,2));
+        SetLabelText(cont2, IntegerToString(CantCategoria2,2));
+        SetLabelText(cont3, IntegerToString(CantCategoria3,2));
+        SetLabelText(cont4, IntegerToString(CantCategoria4,2));
+           
+  elsif pantalla = 2 then      
+        SetSoftkeyText(1,"Piston 1");
+        SetSoftkeyText(2,"Piston 2");
+        SetSoftkeyText(3,"Piston 3");
+        SetSoftkeyText(4,"Piston 4");
+        SetSoftkeyText(5,"Salir");
+  elsif pantalla = 3 then
+        SetSoftkeyText(1,"Velocidad");
+        SetSoftkeyText(2,"");
+        SetSoftkeyText(3,"");
+        SetSoftkeyText(4,"");
+   elsif pantalla = 4 then
+        --InitGranjero;
+        --DrawGraphic(1,230,100,g_Granjero,Black);
+        SetSoftkeyText(1,"Peso 1");
+        SetSoftkeyText(2,"Peso 2");  
+        SetSoftkeyText(3,"Peso 3");
+        SetSoftkeyText(4,"Peso 4"); 
+        SetSoftkeyText(5,"Salir");
+        
+        SetLabelText(cat1, "Categoria 1: " + RealToString(Categoria1Min,2,3) + "-" + RealToString(Categoria1Max,2,3) + " lb");
+        SetLabelText(cat2, "Categoria 2: " + RealToString(Categoria2Min,2,3) + "-" + RealToString(Categoria2Max,2,3) + " lb");
+        SetLabelText(cat3, "Categoria 3: " + RealToString(Categoria3Min,2,3) + "-" + RealToString(Categoria3Max,2,3) + " lb");
+        SetLabelText(cat4, "Categoria 4: " + RealToString(Categoria4Min,2,3) + "-" + RealToString(Categoria4Max,2,3) + " lb");   
+   
+    elsif pantalla = 5 then
+        --InitGranjero;
+        --DrawGraphic(1,230,100,g_Granjero,Black);
+        SetSoftkeyText(1,"V. Activ.");
+        SetSoftkeyText(2,"T. Piston");  
+        SetSoftkeyText(3,"");
+        SetSoftkeyText(4,""); 
+        SetSoftkeyText(5,"Salir");
+        
+        SetLabelText(vel1, "Vel. de Activacion: " + IntegerToString(Velocidad,2));
+        SetLabelText(vel2, "Tiempo del Piston: " + IntegerToString(Accion,2));            
+    elsif pantalla = 7 then
+        --InitGranjero;
+        --DrawGraphic(1,230,100,g_Granjero,Black);
+        SetSoftkeyText(1,"Bascula");
+        SetSoftkeyText(2,"Peso");  
+        SetSoftkeyText(3,"Reset");
+        SetSoftkeyText(4,""); 
+        SetSoftkeyText(5,"Salir");
+        
+        SetLabelText(cant7, "Cantidad: " + IntegerToString(Cantidad,2));
+        SetLabelText(peso7, "Peso: " + IntegerToString(PesoPrueba7,2));   
+  end if; 
+end;
+    
+
+function Estable(scale : integer): SysCode;          --Funcion Revisada y Terminada
+ M   : integer;
+ S	 : integer;
+ begin
+    InMotion(scale,M);
+    if M = 0 then
+        return(SysOk);
+    else
+        return(SysInvalidScale);
+    end if;
+end;    
+
+procedure CambiarPantalla(pantalla : integer);
+begin
+  PantallaAnterior := PantallaActual;
+  PantallaActual := pantalla;
+  SelectScreen(pantalla);
+  ActualizarData(pantalla);
+end;                        
+
+procedure InicializarSetPoints;
+begin
+  SetSPValue(1, SetPointLimit);
+  SetSPValue(2, SetPointLimit);
+  SetSPValue(3, SetPointLimit);
+  SetSPValue(4, SetPointLimit);  
+end;      
+
+procedure ApagarTodosLosPistones;
+begin
+       
+    -- Apagando los BITS EL 1 Se Considera Apagado
+    if SetDigout (0, 1, APAGADO) = SysOk then
+      DisplayStatus("Apagando el Bit 1"); 
+    else
+      DisplayStatus("Error");
+    end if;   
+  
+    if SetDigout(0,2,APAGADO) = SysOk then
+      DisplayStatus("Apagando el Bit 2");
+    else
+      DisplayStatus("Error");
+    end if; 
+  
+    if SetDigout(0,3,APAGADO) = SysOk then
+     DisplayStatus("Apagando el Bit 3");
+    else
+      DisplayStatus("Error");
+    end if; 
+  
+    if SetDigout(0,4,APAGADO) = SysOk then
+      DisplayStatus("Apagando el Bit 4");
+    else
+      DisplayStatus("Error");
+    end if;
+end;
+
+procedure ApagarTodosLosSetPoints;
+begin
+    DisableSP(1);
+    DisableSP(2);
+    DisableSP(3);
+    DisableSP(4);
+end;
+
+procedure EncenderTodosLosSetPoints;
+begin   
+    EnableSP(1);
+    EnableSP(2);
+    EnableSP(3);
+    EnableSP(4);
+end;             
+
+procedure EncederTodosLosTemporizadores;
+begin
+      Temporizador(14, VOn, TimerContinuous, 1);
+      --Temporizador(2, VOn, TimerContinuous, 1);
+      --Temporizador(3, VOn, TimerContinuous, 1);
+      --Temporizador(4, VOn, TimerContinuous, 1);
+      --Temporizador(13, VOn, TimerContinuous, 5000);
+end;
+
+procedure EncenderPiston(piston : integer);
+begin
+  
+  if piston = 1 then
+    SetDigout(0,1,ENCENDIDO);
+    
+  elsif piston = 2 then
+    SetDigout(0,2,ENCENDIDO);
+    
+  elsif piston = 3 then
+    SetDigout(0,3,ENCENDIDO);
+  
+  elsif piston = 4 then
+    SetDigout(0,4,ENCENDIDO);
+  end if;
+end;
+       
+       
+procedure ApagarPiston(piston : integer);
+begin  
+  if piston = 1 then
+    SetDigout(0,1,APAGADO);
+    
+  elsif piston = 2 then
+    SetDigout(0,2,APAGADO);
+    
+  elsif piston = 3 then
+    SetDigout(0,3,APAGADO);
+  
+  elsif piston = 4 then
+    SetDigout(0,4,APAGADO);
+  end if;
+end; 
+           
+-- Esto no se debe tocar más                         
+procedure BotarPollo(piston: integer);
+begin  
+   if piston = 1 then
+    EncenderPiston(1);
+    Temporizador(5, VOn, TimerOneShot, Velocidad);    
+  elsif piston = 2 then
+    EncenderPiston(2);
+    Temporizador(6, VOn, TimerOneShot, Velocidad);
+  elsif piston = 3 then
+    EncenderPiston(3);
+    Temporizador(7, VOn, TimerOneShot, Velocidad);
+  elsif piston = 4 then
+    EncenderPiston(4);
+    Temporizador(8, VOn, TimerOneShot, Velocidad);
+  end if;
+  end;
+  
+  function BuscarFecha : integer;
+  contador : integer := 1;
+  begin
+      if BasesDeDatos = 1 then
+        BD1_Conteo.GetFirst;
+        
+        if BD1_Conteo.Fecha = FechaGlobal then
+          return contador;
+        else
+          while(BD1_Conteo.GetNext <> SysNoSuchRecord)
+          loop
+             contador := contador + 1;
+              if BD1_Conteo.Fecha = FechaGlobal then
+                return contador;
+              end if;
+          end loop;
+          return 0;
+        end if;
+     else
+       BD2_Conteo.GetFirst;
+       
+       if BD2_Conteo.Fecha = FechaGlobal then
+        return contador;
+       else
+        while(BD2_Conteo.GetNext <> SysNoSuchRecord)
+        loop
+           contador := contador + 1;
+            if BD2_Conteo.Fecha = FechaGlobal then
+              return contador;
+            end if;
+        end loop;
+        return 0;
+       end if;
+       
+     end if;
+  end;
+  
+  procedure CargarLosContadores;
+  begin
+      if BasesDeDatos = 1 then
+        BD1_Conteo.GetFirst;
+        
+        if BD1_Conteo.Fecha = FechaGlobal then
+          cantCategoria1 := StringToInteger(BD1_Conteo.Cat1);
+          cantCategoria2 := StringToInteger(BD1_Conteo.Cat2);
+          cantCategoria3 := StringToInteger(BD1_Conteo.Cat3);
+          cantCategoria4 := StringToInteger(BD1_Conteo.Cat4);  
+        else
+          while(BD1_Conteo.GetNext <> SysNoSuchRecord)
+          loop
+              if BD1_Conteo.Fecha = FechaGlobal then
+                cantCategoria1 := StringToInteger(BD1_Conteo.Cat1);
+                cantCategoria2 := StringToInteger(BD1_Conteo.Cat2);
+                cantCategoria3 := StringToInteger(BD1_Conteo.Cat3);
+                cantCategoria4 := StringToInteger(BD1_Conteo.Cat4);
+              end if;
+          end loop;
+          cantCategoria1 := 0;
+          cantCategoria2 := 0;
+          cantCategoria3 := 0;
+          cantCategoria4 := 0;
+        end if;
+     else
+       BD2_Conteo.GetFirst;
+       
+       if BD2_Conteo.Fecha = FechaGlobal then
+          cantCategoria1 := StringToInteger(BD2_Conteo.Cat1);
+          cantCategoria2 := StringToInteger(BD2_Conteo.Cat2);
+          cantCategoria3 := StringToInteger(BD2_Conteo.Cat3);
+          cantCategoria4 := StringToInteger(BD2_Conteo.Cat4);
+       else
+        while(BD2_Conteo.GetNext <> SysNoSuchRecord)
+        loop
+            if BD2_Conteo.Fecha = FechaGlobal then
+              cantCategoria1 := StringToInteger(BD2_Conteo.Cat1);
+              cantCategoria2 := StringToInteger(BD2_Conteo.Cat2);
+              cantCategoria3 := StringToInteger(BD2_Conteo.Cat3);
+              cantCategoria4 := StringToInteger(BD2_Conteo.Cat4);
+            end if;
+        end loop;
+        cantCategoria1 := 0;
+        cantCategoria2 := 0;
+        cantCategoria3 := 0;
+        cantCategoria4 := 0;
+       end if;
+       
+     end if;
+  end;      
+  
+   procedure ModoPruebas;
+ begin
+      Temporizador(15, VOn, TimerContinuous, 1);
+      CambiarPantalla(7);     
+      ActualizarData(7);
+ end;
+  
+  procedure GuardarEnBD;
+  begin
+      if BasesDeDatos = 1 then
+        if BD1_Conteo.GetFirst <> SysNoSuchRecord then
+         
+        if BD1_Conteo.Fecha = FechaGlobal then
+            BD1_Conteo.Cat1 := IntegerToString(cantCategoria1,6);
+            BD1_Conteo.Cat2 := IntegerToString(cantCategoria2,6);
+            BD1_Conteo.Cat3 := IntegerToString(cantCategoria3,6);
+            BD1_Conteo.Cat4 := IntegerToString(cantCategoria4,6); 
+            BD1_Conteo.Update; 
+            DisplayStatus("Registro 1 Actualizado");
+        else
+          while(BD1_Conteo.GetNext <> SysNoSuchRecord)
+          loop
+              if BD1_Conteo.Fecha = FechaGlobal then
+                BD1_Conteo.Cat1 := IntegerToString(cantCategoria1,6);
+                BD1_Conteo.Cat2 := IntegerToString(cantCategoria2,6);
+                BD1_Conteo.Cat3 := IntegerToString(cantCategoria3,6);
+                BD1_Conteo.Cat4 := IntegerToString(cantCategoria4,6); 
+                BD1_Conteo.Update;
+                DisplayStatus("Registro 1 Actualizado"); 
+              end if;
+          end loop;
+            BD1_Conteo.Fecha := FechaGlobal;
+            BD1_Conteo.Cat1 := IntegerToString(cantCategoria1,6);
+            BD1_Conteo.Cat2 := IntegerToString(cantCategoria2,6);
+            BD1_Conteo.Cat3 := IntegerToString(cantCategoria3,6);
+            BD1_Conteo.Cat4 := IntegerToString(cantCategoria4,6); 
+            BD1_Conteo.Add;    
+            DisplayStatus("Registro 1 Añadido");  
+            end if;
+          else
+             BD1_Conteo.Fecha := FechaGlobal;
+            BD1_Conteo.Cat1 := IntegerToString(cantCategoria1,6);
+            BD1_Conteo.Cat2 := IntegerToString(cantCategoria2,6);
+            BD1_Conteo.Cat3 := IntegerToString(cantCategoria3,6);
+            BD1_Conteo.Cat4 := IntegerToString(cantCategoria4,6); 
+            BD1_Conteo.Add;
+            DisplayStatus("Registro 1 Añadido");   
+        end if;
+        
+     else
+       if BD2_Conteo.GetFirst <> SysNoSuchRecord then
+       
+       if BD2_Conteo.Fecha = FechaGlobal then
+            BD2_Conteo.Cat1 := IntegerToString(cantCategoria1,6);
+            BD2_Conteo.Cat2 := IntegerToString(cantCategoria2,6);
+            BD2_Conteo.Cat3 := IntegerToString(cantCategoria3,6);
+            BD2_Conteo.Cat4 := IntegerToString(cantCategoria4,6);
+            BD2_Conteo.Update; 
+            DisplayStatus("Registro 2 Actualizado");
+       else
+        while(BD2_Conteo.GetNext <> SysNoSuchRecord)
+        loop
+            if BD2_Conteo.Fecha = FechaGlobal then
+              BD2_Conteo.Cat1 := IntegerToString(cantCategoria1,6);
+              BD2_Conteo.Cat2 := IntegerToString(cantCategoria2,6);
+              BD2_Conteo.Cat3 := IntegerToString(cantCategoria3,6);
+              BD2_Conteo.Cat4 := IntegerToString(cantCategoria4,6);
+              BD2_Conteo.Update;
+              DisplayStatus("Registro 2 Actualizado");
+            end if;
+        end loop;
+            BD2_Conteo.Fecha := FechaGlobal;
+            BD2_Conteo.Cat1 := IntegerToString(cantCategoria1,6);
+            BD2_Conteo.Cat2 := IntegerToString(cantCategoria2,6);
+            BD2_Conteo.Cat3 := IntegerToString(cantCategoria3,6);
+            BD2_Conteo.Cat4 := IntegerToString(cantCategoria4,6);
+            BD2_Conteo.Add;
+            DisplayStatus("Registro 2 Añadido"); 
+             end if;
+        else
+                BD2_Conteo.Fecha := FechaGlobal;
+            BD2_Conteo.Cat1 := IntegerToString(cantCategoria1,6);
+            BD2_Conteo.Cat2 := IntegerToString(cantCategoria2,6);
+            BD2_Conteo.Cat3 := IntegerToString(cantCategoria3,6);
+            BD2_Conteo.Cat4 := IntegerToString(cantCategoria4,6);
+            BD2_Conteo.Add;
+            DisplayStatus("Registro 2 Añadido");
+           
+       end if;  
+     end if;
+                                    
+                                    
+                                    
+  end;  
+                                    
+                                    
+procedure GuardarPruebasEnBD;
+begin
+  BD_Pruebas.PesoMin := RealToString(LecMin1,2,3); 
+  BD_Pruebas.PesoMax := RealToString(( (LecMax1 - LecMin1) - 7.5) ,2,3);
+  BD_Pruebas.Add;
+end;

@@ -1,0 +1,20 @@
+handler Cmd1Handler;
+--Recepcion de Informacion
+begin
+    BasesDeDatos := 1;
+    DisplayStatus("Cambio de Base 1");
+end;             
+
+handler Cmd2Handler;
+--Configuracion de Bascula
+begin
+  BasesDeDatos := 2;
+  DisplayStatus("Cambio de Base 2");
+end;  
+
+handler Cmd3Handler;
+--Configuracion de Bascula
+begin
+ CargarCategorias;
+end;
+                          

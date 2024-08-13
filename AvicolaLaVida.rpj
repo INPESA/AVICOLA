@@ -1,0 +1,14 @@
+file=C:\INPESA\AvicolaLaVida\index.src
+file=C:\INPESA\AvicolaLaVida\Teclas.iri
+file=C:\INPESA\AvicolaLaVida\Indicador.920
+file=C:\INPESA\AvicolaLaVida\SetPoints.iri
+file=C:\INPESA\AvicolaLaVida\Variables.iri
+file=C:\INPESA\AvicolaLaVida\SoftKeys.iri
+file=C:\INPESA\AvicolaLaVida\Procedimientos.iri
+file=C:\INPESA\AvicolaLaVida\Entrys.iri
+file=C:\INPESA\AvicolaLaVida\Temporizadores.iri
+file=C:\INPESA\AvicolaLaVida\Comandos.iri
+file=C:\INPESA\AvicolaLaVida\Config.iri
+retainout=False
+target=et=1
+indtarget=1

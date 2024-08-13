@@ -1,0 +1,272 @@
+handler Timer1Trip;
+--Declaration Section
+Peso : real;
+begin 
+    GetNet(1,Primary,Peso);
+     
+     if Peso < (LecMin1 - 0.1) and Bajando = 0 then
+          LecMin1 := Peso;
+     elsif Bajando = 0 and Peso > (LecMin1 + 0.1) then 
+          LecMax1 := LecMin1;
+          Bajando := 1;
+     end if;
+     
+     if Peso > (LecMax1 + 0.1) and Bajando = 1 then 
+          LecMax1 := Peso;
+     elsif Bajando = 1 and Peso < (LecMax1 - 0.1) then
+          Bajando := 0;  
+                             
+          -- Tension mas peso meta
+          if (LecMax1 - LecMin1) >= (5 + Categoria1Min) and (LecMax1 - LecMin1) <= (3 + Categoria1Max)  then
+            DisplayStatus("Bascula 1: " + RealToString(Peso,2,2));
+            Temporizador(9, VOn, TimerOneShot, Accion);
+            GuardarPruebasEnBD;
+            cantCategoria1 := cantCategoria1 + 1;  
+            SetLabelText(cont1, IntegerToString(cantCategoria1,4));  
+          end if; 
+          
+          LecMin1 := LecMax1;
+     end if;
+   
+    return;
+
+end;         
+
+handler Timer2Trip;
+--Declaration Section
+Peso : real;
+begin
+    GetNet(2,Primary,Peso);
+     
+     if Peso < (LecMin2 - 0.1) and Bajando = 0 then
+          LecMin2 := Peso;
+     elsif Bajando = 0 and Peso > (LecMin2 + 0.1) then 
+          LecMax2 := LecMin2;
+          Bajando := 1;
+     end if;
+     
+     if Peso > (LecMax2 + 0.1) and Bajando = 1 then 
+          LecMax2 := Peso;
+     elsif Bajando = 1 and Peso < (LecMax2 - 0.1) then
+          Bajando := 0;  
+                             
+          -- Tension mas peso meta
+          if (LecMax2 - LecMin2) >= (7.5 + Categoria2Min) and (LecMax2 - LecMin2) <= (7.5 + Categoria2Max)  then
+            Temporizador(10, VOn, TimerOneShot, Accion);
+            cantCategoria2 := cantCategoria2 + 1;  
+            SetLabelText(cont2, IntegerToString(cantCategoria2,4));  
+          end if; 
+          
+          LecMin2 := LecMax2;
+     end if;
+   
+    return;
+
+end;
+
+handler Timer3Trip;
+--Declaration Section
+Peso : real;
+begin
+     
+     GetNet(3,Primary,Peso);
+     
+     if Peso < (LecMin3 - 0.1) and Bajando = 0 then
+          LecMin3 := Peso;
+     elsif Bajando = 0 and Peso > (LecMin3 + 0.1) then 
+          LecMax3 := LecMin3;
+          Bajando := 1;
+     end if;
+     
+     if Peso > (LecMax3 + 0.1) and Bajando = 1 then 
+          LecMax3 := Peso;
+     elsif Bajando = 1 and Peso < (LecMax3 - 0.1) then
+          Bajando := 0;  
+                             
+          -- Tension mas peso meta
+          if (LecMax3 - LecMin3) >= (7.5 + Categoria3Min) and (LecMax3 - LecMin3) <= (7.5 + Categoria3Max)  then
+            Temporizador(11, VOn, TimerOneShot, Accion);
+            cantCategoria3 := cantCategoria3 + 1;  
+            SetLabelText(cont1, IntegerToString(cantCategoria1,4));  
+          end if; 
+          
+          LecMin3 := LecMax3;
+     end if;
+   
+    return;
+
+end;
+
+handler Timer4Trip;
+--Declaration Section
+Peso : real;
+begin
+   
+    GetNet(4,Primary,Peso);
+     
+     if Peso < (LecMin4 - 0.1) and Bajando = 0 then
+          LecMin4 := Peso;
+     elsif Bajando = 0 and Peso > (LecMin4 + 0.1) then 
+          LecMax4 := LecMin4;
+          Bajando := 1;
+     end if;
+     
+     if Peso > (LecMax4 + 0.1) and Bajando = 1 then 
+          LecMax4 := Peso;
+     elsif Bajando = 1 and Peso < (LecMax4 - 0.1) then
+          Bajando := 0;  
+                             
+          -- Tension mas peso meta
+          if (LecMax4 - LecMin4) >= (7.5 + Categoria4Min) and (LecMax4 - LecMin4) <= (7.5 + Categoria4Max)  then
+            Temporizador(12, VOn, TimerOneShot, Accion);
+            cantCategoria4 := cantCategoria4 + 1;  
+            SetLabelText(cont4, IntegerToString(cantCategoria4,4));  
+          end if; 
+          
+          LecMin4 := LecMax4;
+     end if;
+   
+    return;                                                 
+
+end;
+
+
+handler Timer5Trip;
+--Declaration Section
+
+begin
+     ApagarPiston(1);
+end;
+
+
+handler Timer6Trip;
+--Declaration Section
+
+begin
+     ApagarPiston(2);
+end;
+
+
+handler Timer7Trip;
+  
+begin
+  ApagarPiston(3);
+end;
+
+             
+handler Timer8Trip;
+--Declaration Section
+
+begin
+     ApagarPiston(4);
+return;
+end;
+
+handler Timer9Trip;
+--Declaration Section
+begin
+     DisplayStatus("Prueba de Timer");
+     BotarPollo(1);
+return;
+end;
+
+handler Timer10Trip;
+--Declaration Section
+
+begin
+     BotarPollo(2);
+return;
+end;
+
+handler Timer11Trip;
+--Declaration Section
+
+begin
+     BotarPollo(3);
+return;
+end;
+
+handler Timer12Trip;
+--Declaration Section
+
+begin
+     BotarPollo(4);
+return;
+
+end;
+
+handler Timer13Trip;
+--Declaration Section
+
+begin
+     GuardarEnBD;
+return; 
+end;
+
+handler Timer14Trip;
+Peso : real;
+begin
+     
+     GetNet(1,Primary,Peso);
+     
+     if Peso < (LecMin1 - 0.2) and Bajando = 0 then
+          LecMin1 := Peso;
+     elsif Bajando = 0 and Peso > (LecMin1 + 0.2) then
+          DisplayStatus("Subiendo"); 
+          LecMax1 := LecMin1;
+          SetLabelText(Minimo6, RealToString(LecMin1,2,3)); 
+          SetLabelText(Maximo6, RealToString(LecMax1,2,3)); 
+           Bajando := 1;
+     end if;
+     
+     if Peso > (LecMax1 + 0.2) and Bajando = 1 then 
+          LecMax1 := Peso;
+     elsif Bajando = 1 and Peso < (LecMax1 - 0.2) then
+          Bajando := 0;  
+                             
+                             -- Tension mas peso meta
+          if (LecMax1 - LecMin1) > (3) then
+            SetLabelText(Minimo6, RealToString(LecMin1 ,2,3)); 
+            SetLabelText(Maximo6, RealToString(((LecMax2 - LecMin1) - 7.5) ,2,3)); 
+            GuardarPruebasEnBD;
+            -- BotarPollo(3);
+          end if; 
+          
+          DisplayStatus("Bajando");
+          LecMin1 := LecMAx1;
+     end if;
+     
+return;
+end;           
+
+handler Timer15Trip;
+Peso : real;
+begin 
+    GetNet(Bascula,Primary,Peso);
+     
+     if Peso < (LecMin1 - 0.1) and Bajando = 0 then
+          LecMin1 := Peso;
+     elsif Bajando = 0 and Peso > (LecMin1 + 0.1) then 
+          LecMax1 := LecMin1;
+          Bajando := 1;
+     end if;
+     
+     if Peso > (LecMax1 + 0.1) and Bajando = 1 then 
+          LecMax1 := Peso;
+     elsif Bajando = 1 and Peso < (LecMax1 - 0.1) then
+          Bajando := 0;  
+                             
+          -- Tension mas peso meta
+          if (LecMax1 - LecMin1) >= (8 + MinPrueba)  then
+           
+            Temporizador(9, VOn, TimerOneShot, Accion);
+          
+            Cantidad := Cantidad + 1;    
+            PesoPrueba7 :=   (LecMax1 - LecMin1) - 8;
+            SetLabelText(cant7, IntegerToString(Cantidad,4)); 
+            SetLabelText(peso7, "Peso : "  + RealToString(PesoPrueba7,4,2));  
+          end if; 
+          
+          LecMin1 := LecMax1;
+     end if;
+end;

@@ -1,0 +1,89 @@
+handler Userentry;
+--Declaration Section
+s : string;
+begin
+    if EnterKey = EventKey then
+      s := GetEntry;       
+           
+    if PromptN = 1 then
+      Categoria1Min := StringToReal(s);
+      ClosePrompt;
+      PromptN := 2;
+      PromptUser("Rango Maximo: ");
+    elsif PromptN = 2 then
+      Categoria1Max := StringToReal(s); 
+      BD_Categoria.GetFirst;  
+      BD_Categoria.Min := RealToString(Categoria1Min,2,3);
+      BD_Categoria.Max := RealToString(Categoria1Max,2,3);
+      BD_Categoria.Update;
+      ClosePrompt;
+      CambiarPantalla(PantallaCategoria);
+      
+    elsif PromptN = 3 then
+      Categoria2Min := StringToReal(s);
+      ClosePrompt;
+      PromptN := 4;
+      PromptUser("Rango Maximo: ");
+    elsif PromptN = 4 then
+      Categoria2Max := StringToReal(s);
+      BD_Categoria.GetFirst;
+      BD_Categoria.GetNext;  
+      BD_Categoria.Min := RealToString(Categoria2Min,2,3);
+      BD_Categoria.Max := RealToString(Categoria2Max,2,3);
+      BD_Categoria.Update;
+      ClosePrompt;
+      CambiarPantalla(PantallaCategoria);
+          
+    elsif PromptN = 5 then
+      Categoria3Min := StringToReal(s);
+      ClosePrompt;
+      PromptN := 6;
+      PromptUser("Rango Maximo: ");
+    elsif PromptN = 6 then
+      Categoria3Max := StringToReal(s);
+      BD_Categoria.GetFirst;  
+      BD_Categoria.GetNext;
+      BD_Categoria.GetNext;
+      BD_Categoria.Min := RealToString(Categoria3Min,2,3);
+      BD_Categoria.Max := RealToString(Categoria3Max,2,3);
+      BD_Categoria.Update;
+      ClosePrompt; 
+      CambiarPantalla(PantallaCategoria);
+      
+    elsif PromptN = 7 then
+      Categoria4Min := StringToReal(s);
+      ClosePrompt;
+      PromptN := 8;
+      PromptUser("Rango Maximo: ");
+    elsif PromptN = 8 then
+      Categoria4Max := StringToReal(s);
+      BD_Categoria.GetFirst;
+      BD_Categoria.GetNext;
+      BD_Categoria.GetNext;
+      BD_Categoria.GetNext;  
+      BD_Categoria.Min := RealToString(Categoria4Min,2,3);
+      BD_Categoria.Max := RealToString(Categoria4Max,2,3);
+      BD_Categoria.Update; 
+      ClosePrompt;
+      CambiarPantalla(PantallaCategoria);
+      
+    elsif PromptN = 9 then
+      Velocidad := StringToInteger(s);
+      ClosePrompt; 
+      CambiarPantalla(PantallaVelocidad);
+    elsif PromptN = 10 then
+      Accion := StringToInteger(s);
+      ClosePrompt;
+      CambiarPantalla(PantallaVelocidad);
+    elsif PromptN = 11 then
+      Contrasena := StringToInteger(s);
+      ClosePrompt;    
+    elsif PromptN = 12 then
+      MinPrueba := StringToInteger(s);
+      ClosePrompt;  
+    elsif PromptN = 13 then
+      Bascula := StringToInteger(s);
+      ClosePrompt;
+    end if;
+   end if;
+end;

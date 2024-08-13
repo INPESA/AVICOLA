@@ -1,0 +1,94 @@
+handler User1Keypressed;
+begin
+    if PantallaActual = 1 then
+      CambiarPantalla(PantallaCategoria); 
+    elsif PantallaActual = 2 then
+      BotarPollo(1);
+    elsif PantallaActual = 4 then
+       PromptN := 1;
+       PromptUser("Rango Minimo: ");
+    elsif PantallaActual = 5 then
+       PromptN := 9;
+       PromptUser("V. Activacion: ");    
+    elsif PantallaActual = 7 then
+       PromptN := 13;
+       PromptUser("Bascula");
+    else
+      DisplayStatus("OtraCosa");
+    end if;
+end;  
+
+handler User2Keypressed;
+begin
+     if PantallaActual = 1 then
+      CambiarPantalla(PantallaVelocidad);
+     elsif PantallaActual = 2 then
+      BotarPollo(4);  
+    elsif PantallaActual = 4 then
+       PromptN := 3;
+       PromptUser("Rango Minimo: ");
+    elsif PantallaActual = 5 then
+       PromptN := 10;
+       PromptUser("T. Piston: ");
+    elsif PantallaActual = 7 then
+       PromptN := 12;
+       PromptUser("Peso Minimo: ");
+    else
+      DisplayStatus("OtraCosa");
+    end if;
+end;
+
+handler User3Keypressed;
+begin
+    if PantallaActual = 1 then
+      CambiarPantalla(PantallaPruebas);
+    elsif PantallaActual = 2 then
+      BotarPollo(3);  
+    elsif PantallaActual = 4 then
+       PromptN := 5;
+       PromptUser("Rango Minimo: "); 
+    elsif PantallaActual = 4 then
+       PromptN := 5;
+       PromptUser("Rango Minimo: ");
+    elsif PantallaActual = 7 then
+      Cantidad := 0;
+      PesoPrueba7 := 0;
+    else
+      DisplayStatus("OtraCosa");
+    end if;
+end;
+
+handler User4Keypressed;
+begin
+    if PantallaActual = 1 then
+      cantCategoria1 := 0;
+      cantCategoria2 := 0;
+      cantCategoria3 := 0;
+      cantCategoria4 := 0;  
+       
+    elsif PantallaActual = 2 then
+      BotarPollo(2);
+    elsif PantallaActual = 4 then
+       PromptN := 7;
+       PromptUser("Rango Minimo: ");
+    else
+      DisplayStatus("OtraCosa");
+    end if;
+end;
+
+handler User5Keypressed;
+begin
+    if PantallaActual = 1 then
+      CambiarPantalla(PantallaPrincipal);
+    elsif PantallaActual = 2 then
+      CambiarPantalla(PantallaPrincipal);   
+    elsif PantallaActual = 4 then
+      CambiarPantalla(PantallaPrincipal);
+    elsif PantallaActual = 5 then
+      CambiarPantalla(PantallaPrincipal);    
+    elsif PantallaActual = 7 then
+      CambiarPantalla(PantallaPrincipal); 
+    else
+      DisplayStatus("No se Puede Salir");
+    end if;
+end;           

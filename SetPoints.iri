@@ -1,0 +1,76 @@
+handler Sp1Trip;
+--Declaration Section
+Peso : real;
+begin 
+    DisplayStatus("Primer SetPoint");
+    cantCategoria1 := cantCategoria1 + 1;   
+    SetLabelText(cont1, IntegerToString(cantCategoria1,4));  
+   GetNet(1,Primary, Peso); 
+   
+  if(Peso >= Categoria1Min and Peso <= Categoria1Max) then
+      DisplayStatus("Bascula 2: " + RealToString(Peso,2,2));
+      --BotarPollo(1);      
+  end if;
+    -- Verificar Rangos
+    -- if(GetNet >= Categoria1Min and GetNet
+    return;
+
+end;         
+
+handler Sp2Trip;
+--Declaration Section
+Peso : real;
+begin
+    DisplayStatus("Segundo SetPoint"); 
+    cantCategoria2 := cantCategoria2 + 1;
+    SetLabelText(cont2, IntegerToString(cantCategoria2,4)); 
+    
+    GetNet(2,Primary, Peso);
+    
+    if(Peso >= Categoria2Min and Peso <= Categoria2Max) then
+      DisplayStatus("Bascula 2: " + RealToString(Peso,2,2));
+      --BotarPollo(1);      
+    end if;
+     
+    return;
+
+end;
+
+handler Sp3Trip;
+--Declaration Section
+Peso : real;
+begin
+    DisplayStatus("Tercer SetPoint"); 
+    cantCategoria3 := cantCategoria3 + 1;
+    SetLabelText(cont3, IntegerToString(cantCategoria3,4));
+    GetNet(3,Primary, Peso); 
+    
+     if(Peso >= Categoria3Min and Peso <= Categoria3Max) then
+      DisplayStatus("Bascula 3: " + RealToString(Peso,2,2));
+      --BotarPollo(1); 
+           
+    end if;  
+     
+    return;
+
+end;
+
+handler Sp4Trip;
+--Declaration Section
+Peso : real;
+begin
+    DisplayStatus("Bascula 4: " + RealToString(Peso,2,2));  
+    
+    cantCategoria4 := cantCategoria4 + 1;  
+    SetLabelText(cont4, IntegerToString(cantCategoria4,4));
+    
+    GetNet(4,Primary, Peso);
+    
+     if(Peso >= Categoria4Min and Peso <= Categoria4Max) then
+      DisplayStatus("Bascula 4: " + RealToString(Peso,2,2));
+      BotarPollo(1);      
+     end if;
+     
+    return;
+
+end;

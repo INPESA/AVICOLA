@@ -1,0 +1,55 @@
+program AvicolaLaVida; 
+      
+--#include inpesa.iri
+--#include AvicolaLogo.iri     
+--#include Pollito.iri
+#include Config.iri                                                                   
+#include Variables.iri
+#include Procedimientos.iri
+#include SetPoints.iri    
+#include Teclas.iri    
+#include SoftKeys.iri 
+#include Comandos.iri
+#include Temporizadores.iri
+#include Entrys.iri  
+                                                                      
+begin      
+  CambiarPantalla(PantallaPresentacion);
+  
+  --initINPESA;
+  --DrawGraphic(3,0,30,g_INPESA,Black); 
+  --ProgramDelay(500);      
+  
+  --initAvicola;
+  --DrawGraphic(3,30,0,g_Avicola,Black);   
+  --ProgramDelay(500); 
+
+  -- Primero se apagan todos los pistones 
+  ApagarTodosLosPistones;
+  
+  --Se inicializan los setpoints segun la ultima configuracion disponible
+  -- InicializarSetPoints;      
+  EncenderTodosLosSetPoints;   
+  if FechaGlobal <> "" then
+    GuardarEnBD;
+  end if;
+  
+  FechaGlobal := ObtenerFechaHora(Fecha);
+  
+  --EncederTodosLosTemporizadores;
+  CargarCategorias;
+  CambiarPantalla(PantallaPrincipal); 
+  CargarLosContadores;
+  GetNet(1, Primary, LecMin1);
+  GetNet(1, Primary, LecMax1);  
+  GetNet(2, Primary, LecMin2);
+  GetNet(2, Primary, LecMax2);
+  GetNet(3, Primary, LecMin3);
+  GetNet(3, Primary, LecMax3);
+  GetNet(4, Primary, LecMin4);
+  GetNet(4, Primary, LecMax4);
+  --Temporizador(14, VOn, TimerContinuous, 1); 
+  --SelectScreen(6);
+  
+      
+end AvicolaLaVida;

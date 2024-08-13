@@ -1,0 +1,16 @@
+handler Cmd1Handler;
+--Recepcion de Informacion
+begin
+
+    return;
+
+end;         
+
+handler Cmd2Handler;
+--Configuracion de Bascula
+begin
+
+    return;
+
+end;
+                          

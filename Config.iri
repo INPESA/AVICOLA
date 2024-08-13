@@ -1,0 +1,189 @@
+-------------------------------------------------
+-- Used with iRev Configuration File
+-- C:\INPESA\AvicolaLaVida\Indicador.920
+-------------------------------------------------
+
+
+-- Scale Aliases
+Scale2   : constant integer := 2;
+Scale3   : constant integer := 3;
+Scale4   : constant integer := 4;
+
+-- Setpoint Aliases
+SP1      : constant integer := 1;
+SP2      : constant integer := 2;
+SP3      : constant integer := 3;
+SP4      : constant integer := 4;
+
+-- Widget Aliases
+Lbl1S1   : constant integer := 1;
+Lbl3S1   : constant integer := 2;
+Label5   : constant integer := 3;
+Label6   : constant integer := 4;
+cont1    : constant integer := 5;
+cont2    : constant integer := 6;
+cont3    : constant integer := 7;
+cont4    : constant integer := 8;
+Label13  : constant integer := 9;
+Label14  : constant integer := 10;
+Label15  : constant integer := 11;
+Label16  : constant integer := 12;
+Num1S1   : constant integer := 14;
+Num17    : constant integer := 15;
+Num18    : constant integer := 16;
+Num19    : constant integer := 17;
+Lbl13S1  : constant integer := 18;
+cat1     : constant integer := 19;
+cat3     : constant integer := 20;
+cat2     : constant integer := 21;
+cat4     : constant integer := 22;
+Lbl5S4   : constant integer := 23;
+Lbl6S4   : constant integer := 24;
+Sym1S1   : constant integer := 25;
+Sym2S1   : constant integer := 26;
+Sym3S1   : constant integer := 27;
+Sym4S1   : constant integer := 28;
+vel1     : constant integer := 29;
+vel2     : constant integer := 30;
+tit5     : constant integer := 31;
+sub5     : constant integer := 32;
+Lbl1S6   : constant integer := 33;
+Label34  : constant integer := 34;
+Minimo6  : constant integer := 35;
+Maximo6  : constant integer := 36;
+Lbl5S6   : constant integer := 37;
+cant7    : constant integer := 38;
+peso7    : constant integer := 39;
+
+-- Serial Port Aliases
+Port1    : constant integer := 1;
+Port2    : constant integer := 2;
+Port3    : constant integer := 3;
+Port4    : constant integer := 4;
+
+-- Analog Output Card Aliases
+
+-- Digital I/O Aliases
+DIOCRD0  : constant integer := 0;
+RELAY1   : constant integer := 1;
+RELAY2   : constant integer := 2;
+RELAY3   : constant integer := 3;
+RELAY4   : constant integer := 4;
+DIO0_7   : constant integer := 7;
+DIO0_8   : constant integer := 8;
+DIO0_9   : constant integer := 9;
+DIO0_10  : constant integer := 10;
+DIO0_11  : constant integer := 11;
+DIO0_12  : constant integer := 12;
+DIO0_13  : constant integer := 13;
+DIO0_14  : constant integer := 14;
+DIO0_15  : constant integer := 15;
+DIO0_16  : constant integer := 16;
+DIO0_17  : constant integer := 17;
+DIO0_18  : constant integer := 18;
+DIO0_19  : constant integer := 19;
+DIO0_20  : constant integer := 20;
+DIO0_21  : constant integer := 21;
+DIO0_22  : constant integer := 22;
+DIO0_23  : constant integer := 23;
+DIO0_24  : constant integer := 24;
+
+-- Database Type Definitions and Field Aliases
+type TruckDatabase is Database ("Truck")
+	ID       : string;
+	Pri_Wgt  : real;
+	Sec_Wgt  : real;
+	Ter_Wgt  : real;
+	TimeDate : datetime;
+	Scale    : integer;
+	Keyed    : integer;
+end database;
+
+Truck_ID          : constant integer := 1;
+Truck_Pri_Wgt     : constant integer := 2;
+Truck_Sec_Wgt     : constant integer := 3;
+Truck_Ter_Wgt     : constant integer := 4;
+Truck_TimeDate    : constant integer := 5;
+Truck_Scale       : constant integer := 6;
+Truck_Keyed       : constant integer := 7;
+
+type PesajesDatabase is Database ("Pesajes")
+	Pesada   : string;
+	Bascula  : string;
+	Categ    : string;
+	Fecha    : string;
+	Hora     : string;
+	Peso     : string;
+end database;
+
+Pesajes_Pesada    : constant integer := 1;
+Pesajes_Bascula   : constant integer := 2;
+Pesajes_Categ     : constant integer := 3;
+Pesajes_Fecha     : constant integer := 4;
+Pesajes_Hora      : constant integer := 5;
+Pesajes_Peso      : constant integer := 6;
+
+type PruebasDatabase is Database ("Pruebas")
+	PesoMin  : string;
+	PesoMax  : string;
+end database;
+
+Pruebas_PesoMin   : constant integer := 1;
+Pruebas_PesoMax   : constant integer := 2;
+
+type CategoDatabase is Database ("Catego")
+	Categ    : string;
+	Min      : string;
+	Max      : string;
+end database;
+
+Catego_Categ      : constant integer := 1;
+Catego_Min        : constant integer := 2;
+Catego_Max        : constant integer := 3;
+
+type CatDiaDatabase is Database ("CatDia")
+	Fecha    : string;
+	Cat1     : string;
+	Cat2     : string;
+	Cat3     : string;
+	Cat4     : string;
+end database;
+
+CatDia_Fecha      : constant integer := 1;
+CatDia_Cat1       : constant integer := 2;
+CatDia_Cat2       : constant integer := 3;
+CatDia_Cat3       : constant integer := 4;
+CatDia_Cat4       : constant integer := 5;
+
+type Pesajes2Database is Database ("Pesajes2")
+	Pesada   : string;
+	Bascula  : string;
+	Categor  : string;
+	Fecha    : string;
+	Hora     : string;
+	Peso     : string;
+end database;
+
+Pesajes2_Pesada   : constant integer := 1;
+Pesajes2_Bascula  : constant integer := 2;
+Pesajes2_Categor  : constant integer := 3;
+Pesajes2_Fecha    : constant integer := 4;
+Pesajes2_Hora     : constant integer := 5;
+Pesajes2_Peso     : constant integer := 6;
+
+type CatDia2Database is Database ("CatDia2")
+	Fecha    : string;
+	Cat1     : string;
+	Cat2     : string;
+	Cat3     : string;
+	Cat4     : string;
+end database;
+
+CatDia2_Fecha     : constant integer := 1;
+CatDia2_Cat1      : constant integer := 2;
+CatDia2_Cat2      : constant integer := 3;
+CatDia2_Cat3      : constant integer := 4;
+CatDia2_Cat4      : constant integer := 5;
+
+
+
