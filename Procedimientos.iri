@@ -91,8 +91,8 @@ procedure Temporizador(T : integer; ON : OnOffType; TM : TimerMode; V : integer)
 procedure ActualizarData(Pantalla : integer);
 begin
   if pantalla = 1 then   
-        --InitPollito;
-        --DrawGraphic(1, 250, 10, g_r,Black);
+        InitPollito;
+        DrawGraphic(1, 250, 10, g_r,Black);
         SetSoftkeyText(1,"Categoria");
         SetSoftkeyText(2,"Velocidad");
         SetSoftkeyText(3,"Pruebas");
@@ -230,10 +230,15 @@ end;
 
 procedure EncederTodosLosTemporizadores;
 begin
-      Temporizador(14, VOn, TimerContinuous, 1);
-      --Temporizador(2, VOn, TimerContinuous, 1);
-      --Temporizador(3, VOn, TimerContinuous, 1);
-      --Temporizador(4, VOn, TimerContinuous, 1);
+      --Temporizador de Prueba
+      --Temporizador(14, VOn, TimerContinuous, 1);
+      
+      --Lectura de Pollo
+      Temporizador(1, VOn, TimerContinuous, 1);
+      Temporizador(3, VOn, TimerContinuous, 1);
+      Temporizador(5, VOn, TimerContinuous, 1);
+      Temporizador(7, VOn, TimerContinuous, 1); 
+      
       --Temporizador(13, VOn, TimerContinuous, 5000);
 end;
 
@@ -276,16 +281,16 @@ procedure BotarPollo(piston: integer);
 begin  
    if piston = 1 then
     EncenderPiston(1);
-    Temporizador(5, VOn, TimerOneShot, Velocidad);    
+    Temporizador(9, VOn, TimerOneShot, Velocidad);    
   elsif piston = 2 then
     EncenderPiston(2);
-    Temporizador(6, VOn, TimerOneShot, Velocidad);
+    Temporizador(10, VOn, TimerOneShot, Velocidad);
   elsif piston = 3 then
     EncenderPiston(3);
-    Temporizador(7, VOn, TimerOneShot, Velocidad);
+    Temporizador(11, VOn, TimerOneShot, Velocidad);
   elsif piston = 4 then
     EncenderPiston(4);
-    Temporizador(8, VOn, TimerOneShot, Velocidad);
+    Temporizador(12, VOn, TimerOneShot, Velocidad);
   end if;
   end;
   

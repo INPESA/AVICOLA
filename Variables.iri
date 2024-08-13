@@ -52,7 +52,7 @@ BasculaBloqueada4 : integer := 0;
 
 SetPointLimit : stored real := 1;
                                   
-BasesDeDatos : integer := 1;
+BasesDeDatos : stored integer := 1;
                                    
 PromptN : integer := 0;
 PantallaActual : integer := 0;   

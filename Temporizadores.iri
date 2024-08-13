@@ -1,137 +1,325 @@
 handler Timer1Trip;
 --Declaration Section
+LecMin : real;
 Peso : real;
+LecMax : real; 
+Diferencia : real;
 begin 
-    GetNet(1,Primary,Peso);
-     
-     if Peso < (LecMin1 - 0.1) and Bajando = 0 then
-          LecMin1 := Peso;
-     elsif Bajando = 0 and Peso > (LecMin1 + 0.1) then 
-          LecMax1 := LecMin1;
-          Bajando := 1;
+     --Obtiene el peso de la bascula
+     GetNet(1,Primary,Peso);
+                                  
+     --Verifica si el peso esta bajando                             
+     if Peso < (LecMin - 0.2) and Bajando = 0 then
+          LecMin := Peso;
+     --Verifica cuando el peso comienza a subir y configura el nuevo maximo
+     elsif Bajando = 0 and Peso > (LecMin + 0.2) then 
+          LecMax := LecMin;
+           Bajando := 1;
      end if;
-     
-     if Peso > (LecMax1 + 0.1) and Bajando = 1 then 
-          LecMax1 := Peso;
-     elsif Bajando = 1 and Peso < (LecMax1 - 0.1) then
-          Bajando := 0;  
-                             
+         
+     -- El peso esta subiendo    
+     if Peso > (LecMax + 0.2) and Bajando = 1 then 
+          LecMax := Peso;
+          Temporizador(2, VOn, TimerContinuous, 1);
+          
+     -- En este momento el pollo ya salió     
+     elsif Bajando = 1 and Peso < (LecMax - 0.2) then
+          StopTimer(1);
+          Bajando := 0;                
           -- Tension mas peso meta
-          if (LecMax1 - LecMin1) >= (5 + Categoria1Min) and (LecMax1 - LecMin1) <= (3 + Categoria1Max)  then
-            DisplayStatus("Bascula 1: " + RealToString(Peso,2,2));
-            Temporizador(9, VOn, TimerOneShot, Accion);
-            GuardarPruebasEnBD;
-            cantCategoria1 := cantCategoria1 + 1;  
-            SetLabelText(cont1, IntegerToString(cantCategoria1,4));  
+          Diferencia := LecMax - LecMin;
+          if Diferencia > Categoria1Min and Diferencia > Categoria1Max then
+            cantCategoria1 := cantCategoria1 + 1;
+            Temporizador(13, VOn, TimerOneShot, Velocidad);  
           end if; 
           
-          LecMin1 := LecMax1;
+          LecMin := LecMax;
      end if;
    
     return;
-
 end;         
 
 handler Timer2Trip;
---Declaration Section
+LecMin : real;
 Peso : real;
+LecMax : real; 
+Diferencia : real;
 begin
-    GetNet(2,Primary,Peso);
-     
-     if Peso < (LecMin2 - 0.1) and Bajando = 0 then
-          LecMin2 := Peso;
-     elsif Bajando = 0 and Peso > (LecMin2 + 0.1) then 
-          LecMax2 := LecMin2;
-          Bajando := 1;
+       --Obtiene el peso de la bascula
+     GetNet(1,Primary,Peso);
+                                  
+     --Verifica si el peso esta bajando                             
+     if Peso < (LecMin - 0.2) and Bajando = 0 then
+          LecMin := Peso;
+     --Verifica cuando el peso comienza a subir y configura el nuevo maximo
+     elsif Bajando = 0 and Peso > (LecMin + 0.2) then 
+          LecMax := LecMin;
+           Bajando := 1;
      end if;
-     
-     if Peso > (LecMax2 + 0.1) and Bajando = 1 then 
-          LecMax2 := Peso;
-     elsif Bajando = 1 and Peso < (LecMax2 - 0.1) then
-          Bajando := 0;  
-                             
+         
+     -- El peso esta subiendo    
+     if Peso > (LecMax + 0.2) and Bajando = 1 then 
+          LecMax := Peso;
+          Temporizador(1, VOn, TimerContinuous, 1);
+          
+     -- En este momento el pollo ya salió     
+     elsif Bajando = 1 and Peso < (LecMax - 0.2) then
+          StopTimer(2);
+          Bajando := 0;                
           -- Tension mas peso meta
-          if (LecMax2 - LecMin2) >= (7.5 + Categoria2Min) and (LecMax2 - LecMin2) <= (7.5 + Categoria2Max)  then
-            Temporizador(10, VOn, TimerOneShot, Accion);
-            cantCategoria2 := cantCategoria2 + 1;  
-            SetLabelText(cont2, IntegerToString(cantCategoria2,4));  
+          Diferencia := LecMax - LecMin;
+          if Diferencia > Categoria1Min and Diferencia > Categoria1Max then
+            cantCategoria1 := cantCategoria1 + 1;
+            Temporizador(13, VOn, TimerOneShot, Velocidad); 
           end if; 
           
-          LecMin2 := LecMax2;
+          LecMin := LecMax;
      end if;
    
     return;
-
 end;
 
 handler Timer3Trip;
---Declaration Section
+LecMin : real;
 Peso : real;
-begin
-     
-     GetNet(3,Primary,Peso);
-     
-     if Peso < (LecMin3 - 0.1) and Bajando = 0 then
-          LecMin3 := Peso;
-     elsif Bajando = 0 and Peso > (LecMin3 + 0.1) then 
-          LecMax3 := LecMin3;
+LecMax : real; 
+Diferencia : real;
+begin 
+     --Obtiene el peso de la bascula 2
+     GetNet(2,Primary,Peso);
+                                  
+     --Verifica si el peso está bajando                             
+     if Peso < (LecMin - 0.2) and Bajando = 0 then
+          LecMin := Peso;
+     --Verifica cuando el peso comienza a subir y configura el nuevo máximo
+     elsif Bajando = 0 and Peso > (LecMin + 0.2) then 
+          LecMax := LecMin;
           Bajando := 1;
      end if;
-     
-     if Peso > (LecMax3 + 0.1) and Bajando = 1 then 
-          LecMax3 := Peso;
-     elsif Bajando = 1 and Peso < (LecMax3 - 0.1) then
-          Bajando := 0;  
-                             
-          -- Tension mas peso meta
-          if (LecMax3 - LecMin3) >= (7.5 + Categoria3Min) and (LecMax3 - LecMin3) <= (7.5 + Categoria3Max)  then
-            Temporizador(11, VOn, TimerOneShot, Accion);
-            cantCategoria3 := cantCategoria3 + 1;  
-            SetLabelText(cont1, IntegerToString(cantCategoria1,4));  
+         
+     -- El peso está subiendo    
+     if Peso > (LecMax + 0.2) and Bajando = 1 then 
+          LecMax := Peso;
+          Temporizador(4, VOn, TimerContinuous, 1);
+          
+     -- En este momento el pollo ya salió     
+     elsif Bajando = 1 and Peso < (LecMax - 0.2) then
+          StopTimer(3);
+          Bajando := 0;                
+          -- Tensión más peso meta
+          Diferencia := LecMax - LecMin;
+          if Diferencia > Categoria2Min and Diferencia > Categoria2Max then
+            cantCategoria2 := cantCategoria2 + 1;
+            Temporizador(14, VOn, TimerOneShot, Velocidad); 
           end if; 
           
-          LecMin3 := LecMax3;
+          LecMin := LecMax;
      end if;
    
     return;
-
 end;
 
 handler Timer4Trip;
---Declaration Section
+LecMin : real;
 Peso : real;
-begin
-   
-    GetNet(4,Primary,Peso);
-     
-     if Peso < (LecMin4 - 0.1) and Bajando = 0 then
-          LecMin4 := Peso;
-     elsif Bajando = 0 and Peso > (LecMin4 + 0.1) then 
-          LecMax4 := LecMin4;
+LecMax : real; 
+Diferencia : real;
+begin 
+     --Obtiene el peso de la bascula 2
+     GetNet(2,Primary,Peso);
+                                  
+     --Verifica si el peso está bajando                             
+     if Peso < (LecMin - 0.2) and Bajando = 0 then
+          LecMin := Peso;
+     --Verifica cuando el peso comienza a subir y configura el nuevo máximo
+     elsif Bajando = 0 and Peso > (LecMin + 0.2) then 
+          LecMax := LecMin;
           Bajando := 1;
      end if;
-     
-     if Peso > (LecMax4 + 0.1) and Bajando = 1 then 
-          LecMax4 := Peso;
-     elsif Bajando = 1 and Peso < (LecMax4 - 0.1) then
-          Bajando := 0;  
-                             
-          -- Tension mas peso meta
-          if (LecMax4 - LecMin4) >= (7.5 + Categoria4Min) and (LecMax4 - LecMin4) <= (7.5 + Categoria4Max)  then
-            Temporizador(12, VOn, TimerOneShot, Accion);
-            cantCategoria4 := cantCategoria4 + 1;  
-            SetLabelText(cont4, IntegerToString(cantCategoria4,4));  
+         
+     -- El peso está subiendo    
+     if Peso > (LecMax + 0.2) and Bajando = 1 then 
+          LecMax := Peso;
+          Temporizador(3, VOn, TimerContinuous, 1);
+          
+     -- En este momento el pollo ya salió     
+     elsif Bajando = 1 and Peso < (LecMax - 0.2) then
+          StopTimer(4);
+          Bajando := 0;                
+          -- Tensión más peso meta
+          Diferencia := LecMax - LecMin;
+          if Diferencia > Categoria2Min and Diferencia > Categoria2Max then
+            cantCategoria2 := cantCategoria2 + 1;
+            Temporizador(14, VOn, TimerOneShot, Velocidad); 
           end if; 
           
-          LecMin4 := LecMax4;
+          LecMin := LecMax;
      end if;
    
-    return;                                                 
-
-end;
-
+    return;
+end;   
 
 handler Timer5Trip;
+LecMin : real;
+Peso : real;
+LecMax : real; 
+Diferencia : real;
+begin 
+     --Obtiene el peso de la bascula 3
+     GetNet(3,Primary,Peso);
+                                  
+     --Verifica si el peso está bajando                             
+     if Peso < (LecMin - 0.2) and Bajando = 0 then
+          LecMin := Peso;
+     --Verifica cuando el peso comienza a subir y configura el nuevo máximo
+     elsif Bajando = 0 and Peso > (LecMin + 0.2) then 
+          LecMax := LecMin;
+          Bajando := 1;
+     end if;
+         
+     -- El peso está subiendo    
+     if Peso > (LecMax + 0.2) and Bajando = 1 then 
+          LecMax := Peso;
+          Temporizador(6, VOn, TimerContinuous, 1);
+          
+     -- En este momento el pollo ya salió     
+     elsif Bajando = 1 and Peso < (LecMax - 0.2) then
+          StopTimer(5);
+          Bajando := 0;                
+          -- Tensión más peso meta
+          Diferencia := LecMax - LecMin;
+          if Diferencia > Categoria3Min and Diferencia > Categoria3Max then
+            cantCategoria3 := cantCategoria3 + 1;
+            Temporizador(15, VOn, TimerOneShot, Velocidad); 
+          end if; 
+          
+          LecMin := LecMax;
+     end if;
+   
+    return;
+end;
+
+handler Timer6Trip;
+LecMin : real;
+Peso : real;
+LecMax : real; 
+Diferencia : real;
+begin 
+     --Obtiene el peso de la bascula 3
+     GetNet(3,Primary,Peso);
+                                  
+     --Verifica si el peso está bajando                             
+     if Peso < (LecMin - 0.2) and Bajando = 0 then
+          LecMin := Peso;
+     --Verifica cuando el peso comienza a subir y configura el nuevo máximo
+     elsif Bajando = 0 and Peso > (LecMin + 0.2) then 
+          LecMax := LecMin;
+          Bajando := 1;
+     end if;
+         
+     -- El peso está subiendo    
+     if Peso > (LecMax + 0.2) and Bajando = 1 then 
+          LecMax := Peso;
+          Temporizador(5, VOn, TimerContinuous, 1);
+          
+     -- En este momento el pollo ya salió     
+     elsif Bajando = 1 and Peso < (LecMax - 0.2) then
+          StopTimer(6);
+          Bajando := 0;                
+          -- Tensión más peso meta
+          Diferencia := LecMax - LecMin;
+          if Diferencia > Categoria3Min and Diferencia > Categoria3Max then
+            cantCategoria3 := cantCategoria3 + 1;
+            Temporizador(15, VOn, TimerOneShot, Velocidad); 
+          end if; 
+          
+          LecMin := LecMax;
+     end if;
+   
+    return;
+end;
+
+handler Timer7Trip;
+LecMin : real;
+Peso : real;
+LecMax : real; 
+Diferencia : real;
+begin 
+     --Obtiene el peso de la bascula 4
+     GetNet(4,Primary,Peso);
+                                  
+     --Verifica si el peso está bajando                             
+     if Peso < (LecMin - 0.2) and Bajando = 0 then
+          LecMin := Peso;
+     --Verifica cuando el peso comienza a subir y configura el nuevo máximo
+     elsif Bajando = 0 and Peso > (LecMin + 0.2) then 
+          LecMax := LecMin;
+          Bajando := 1;
+     end if;
+         
+     -- El peso está subiendo    
+     if Peso > (LecMax + 0.2) and Bajando = 1 then 
+          LecMax := Peso;
+          Temporizador(8, VOn, TimerContinuous, 1);
+          
+     -- En este momento el pollo ya salió     
+     elsif Bajando = 1 and Peso < (LecMax - 0.2) then
+          StopTimer(7);
+          Bajando := 0;                
+          -- Tensión más peso meta
+          Diferencia := LecMax - LecMin;
+          if Diferencia > Categoria4Min and Diferencia > Categoria4Max then
+            cantCategoria4 := cantCategoria4 + 1;
+            Temporizador(16, VOn, TimerOneShot, Velocidad); 
+          end if; 
+          
+          LecMin := LecMax;
+     end if;
+   
+    return;
+end;
+
+handler Timer8Trip;
+LecMin : real;
+Peso : real;
+LecMax : real; 
+Diferencia : real;
+begin 
+     --Obtiene el peso de la bascula 4
+     GetNet(4,Primary,Peso);
+                                  
+     --Verifica si el peso está bajando                             
+     if Peso < (LecMin - 0.2) and Bajando = 0 then
+          LecMin := Peso;
+     --Verifica cuando el peso comienza a subir y configura el nuevo máximo
+     elsif Bajando = 0 and Peso > (LecMin + 0.2) then 
+          LecMax := LecMin;
+          Bajando := 1;
+     end if;
+         
+     -- El peso está subiendo    
+     if Peso > (LecMax + 0.2) and Bajando = 1 then 
+          LecMax := Peso;
+          Temporizador(7, VOn, TimerContinuous, 1);
+          
+     -- En este momento el pollo ya salió     
+     elsif Bajando = 1 and Peso < (LecMax - 0.2) then
+          StopTimer(8);
+          Bajando := 0;                
+          -- Tensión más peso meta
+          Diferencia := LecMax - LecMin;
+          if Diferencia > Categoria4Min and Diferencia > Categoria4Max then
+            cantCategoria4 := cantCategoria4 + 1;
+            Temporizador(16, VOn, TimerOneShot, Velocidad); 
+          end if; 
+          
+          LecMin := LecMax;
+     end if;
+   
+    return;
+end;
+
+handler Timer9Trip;
 --Declaration Section
 
 begin
@@ -139,7 +327,7 @@ begin
 end;
 
 
-handler Timer6Trip;
+handler Timer10Trip;
 --Declaration Section
 
 begin
@@ -147,14 +335,14 @@ begin
 end;
 
 
-handler Timer7Trip;
+handler Timer11Trip;
   
 begin
   ApagarPiston(3);
 end;
 
              
-handler Timer8Trip;
+handler Timer12Trip;
 --Declaration Section
 
 begin
@@ -162,15 +350,14 @@ begin
 return;
 end;
 
-handler Timer9Trip;
+handler Timer13Trip;
 --Declaration Section
 begin
-     DisplayStatus("Prueba de Timer");
      BotarPollo(1);
 return;
 end;
 
-handler Timer10Trip;
+handler Timer14Trip;
 --Declaration Section
 
 begin
@@ -178,7 +365,7 @@ begin
 return;
 end;
 
-handler Timer11Trip;
+handler Timer15Trip;
 --Declaration Section
 
 begin
@@ -186,7 +373,7 @@ begin
 return;
 end;
 
-handler Timer12Trip;
+handler Timer16Trip;
 --Declaration Section
 
 begin
@@ -195,7 +382,7 @@ return;
 
 end;
 
-handler Timer13Trip;
+handler Timer17Trip;
 --Declaration Section
 
 begin
@@ -203,7 +390,7 @@ begin
 return; 
 end;
 
-handler Timer14Trip;
+handler Timer18Trip;
 Peso : real;
 begin
      
@@ -239,7 +426,7 @@ begin
 return;
 end;           
 
-handler Timer15Trip;
+handler Timer19Trip;
 Peso : real;
 begin 
     GetNet(Bascula,Primary,Peso);
