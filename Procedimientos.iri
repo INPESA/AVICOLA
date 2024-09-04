@@ -91,8 +91,8 @@ procedure Temporizador(T : integer; ON : OnOffType; TM : TimerMode; V : integer)
 procedure ActualizarData(Pantalla : integer);
 begin
   if pantalla = 1 then   
-        InitPollito;
-        DrawGraphic(1, 250, 10, g_r,Black);
+        --InitPollito;
+        --DrawGraphic(1, 250, 10, g_r,Black);
         SetSoftkeyText(1,"Categoria");
         SetSoftkeyText(2,"Velocidad");
         SetSoftkeyText(3,"Pruebas");
