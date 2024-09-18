@@ -1,0 +1,3119 @@
+--$START  D:\EMPRESAS\AVICOLA\index.src
+program AvicolaLaVida; 
+      
+--$START  D:\EMPRESAS\AVICOLA\inpesa.iri
+g_INPESA : DisplayImage;
+
+Procedure initINPESA;
+begin
+    g_INPESA[1] := 348;
+    g_INPESA[2] := 143;
+    g_INPESA[3] := 0;
+    g_INPESA[4] := 0;
+    g_INPESA[5] := 0;
+    g_INPESA[6] := 0;
+    g_INPESA[7] := 0;
+    g_INPESA[8] := 0;
+    g_INPESA[9] := 0;
+    g_INPESA[10] := 0;
+    g_INPESA[11] := 0;
+    g_INPESA[12] := 0;
+    g_INPESA[13] := 15;
+    g_INPESA[14] := 0;
+    g_INPESA[15] := 0;
+    g_INPESA[16] := 0;
+    g_INPESA[17] := 0;
+    g_INPESA[18] := 0;
+    g_INPESA[19] := 0;
+    g_INPESA[20] := 0;
+    g_INPESA[21] := 0;
+    g_INPESA[22] := 0;
+    g_INPESA[23] := 0;
+    g_INPESA[24] := 15;
+    g_INPESA[25] := 0;
+    g_INPESA[26] := 0;
+    g_INPESA[27] := 0;
+    g_INPESA[28] := 0;
+    g_INPESA[29] := 0;
+    g_INPESA[30] := 0;
+    g_INPESA[31] := 0;
+    g_INPESA[32] := 0;
+    g_INPESA[33] := 0;
+    g_INPESA[34] := 0;
+    g_INPESA[35] := 15;
+    g_INPESA[36] := 0;
+    g_INPESA[37] := 0;
+    g_INPESA[38] := 0;
+    g_INPESA[39] := 0;
+    g_INPESA[40] := 0;
+    g_INPESA[41] := 0;
+    g_INPESA[42] := 0;
+    g_INPESA[43] := 0;
+    g_INPESA[44] := 0;
+    g_INPESA[45] := 0;
+    g_INPESA[46] := 15;
+    g_INPESA[47] := 0;
+    g_INPESA[48] := 0;
+    g_INPESA[49] := 0;
+    g_INPESA[50] := 0;
+    g_INPESA[51] := 0;
+    g_INPESA[52] := 0;
+    g_INPESA[53] := 0;
+    g_INPESA[54] := 0;
+    g_INPESA[55] := 0;
+    g_INPESA[56] := 0;
+    g_INPESA[57] := 15;
+    g_INPESA[58] := 0;
+    g_INPESA[59] := 0;
+    g_INPESA[60] := 0;
+    g_INPESA[61] := 0;
+    g_INPESA[62] := 0;
+    g_INPESA[63] := 0;
+    g_INPESA[64] := 0;
+    g_INPESA[65] := 0;
+    g_INPESA[66] := 0;
+    g_INPESA[67] := 0;
+    g_INPESA[68] := 15;
+    g_INPESA[69] := 0;
+    g_INPESA[70] := 0;
+    g_INPESA[71] := 0;
+    g_INPESA[72] := 0;
+    g_INPESA[73] := 0;
+    g_INPESA[74] := 0;
+    g_INPESA[75] := 0;
+    g_INPESA[76] := 0;
+    g_INPESA[77] := 0;
+    g_INPESA[78] := 0;
+    g_INPESA[79] := 15;
+    g_INPESA[80] := 0;
+    g_INPESA[81] := 0;
+    g_INPESA[82] := 0;
+    g_INPESA[83] := 0;
+    g_INPESA[84] := 0;
+    g_INPESA[85] := 0;
+    g_INPESA[86] := 0;
+    g_INPESA[87] := 0;
+    g_INPESA[88] := 0;
+    g_INPESA[89] := 0;
+    g_INPESA[90] := 15;
+    g_INPESA[91] := 0;
+    g_INPESA[92] := 0;
+    g_INPESA[93] := 0;
+    g_INPESA[94] := 0;
+    g_INPESA[95] := 0;
+    g_INPESA[96] := 0;
+    g_INPESA[97] := 0;
+    g_INPESA[98] := 0;
+    g_INPESA[99] := 0;
+    g_INPESA[100] := 0;
+    g_INPESA[101] := 15;
+    g_INPESA[102] := 0;
+    g_INPESA[103] := 0;
+    g_INPESA[104] := 0;
+    g_INPESA[105] := 0;
+    g_INPESA[106] := 0;
+    g_INPESA[107] := 0;
+    g_INPESA[108] := 0;
+    g_INPESA[109] := 0;
+    g_INPESA[110] := 0;
+    g_INPESA[111] := 0;
+    g_INPESA[112] := 15;
+    g_INPESA[113] := 0;
+    g_INPESA[114] := 0;
+    g_INPESA[115] := 0;
+    g_INPESA[116] := 0;
+    g_INPESA[117] := 0;
+    g_INPESA[118] := 0;
+    g_INPESA[119] := 0;
+    g_INPESA[120] := 0;
+    g_INPESA[121] := 0;
+    g_INPESA[122] := 0;
+    g_INPESA[123] := 15;
+    g_INPESA[124] := 0;
+    g_INPESA[125] := 0;
+    g_INPESA[126] := 0;
+    g_INPESA[127] := 0;
+    g_INPESA[128] := 0;
+    g_INPESA[129] := 0;
+    g_INPESA[130] := 0;
+    g_INPESA[131] := 0;
+    g_INPESA[132] := 0;
+    g_INPESA[133] := 0;
+    g_INPESA[134] := 15;
+    g_INPESA[135] := 0;
+    g_INPESA[136] := 0;
+    g_INPESA[137] := 0;
+    g_INPESA[138] := 0;
+    g_INPESA[139] := 0;
+    g_INPESA[140] := 0;
+    g_INPESA[141] := 0;
+    g_INPESA[142] := 0;
+    g_INPESA[143] := 0;
+    g_INPESA[144] := 0;
+    g_INPESA[145] := 15;
+    g_INPESA[146] := 0;
+    g_INPESA[147] := 0;
+    g_INPESA[148] := 0;
+    g_INPESA[149] := 0;
+    g_INPESA[150] := 0;
+    g_INPESA[151] := 0;
+    g_INPESA[152] := 0;
+    g_INPESA[153] := 0;
+    g_INPESA[154] := 0;
+    g_INPESA[155] := 0;
+    g_INPESA[156] := 15;
+    g_INPESA[157] := 0;
+    g_INPESA[158] := 0;
+    g_INPESA[159] := 0;
+    g_INPESA[160] := 0;
+    g_INPESA[161] := 0;
+    g_INPESA[162] := 0;
+    g_INPESA[163] := 0;
+    g_INPESA[164] := 0;
+    g_INPESA[165] := 0;
+    g_INPESA[166] := 0;
+    g_INPESA[167] := 15;
+    g_INPESA[168] := 0;
+    g_INPESA[169] := 0;
+    g_INPESA[170] := 0;
+    g_INPESA[171] := 0;
+    g_INPESA[172] := 0;
+    g_INPESA[173] := 0;
+    g_INPESA[174] := 0;
+    g_INPESA[175] := 0;
+    g_INPESA[176] := 0;
+    g_INPESA[177] := 0;
+    g_INPESA[178] := 15;
+    g_INPESA[179] := 0;
+    g_INPESA[180] := 0;
+    g_INPESA[181] := 0;
+    g_INPESA[182] := 0;
+    g_INPESA[183] := 0;
+    g_INPESA[184] := 0;
+    g_INPESA[185] := 0;
+    g_INPESA[186] := 0;
+    g_INPESA[187] := 0;
+    g_INPESA[188] := 0;
+    g_INPESA[189] := 15;
+    g_INPESA[190] := 0;
+    g_INPESA[191] := 0;
+    g_INPESA[192] := 0;
+    g_INPESA[193] := 0;
+    g_INPESA[194] := 0;
+    g_INPESA[195] := 0;
+    g_INPESA[196] := 0;
+    g_INPESA[197] := 0;
+    g_INPESA[198] := 0;
+    g_INPESA[199] := 0;
+    g_INPESA[200] := 15;
+    g_INPESA[201] := 0;
+    g_INPESA[202] := 0;
+    g_INPESA[203] := 251658240;
+    g_INPESA[204] := 0;
+    g_INPESA[205] := 0;
+    g_INPESA[206] := 0;
+    g_INPESA[207] := 0;
+    g_INPESA[208] := 0;
+    g_INPESA[209] := 0;
+    g_INPESA[210] := 0;
+    g_INPESA[211] := 15;
+    g_INPESA[212] := 0;
+    g_INPESA[213] := 0;
+    g_INPESA[214] := 532676608;
+    g_INPESA[215] := 0;
+    g_INPESA[216] := 0;
+    g_INPESA[217] := 0;
+    g_INPESA[218] := 0;
+    g_INPESA[219] := 0;
+    g_INPESA[220] := 0;
+    g_INPESA[221] := 0;
+    g_INPESA[222] := 15;
+    g_INPESA[223] := 0;
+    g_INPESA[224] := 0;
+    g_INPESA[225] := 1069547520;
+    g_INPESA[226] := 0;
+    g_INPESA[227] := 0;
+    g_INPESA[228] := 0;
+    g_INPESA[229] := 0;
+    g_INPESA[230] := 0;
+    g_INPESA[231] := 0;
+    g_INPESA[232] := 0;
+    g_INPESA[233] := 15;
+    g_INPESA[234] := 0;
+    g_INPESA[235] := 0;
+    g_INPESA[236] := 1069547520;
+    g_INPESA[237] := 0;
+    g_INPESA[238] := 0;
+    g_INPESA[239] := 0;
+    g_INPESA[240] := 0;
+    g_INPESA[241] := 0;
+    g_INPESA[242] := 0;
+    g_INPESA[243] := 0;
+    g_INPESA[244] := 15;
+    g_INPESA[245] := 0;
+    g_INPESA[246] := 0;
+    g_INPESA[247] := 2143289344;
+    g_INPESA[248] := 0;
+    g_INPESA[249] := 0;
+    g_INPESA[250] := 0;
+    g_INPESA[251] := 0;
+    g_INPESA[252] := 0;
+    g_INPESA[253] := 0;
+    g_INPESA[254] := 0;
+    g_INPESA[255] := 15;
+    g_INPESA[256] := 0;
+    g_INPESA[257] := 0;
+    g_INPESA[258] := 2143289344;
+    g_INPESA[259] := 0;
+    g_INPESA[260] := 0;
+    g_INPESA[261] := 0;
+    g_INPESA[262] := 0;
+    g_INPESA[263] := 0;
+    g_INPESA[264] := 0;
+    g_INPESA[265] := 0;
+    g_INPESA[266] := 15;
+    g_INPESA[267] := 0;
+    g_INPESA[268] := 0;
+    g_INPESA[269] := 2145386496;
+    g_INPESA[270] := 0;
+    g_INPESA[271] := 0;
+    g_INPESA[272] := 0;
+    g_INPESA[273] := 0;
+    g_INPESA[274] := 0;
+    g_INPESA[275] := 0;
+    g_INPESA[276] := 0;
+    g_INPESA[277] := 15;
+    g_INPESA[278] := 0;
+    g_INPESA[279] := 0;
+    g_INPESA[280] := -2097152;
+    g_INPESA[281] := 0;
+    g_INPESA[282] := 0;
+    g_INPESA[283] := 0;
+    g_INPESA[284] := 0;
+    g_INPESA[285] := 0;
+    g_INPESA[286] := 0;
+    g_INPESA[287] := 0;
+    g_INPESA[288] := 15;
+    g_INPESA[289] := 0;
+    g_INPESA[290] := 0;
+    g_INPESA[291] := -1048576;
+    g_INPESA[292] := 0;
+    g_INPESA[293] := 0;
+    g_INPESA[294] := 0;
+    g_INPESA[295] := 0;
+    g_INPESA[296] := 0;
+    g_INPESA[297] := 0;
+    g_INPESA[298] := 0;
+    g_INPESA[299] := 15;
+    g_INPESA[300] := 0;
+    g_INPESA[301] := 0;
+    g_INPESA[302] := -1048576;
+    g_INPESA[303] := 0;
+    g_INPESA[304] := 0;
+    g_INPESA[305] := 0;
+    g_INPESA[306] := 0;
+    g_INPESA[307] := 0;
+    g_INPESA[308] := 0;
+    g_INPESA[309] := 0;
+    g_INPESA[310] := 15;
+    g_INPESA[311] := 0;
+    g_INPESA[312] := 0;
+    g_INPESA[313] := -2097152;
+    g_INPESA[314] := 264242944;
+    g_INPESA[315] := 0;
+    g_INPESA[316] := 12288;
+    g_INPESA[317] := 12582975;
+    g_INPESA[318] := -2147483648;
+    g_INPESA[319] := 129024;
+    g_INPESA[320] := 234881024;
+    g_INPESA[321] := 15;
+    g_INPESA[322] := 0;
+    g_INPESA[323] := 0;
+    g_INPESA[324] := -1048576;
+    g_INPESA[325] := 534775552;
+    g_INPESA[326] := 3;
+    g_INPESA[327] := -2147452928;
+    g_INPESA[328] := 31457343;
+    g_INPESA[329] := -1073741810;
+    g_INPESA[330] := 130048;
+    g_INPESA[331] := 234881024;
+    g_INPESA[332] := 15;
+    g_INPESA[333] := 0;
+    g_INPESA[334] := 0;
+    g_INPESA[335] := -32768;
+    g_INPESA[336] := 534775552;
+    g_INPESA[337] := 7;
+    g_INPESA[338] := -2147454976;
+    g_INPESA[339] := 31457343;
+    g_INPESA[340] := -1073741810;
+    g_INPESA[341] := 261632;
+    g_INPESA[342] := 503316480;
+    g_INPESA[343] := 15;
+    g_INPESA[344] := 0;
+    g_INPESA[345] := 0;
+    g_INPESA[346] := -4096;
+    g_INPESA[347] := 1071646527;
+    g_INPESA[348] := 260556771;
+    g_INPESA[349] := 253751744;
+    g_INPESA[350] := 132628537;
+    g_INPESA[351] := -946894962;
+    g_INPESA[352] := 1006882304;
+    g_INPESA[353] := 520093696;
+    g_INPESA[354] := 15;
+    g_INPESA[355] := 0;
+    g_INPESA[356] := 0;
+    g_INPESA[357] := -2048;
+    g_INPESA[358] := 1071646527;
+    g_INPESA[359] := -1613764621;
+    g_INPESA[360] := 530576368;
+    g_INPESA[361] := 535814201;
+    g_INPESA[362] := -808464434;
+    g_INPESA[363] := 2114183168;
+    g_INPESA[364] := 1056964608;
+    g_INPESA[365] := 15;
+    g_INPESA[366] := 0;
+    g_INPESA[367] := 0;
+    g_INPESA[368] := -512;
+    g_INPESA[369] := 1071646527;
+    g_INPESA[370] := -1613762569;
+    g_INPESA[371] := -1080068112;
+    g_INPESA[372] := 535814207;
+    g_INPESA[373] := -538976306;
+    g_INPESA[374] := -16647168;
+    g_INPESA[375] := 1065353216;
+    g_INPESA[376] := 15;
+    g_INPESA[377] := 0;
+    g_INPESA[378] := 503316480;
+    g_INPESA[379] := -128;
+    g_INPESA[380] := 2145388347;
+    g_INPESA[381] := -570425485;
+    g_INPESA[382] := -1080264720;
+    g_INPESA[383] := 1039134783;
+    g_INPESA[384] := -536879122;
+    g_INPESA[385] := -16712704;
+    g_INPESA[386] := 2139095040;
+    g_INPESA[387] := 15;
+    g_INPESA[388] := 0;
+    g_INPESA[389] := 1056964608;
+    g_INPESA[390] := -917519;
+    g_INPESA[391] := -2095303;
+    g_INPESA[392] := -570429581;
+    g_INPESA[393] := 1067218928;
+    g_INPESA[394] := 973074495;
+    g_INPESA[395] := -1074798610;
+    g_INPESA[396] := -16761344;
+    g_INPESA[397] := 2139095040;
+    g_INPESA[398] := 15;
+    g_INPESA[399] := 0;
+    g_INPESA[400] := 2139095041;
+    g_INPESA[401] := -1032193;
+    g_INPESA[402] := -4192453;
+    g_INPESA[403] := -570429581;
+    g_INPESA[404] := -1080264720;
+    g_INPESA[405] := 973070392;
+    g_INPESA[406] := 1070587886;
+    g_INPESA[407] := -16544256;
+    g_INPESA[408] := 2143289344;
+    g_INPESA[409] := 15;
+    g_INPESA[410] := 0;
+    g_INPESA[411] := 2139095103;
+    g_INPESA[412] := -1044481;
+    g_INPESA[413] := -8386757;
+    g_INPESA[414] := -571478153;
+    g_INPESA[415] := -1080264720;
+    g_INPESA[416] := 536862776;
+    g_INPESA[417] := 534773742;
+    g_INPESA[418] := -33292352;
+    g_INPESA[419] := -235143168;
+    g_INPESA[420] := 15;
+    g_INPESA[421] := 0;
+    g_INPESA[422] := -4194049;
+    g_INPESA[423] := -1047553;
+    g_INPESA[424] := -4192453;
+    g_INPESA[425] := -537923721;
+    g_INPESA[426] := -1080264720;
+    g_INPESA[427] := 533717048;
+    g_INPESA[428] := 534765550;
+    g_INPESA[429] := 2130968544;
+    g_INPESA[430] := -503578624;
+    g_INPESA[431] := 15;
+    g_INPESA[432] := 0;
+    g_INPESA[433] := -4193281;
+    g_INPESA[434] := -1048321;
+    g_INPESA[435] := -4192453;
+    g_INPESA[436] := -1611667853;
+    g_INPESA[437] := 530085872;
+    g_INPESA[438] := 533717048;
+    g_INPESA[439] := 266325998;
+    g_INPESA[440] := 2130836960;
+    g_INPESA[441] := -503578624;
+    g_INPESA[442] := 15;
+    g_INPESA[443] := 0;
+    g_INPESA[444] := -4190209;
+    g_INPESA[445] := -1048561;
+    g_INPESA[446] := -541064688;
+    g_INPESA[447] := 532906017;
+    g_INPESA[448] := 102244800;
+    g_INPESA[449] := 229392;
+    g_INPESA[450] := 34015198;
+    g_INPESA[451] := 28800;
+    g_INPESA[452] := 1073741824;
+    g_INPESA[453] := 15;
+    g_INPESA[454] := 0;
+    g_INPESA[455] := 2145402879;
+    g_INPESA[456] := -1048576;
+    g_INPESA[457] := 534773760;
+    g_INPESA[458] := 532676608;
+    g_INPESA[459] := 0;
+    g_INPESA[460] := 0;
+    g_INPESA[461] := 62;
+    g_INPESA[462] := 0;
+    g_INPESA[463] := 0;
+    g_INPESA[464] := 15;
+    g_INPESA[465] := 0;
+    g_INPESA[466] := 2147483616;
+    g_INPESA[467] := 2145386496;
+    g_INPESA[468] := 459276288;
+    g_INPESA[469] := 264241152;
+    g_INPESA[470] := 0;
+    g_INPESA[471] := 0;
+    g_INPESA[472] := 28;
+    g_INPESA[473] := 0;
+    g_INPESA[474] := 0;
+    g_INPESA[475] := 15;
+    g_INPESA[476] := 0;
+    g_INPESA[477] := 1073741696;
+    g_INPESA[478] := 1069547520;
+    g_INPESA[479] := 997195776;
+    g_INPESA[480] := 0;
+    g_INPESA[481] := 0;
+    g_INPESA[482] := 0;
+    g_INPESA[483] := 0;
+    g_INPESA[484] := 0;
+    g_INPESA[485] := 0;
+    g_INPESA[486] := 15;
+    g_INPESA[487] := 0;
+    g_INPESA[488] := 1073741312;
+    g_INPESA[489] := 528482304;
+    g_INPESA[490] := 858783744;
+    g_INPESA[491] := 0;
+    g_INPESA[492] := 0;
+    g_INPESA[493] := 0;
+    g_INPESA[494] := 0;
+    g_INPESA[495] := 0;
+    g_INPESA[496] := 0;
+    g_INPESA[497] := 15;
+    g_INPESA[498] := 0;
+    g_INPESA[499] := 1073739776;
+    g_INPESA[500] := 528482304;
+    g_INPESA[501] := 1933049856;
+    g_INPESA[502] := 0;
+    g_INPESA[503] := 0;
+    g_INPESA[504] := 0;
+    g_INPESA[505] := 0;
+    g_INPESA[506] := 0;
+    g_INPESA[507] := 0;
+    g_INPESA[508] := 15;
+    g_INPESA[509] := 0;
+    g_INPESA[510] := 1073725440;
+    g_INPESA[511] := 528482304;
+    g_INPESA[512] := 1933049856;
+    g_INPESA[513] := 0;
+    g_INPESA[514] := 0;
+    g_INPESA[515] := 0;
+    g_INPESA[516] := 0;
+    g_INPESA[517] := 0;
+    g_INPESA[518] := 0;
+    g_INPESA[519] := 15;
+    g_INPESA[520] := 0;
+    g_INPESA[521] := 2139095040;
+    g_INPESA[522] := 528482304;
+    g_INPESA[523] := 1662746624;
+    g_INPESA[524] := 16744511;
+    g_INPESA[525] := -65536;
+    g_INPESA[526] := 134217727;
+    g_INPESA[527] := -536870852;
+    g_INPESA[528] := 0;
+    g_INPESA[529] := 1071644672;
+    g_INPESA[530] := 15;
+    g_INPESA[531] := 0;
+    g_INPESA[532] := 1837105152;
+    g_INPESA[533] := 528482304;
+    g_INPESA[534] := -484444160;
+    g_INPESA[535] := 67092607;
+    g_INPESA[536] := -16384;
+    g_INPESA[537] := 268435455;
+    g_INPESA[538] := -268434433;
+    g_INPESA[539] := -1073741824;
+    g_INPESA[540] := -1048576;
+    g_INPESA[541] := 15;
+    g_INPESA[542] := 0;
+    g_INPESA[543] := -306184192;
+    g_INPESA[544] := 528482304;
+    g_INPESA[545] := -1021314048;
+    g_INPESA[546] := 67092607;
+    g_INPESA[547] := -4096;
+    g_INPESA[548] := 268435455;
+    g_INPESA[549] := -268431361;
+    g_INPESA[550] := -268435456;
+    g_INPESA[551] := -1048576;
+    g_INPESA[552] := 15;
+    g_INPESA[553] := 0;
+    g_INPESA[554] := -306184192;
+    g_INPESA[555] := 528482305;
+    g_INPESA[556] := -1022362112;
+    g_INPESA[557] := 67092607;
+    g_INPESA[558] := -2048;
+    g_INPESA[559] := 268435455;
+    g_INPESA[560] := -268419073;
+    g_INPESA[561] := -134217728;
+    g_INPESA[562] := -1048576;
+    g_INPESA[563] := 15;
+    g_INPESA[564] := 0;
+    g_INPESA[565] := -859832320;
+    g_INPESA[566] := 528482305;
+    g_INPESA[567] := -1022362112;
+    g_INPESA[568] := 67092607;
+    g_INPESA[569] := -1024;
+    g_INPESA[570] := 268435455;
+    g_INPESA[571] := -268402689;
+    g_INPESA[572] := -33554431;
+    g_INPESA[573] := -524288;
+    g_INPESA[574] := 15;
+    g_INPESA[575] := 1;
+    g_INPESA[576] := -859832320;
+    g_INPESA[577] := 528482307;
+    g_INPESA[578] := -2096627968;
+    g_INPESA[579] := 67092607;
+    g_INPESA[580] := -256;
+    g_INPESA[581] := 268435455;
+    g_INPESA[582] := -268369921;
+    g_INPESA[583] := -16777215;
+    g_INPESA[584] := -524288;
+    g_INPESA[585] := 15;
+    g_INPESA[586] := 1;
+    g_INPESA[587] := -1931476992;
+    g_INPESA[588] := 528482307;
+    g_INPESA[589] := -2096627840;
+    g_INPESA[590] := 67092607;
+    g_INPESA[591] := -256;
+    g_INPESA[592] := 268435455;
+    g_INPESA[593] := -268304385;
+    g_INPESA[594] := -8388605;
+    g_INPESA[595] := -262144;
+    g_INPESA[596] := 15;
+    g_INPESA[597] := 3;
+    g_INPESA[598] := -1939865600;
+    g_INPESA[599] := 528482307;
+    g_INPESA[600] := 50593664;
+    g_INPESA[601] := 67092607;
+    g_INPESA[602] := -128;
+    g_INPESA[603] := 268435455;
+    g_INPESA[604] := -268173313;
+    g_INPESA[605] := -4194301;
+    g_INPESA[606] := -262144;
+    g_INPESA[607] := 15;
+    g_INPESA[608] := 3;
+    g_INPESA[609] := -1938817024;
+    g_INPESA[610] := 528482311;
+    g_INPESA[611] := 50593728;
+    g_INPESA[612] := 67092607;
+    g_INPESA[613] := -64;
+    g_INPESA[614] := 268435455;
+    g_INPESA[615] := -268173313;
+    g_INPESA[616] := -4194297;
+    g_INPESA[617] := -262144;
+    g_INPESA[618] := 15;
+    g_INPESA[619] := 3;
+    g_INPESA[620] := 204472320;
+    g_INPESA[621] := 528482310;
+    g_INPESA[622] := 50593760;
+    g_INPESA[623] := 67092607;
+    g_INPESA[624] := -32;
+    g_INPESA[625] := 268435455;
+    g_INPESA[626] := -268173313;
+    g_INPESA[627] := -4194297;
+    g_INPESA[628] := -131072;
+    g_INPESA[629] := 15;
+    g_INPESA[630] := 7;
+    g_INPESA[631] := 204996608;
+    g_INPESA[632] := 528482318;
+    g_INPESA[633] := 50462704;
+    g_INPESA[634] := 67092607;
+    g_INPESA[635] := -32;
+    g_INPESA[636] := 268435455;
+    g_INPESA[637] := -267911169;
+    g_INPESA[638] := -4194289;
+    g_INPESA[639] := -131072;
+    g_INPESA[640] := 15;
+    g_INPESA[641] := 6;
+    g_INPESA[642] := 204996608;
+    g_INPESA[643] := 528482318;
+    g_INPESA[644] := 50462704;
+    g_INPESA[645] := 67092607;
+    g_INPESA[646] := -32;
+    g_INPESA[647] := 268435455;
+    g_INPESA[648] := -536346625;
+    g_INPESA[649] := -8388593;
+    g_INPESA[650] := -65536;
+    g_INPESA[651] := 15;
+    g_INPESA[652] := 14;
+    g_INPESA[653] := 202899456;
+    g_INPESA[654] := 528482316;
+    g_INPESA[655] := 50397176;
+    g_INPESA[656] := 67092607;
+    g_INPESA[657] := -16;
+    g_INPESA[658] := 268369920;
+    g_INPESA[659] := 524287;
+    g_INPESA[660] := -33554417;
+    g_INPESA[661] := -65536;
+    g_INPESA[662] := 15;
+    g_INPESA[663] := 12;
+    g_INPESA[664] := 203161600;
+    g_INPESA[665] := 528482332;
+    g_INPESA[666] := 50397176;
+    g_INPESA[667] := 67092607;
+    g_INPESA[668] := -133955600;
+    g_INPESA[669] := 268369920;
+    g_INPESA[670] := 524224;
+    g_INPESA[671] := -67108833;
+    g_INPESA[672] := -32768;
+    g_INPESA[673] := 15;
+    g_INPESA[674] := 12;
+    g_INPESA[675] := 202113024;
+    g_INPESA[676] := 528482328;
+    g_INPESA[677] := 50364412;
+    g_INPESA[678] := 67092607;
+    g_INPESA[679] := -134086672;
+    g_INPESA[680] := 268369920;
+    g_INPESA[681] := 524160;
+    g_INPESA[682] := 31;
+    g_INPESA[683] := -32768;
+    g_INPESA[684] := 15;
+    g_INPESA[685] := 28;
+    g_INPESA[686] := 202113024;
+    g_INPESA[687] := 528482328;
+    g_INPESA[688] := 50364414;
+    g_INPESA[689] := 67092607;
+    g_INPESA[690] := -134152208;
+    g_INPESA[691] := 268369920;
+    g_INPESA[692] := 524224;
+    g_INPESA[693] := 63;
+    g_INPESA[694] := -16384;
+    g_INPESA[695] := 15;
+    g_INPESA[696] := 24;
+    g_INPESA[697] := 201719808;
+    g_INPESA[698] := 528482360;
+    g_INPESA[699] := 50364415;
+    g_INPESA[700] := 67092607;
+    g_INPESA[701] := -134152208;
+    g_INPESA[702] := 268369920;
+    g_INPESA[703] := 524280;
+    g_INPESA[704] := 63;
+    g_INPESA[705] := -16384;
+    g_INPESA[706] := 15;
+    g_INPESA[707] := 56;
+    g_INPESA[708] := 201719808;
+    g_INPESA[709] := 528482352;
+    g_INPESA[710] := 50348031;
+    g_INPESA[711] := 67092607;
+    g_INPESA[712] := -134152208;
+    g_INPESA[713] := 268369920;
+    g_INPESA[714] := 524286;
+    g_INPESA[715] := 127;
+    g_INPESA[716] := -16384;
+    g_INPESA[717] := 15;
+    g_INPESA[718] := 48;
+    g_INPESA[719] := 201785344;
+    g_INPESA[720] := 528482552;
+    g_INPESA[721] := -2097086465;
+    g_INPESA[722] := -2080391041;
+    g_INPESA[723] := -134152208;
+    g_INPESA[724] := 268435454;
+    g_INPESA[725] := 524287;
+    g_INPESA[726] := -1073741697;
+    g_INPESA[727] := -8192;
+    g_INPESA[728] := 15;
+    g_INPESA[729] := 48;
+    g_INPESA[730] := 201523200;
+    g_INPESA[731] := 528482815;
+    g_INPESA[732] := -1;
+    g_INPESA[733] := -2080391041;
+    g_INPESA[734] := -134086672;
+    g_INPESA[735] := 268435455;
+    g_INPESA[736] := 262143;
+    g_INPESA[737] := -134217473;
+    g_INPESA[738] := -8192;
+    g_INPESA[739] := 15;
+    g_INPESA[740] := 112;
+    g_INPESA[741] := 201555968;
+    g_INPESA[742] := 528482815;
+    g_INPESA[743] := -1;
+    g_INPESA[744] := -1006649217;
+    g_INPESA[745] := -133955600;
+    g_INPESA[746] := 268435455;
+    g_INPESA[747] := 262143;
+    g_INPESA[748] := -67108609;
+    g_INPESA[749] := -67112960;
+    g_INPESA[750] := 15;
+    g_INPESA[751] := 96;
+    g_INPESA[752] := 201424896;
+    g_INPESA[753] := 528482815;
+    g_INPESA[754] := -1;
+    g_INPESA[755] := -469778305;
+    g_INPESA[756] := -66584592;
+    g_INPESA[757] := 268435455;
+    g_INPESA[758] := 131071;
+    g_INPESA[759] := -16776961;
+    g_INPESA[760] := -100667392;
+    g_INPESA[761] := 15;
+    g_INPESA[762] := 224;
+    g_INPESA[763] := 201424896;
+    g_INPESA[764] := 528482559;
+    g_INPESA[765] := -1;
+    g_INPESA[766] := -201342849;
+    g_INPESA[767] := -16;
+    g_INPESA[768] := 268435455;
+    g_INPESA[769] := 65535;
+    g_INPESA[770] := -8388097;
+    g_INPESA[771] := -100665344;
+    g_INPESA[772] := 15;
+    g_INPESA[773] := 192;
+    g_INPESA[774] := 201441280;
+    g_INPESA[775] := 528482431;
+    g_INPESA[776] := -1025;
+    g_INPESA[777] := -201342849;
+    g_INPESA[778] := -32;
+    g_INPESA[779] := 268435455;
+    g_INPESA[780] := 32767;
+    g_INPESA[781] := -4193793;
+    g_INPESA[782] := -234883072;
+    g_INPESA[783] := 15;
+    g_INPESA[784] := 192;
+    g_INPESA[785] := 201375744;
+    g_INPESA[786] := 528482431;
+    g_INPESA[787] := -1025;
+    g_INPESA[788] := -67125121;
+    g_INPESA[789] := -32;
+    g_INPESA[790] := 268435455;
+    g_INPESA[791] := 16383;
+    g_INPESA[792] := -2096129;
+    g_INPESA[793] := -251660288;
+    g_INPESA[794] := 15;
+    g_INPESA[795] := 1023;
+    g_INPESA[796] := -4096;
+    g_INPESA[797] := 1069547583;
+    g_INPESA[798] := -3585;
+    g_INPESA[799] := -16257;
+    g_INPESA[800] := -32;
+    g_INPESA[801] := 268435455;
+    g_INPESA[802] := 8191;
+    g_INPESA[803] := -2096129;
+    g_INPESA[804] := -520094720;
+    g_INPESA[805] := 15;
+    g_INPESA[806] := 2047;
+    g_INPESA[807] := -4096;
+    g_INPESA[808] := 1069547583;
+    g_INPESA[809] := -7681;
+    g_INPESA[810] := -16257;
+    g_INPESA[811] := -64;
+    g_INPESA[812] := 268435455;
+    g_INPESA[813] := 2047;
+    g_INPESA[814] := -1046529;
+    g_INPESA[815] := -520094720;
+    g_INPESA[816] := 15;
+    g_INPESA[817] := 2047;
+    g_INPESA[818] := -2048;
+    g_INPESA[819] := 1069547551;
+    g_INPESA[820] := -7937;
+    g_INPESA[821] := -16257;
+    g_INPESA[822] := -128;
+    g_INPESA[823] := 268435455;
+    g_INPESA[824] := 511;
+    g_INPESA[825] := -1046529;
+    g_INPESA[826] := -117441024;
+    g_INPESA[827] := 15;
+    g_INPESA[828] := 1023;
+    g_INPESA[829] := -4096;
+    g_INPESA[830] := 1069547535;
+    g_INPESA[831] := -16257;
+    g_INPESA[832] := -16257;
+    g_INPESA[833] := -256;
+    g_INPESA[834] := 268435455;
+    g_INPESA[835] := 63;
+    g_INPESA[836] := -522241;
+    g_INPESA[837] := -512;
+    g_INPESA[838] := 15;
+    g_INPESA[839] := 511;
+    g_INPESA[840] := -16384;
+    g_INPESA[841] := 2143289351;
+    g_INPESA[842] := -16257;
+    g_INPESA[843] := -16257;
+    g_INPESA[844] := -512;
+    g_INPESA[845] := 268435454;
+    g_INPESA[846] := 7;
+    g_INPESA[847] := -520193;
+    g_INPESA[848] := -256;
+    g_INPESA[849] := 15;
+    g_INPESA[850] := 511;
+    g_INPESA[851] := -16384;
+    g_INPESA[852] := 2145386496;
+    g_INPESA[853] := 67092543;
+    g_INPESA[854] := -16257;
+    g_INPESA[855] := -1024;
+    g_INPESA[856] := 268369920;
+    g_INPESA[857] := 1;
+    g_INPESA[858] := -520193;
+    g_INPESA[859] := -256;
+    g_INPESA[860] := 15;
+    g_INPESA[861] := 511;
+    g_INPESA[862] := -16384;
+    g_INPESA[863] := 2145386496;
+    g_INPESA[864] := 67092511;
+    g_INPESA[865] := -16257;
+    g_INPESA[866] := -2048;
+    g_INPESA[867] := 268369920;
+    g_INPESA[868] := 0;
+    g_INPESA[869] := -516097;
+    g_INPESA[870] := -128;
+    g_INPESA[871] := 15;
+    g_INPESA[872] := 255;
+    g_INPESA[873] := -16384;
+    g_INPESA[874] := 2145386496;
+    g_INPESA[875] := 67092495;
+    g_INPESA[876] := -16257;
+    g_INPESA[877] := -4096;
+    g_INPESA[878] := 268369920;
+    g_INPESA[879] := 57344;
+    g_INPESA[880] := 2146975743;
+    g_INPESA[881] := -128;
+    g_INPESA[882] := 15;
+    g_INPESA[883] := 127;
+    g_INPESA[884] := -32768;
+    g_INPESA[885] := 2145386496;
+    g_INPESA[886] := 67092495;
+    g_INPESA[887] := -16257;
+    g_INPESA[888] := -65536;
+    g_INPESA[889] := 268369920;
+    g_INPESA[890] := 260096;
+    g_INPESA[891] := -507905;
+    g_INPESA[892] := -128;
+    g_INPESA[893] := 15;
+    g_INPESA[894] := 127;
+    g_INPESA[895] := -32768;
+    g_INPESA[896] := -1048576;
+    g_INPESA[897] := 67092487;
+    g_INPESA[898] := -16257;
+    g_INPESA[899] := -67108864;
+    g_INPESA[900] := 268369920;
+    g_INPESA[901] := 1048065;
+    g_INPESA[902] := -507905;
+    g_INPESA[903] := -64;
+    g_INPESA[904] := 15;
+    g_INPESA[905] := 63;
+    g_INPESA[906] := -65536;
+    g_INPESA[907] := -1048576;
+    g_INPESA[908] := 67092483;
+    g_INPESA[909] := -16257;
+    g_INPESA[910] := -134217728;
+    g_INPESA[911] := 268369920;
+    g_INPESA[912] := 2097027;
+    g_INPESA[913] := -507905;
+    g_INPESA[914] := -64;
+    g_INPESA[915] := 15;
+    g_INPESA[916] := 31;
+    g_INPESA[917] := -131071;
+    g_INPESA[918] := -524288;
+    g_INPESA[919] := 67092483;
+    g_INPESA[920] := -16257;
+    g_INPESA[921] := -134217728;
+    g_INPESA[922] := 268435455;
+    g_INPESA[923] := -1069547521;
+    g_INPESA[924] := -491521;
+    g_INPESA[925] := -32;
+    g_INPESA[926] := 15;
+    g_INPESA[927] := 0;
+    g_INPESA[928] := 3;
+    g_INPESA[929] := -262144;
+    g_INPESA[930] := 67092481;
+    g_INPESA[931] := -16257;
+    g_INPESA[932] := -134217728;
+    g_INPESA[933] := 268435455;
+    g_INPESA[934] := -266338305;
+    g_INPESA[935] := -1015809;
+    g_INPESA[936] := -32;
+    g_INPESA[937] := 15;
+    g_INPESA[938] := 0;
+    g_INPESA[939] := 7;
+    g_INPESA[940] := -131072;
+    g_INPESA[941] := 67092480;
+    g_INPESA[942] := -16257;
+    g_INPESA[943] := -134217728;
+    g_INPESA[944] := 268435455;
+    g_INPESA[945] := -266338305;
+    g_INPESA[946] := -983041;
+    g_INPESA[947] := -16;
+    g_INPESA[948] := 15;
+    g_INPESA[949] := 0;
+    g_INPESA[950] := 15;
+    g_INPESA[951] := -65536;
+    g_INPESA[952] := 67092480;
+    g_INPESA[953] := -16257;
+    g_INPESA[954] := -134217728;
+    g_INPESA[955] := 268435455;
+    g_INPESA[956] := -267386881;
+    g_INPESA[957] := -2031624;
+    g_INPESA[958] := 262128;
+    g_INPESA[959] := 15;
+    g_INPESA[960] := 0;
+    g_INPESA[961] := 511;
+    g_INPESA[962] := -2048;
+    g_INPESA[963] := 67092480;
+    g_INPESA[964] := 2147467391;
+    g_INPESA[965] := -134217728;
+    g_INPESA[966] := 268435455;
+    g_INPESA[967] := -267386881;
+    g_INPESA[968] := -1966088;
+    g_INPESA[969] := 131064;
+    g_INPESA[970] := 15;
+    g_INPESA[971] := 0;
+    g_INPESA[972] := 1023;
+    g_INPESA[973] := -1024;
+    g_INPESA[974] := 67092480;
+    g_INPESA[975] := 1073725567;
+    g_INPESA[976] := -134217728;
+    g_INPESA[977] := 268435455;
+    g_INPESA[978] := -267911169;
+    g_INPESA[979] := -4063248;
+    g_INPESA[980] := 131064;
+    g_INPESA[981] := 15;
+    g_INPESA[982] := 0;
+    g_INPESA[983] := 1023;
+    g_INPESA[984] := -1024;
+    g_INPESA[985] := 67092480;
+    g_INPESA[986] := 536854655;
+    g_INPESA[987] := -134217728;
+    g_INPESA[988] := 268435455;
+    g_INPESA[989] := -268173313;
+    g_INPESA[990] := -8126480;
+    g_INPESA[991] := 65528;
+    g_INPESA[992] := 15;
+    g_INPESA[993] := 0;
+    g_INPESA[994] := 524287;
+    g_INPESA[995] := -2;
+    g_INPESA[996] := 67092480;
+    g_INPESA[997] := 536854655;
+    g_INPESA[998] := -134217728;
+    g_INPESA[999] := 268435455;
+    g_INPESA[1000] := -268304385;
+    g_INPESA[1001] := -16515104;
+    g_INPESA[1002] := 65532;
+    g_INPESA[1003] := 15;
+    g_INPESA[1004] := 0;
+    g_INPESA[1005] := 1048575;
+    g_INPESA[1006] := -1;
+    g_INPESA[1007] := 67092480;
+    g_INPESA[1008] := 268419199;
+    g_INPESA[1009] := -134217728;
+    g_INPESA[1010] := 268435455;
+    g_INPESA[1011] := -268369921;
+    g_INPESA[1012] := -33292320;
+    g_INPESA[1013] := 32764;
+    g_INPESA[1014] := 15;
+    g_INPESA[1015] := 0;
+    g_INPESA[1016] := 1048575;
+    g_INPESA[1017] := -1;
+    g_INPESA[1018] := 134201344;
+    g_INPESA[1019] := 268419199;
+    g_INPESA[1020] := -134217728;
+    g_INPESA[1021] := 268435455;
+    g_INPESA[1022] := -268402689;
+    g_INPESA[1023] := -133693504;
+    g_INPESA[1024] := 16382;
+    g_INPESA[1025] := 15;
+    g_INPESA[1026] := 0;
+    g_INPESA[1027] := 1048575;
+    g_INPESA[1028] := -1;
+    g_INPESA[1029] := 67092480;
+    g_INPESA[1030] := 134201471;
+    g_INPESA[1031] := -134217728;
+    g_INPESA[1032] := 268435455;
+    g_INPESA[1033] := -268431361;
+    g_INPESA[1034] := -267911296;
+    g_INPESA[1035] := 8190;
+    g_INPESA[1036] := 15;
+    g_INPESA[1037] := 0;
+    g_INPESA[1038] := 1048575;
+    g_INPESA[1039] := -2;
+    g_INPESA[1040] := 67092480;
+    g_INPESA[1041] := 67092607;
+    g_INPESA[1042] := -268435456;
+    g_INPESA[1043] := 268435455;
+    g_INPESA[1044] := -268434433;
+    g_INPESA[1045] := 524032;
+    g_INPESA[1046] := 4094;
+    g_INPESA[1047] := 15;
+    g_INPESA[1048] := 0;
+    g_INPESA[1049] := 0;
+    g_INPESA[1050] := 0;
+    g_INPESA[1051] := 0;
+    g_INPESA[1052] := 65536;
+    g_INPESA[1053] := 0;
+    g_INPESA[1054] := 0;
+    g_INPESA[1055] := 0;
+    g_INPESA[1056] := 65536;
+    g_INPESA[1057] := 24;
+    g_INPESA[1058] := 15;
+    g_INPESA[1059] := 0;
+    g_INPESA[1060] := 0;
+    g_INPESA[1061] := 0;
+    g_INPESA[1062] := 0;
+    g_INPESA[1063] := 0;
+    g_INPESA[1064] := 0;
+    g_INPESA[1065] := 0;
+    g_INPESA[1066] := 0;
+    g_INPESA[1067] := 0;
+    g_INPESA[1068] := 0;
+    g_INPESA[1069] := 15;
+    g_INPESA[1070] := 0;
+    g_INPESA[1071] := 0;
+    g_INPESA[1072] := 0;
+    g_INPESA[1073] := 0;
+    g_INPESA[1074] := 0;
+    g_INPESA[1075] := 0;
+    g_INPESA[1076] := 0;
+    g_INPESA[1077] := 0;
+    g_INPESA[1078] := 0;
+    g_INPESA[1079] := 0;
+    g_INPESA[1080] := 15;
+    g_INPESA[1081] := 0;
+    g_INPESA[1082] := 0;
+    g_INPESA[1083] := 0;
+    g_INPESA[1084] := 0;
+    g_INPESA[1085] := 0;
+    g_INPESA[1086] := 0;
+    g_INPESA[1087] := 0;
+    g_INPESA[1088] := 0;
+    g_INPESA[1089] := 0;
+    g_INPESA[1090] := 0;
+    g_INPESA[1091] := 15;
+    g_INPESA[1092] := 0;
+    g_INPESA[1093] := 0;
+    g_INPESA[1094] := 0;
+    g_INPESA[1095] := 0;
+    g_INPESA[1096] := 0;
+    g_INPESA[1097] := 0;
+    g_INPESA[1098] := 0;
+    g_INPESA[1099] := 0;
+    g_INPESA[1100] := 0;
+    g_INPESA[1101] := 0;
+    g_INPESA[1102] := 15;
+    g_INPESA[1103] := 0;
+    g_INPESA[1104] := 0;
+    g_INPESA[1105] := 0;
+    g_INPESA[1106] := 0;
+    g_INPESA[1107] := 0;
+    g_INPESA[1108] := 0;
+    g_INPESA[1109] := 0;
+    g_INPESA[1110] := 0;
+    g_INPESA[1111] := 1048575;
+    g_INPESA[1112] := -4;
+    g_INPESA[1113] := 15;
+    g_INPESA[1114] := 0;
+    g_INPESA[1115] := 0;
+    g_INPESA[1116] := 0;
+    g_INPESA[1117] := 0;
+    g_INPESA[1118] := 0;
+    g_INPESA[1119] := 4095;
+    g_INPESA[1120] := -1;
+    g_INPESA[1121] := -1;
+    g_INPESA[1122] := -1;
+    g_INPESA[1123] := -2;
+    g_INPESA[1124] := 15;
+    g_INPESA[1125] := 0;
+    g_INPESA[1126] := 0;
+    g_INPESA[1127] := 524287;
+    g_INPESA[1128] := -1;
+    g_INPESA[1129] := -1;
+    g_INPESA[1130] := -1;
+    g_INPESA[1131] := -1;
+    g_INPESA[1132] := -1;
+    g_INPESA[1133] := -1;
+    g_INPESA[1134] := -2;
+    g_INPESA[1135] := 15;
+    g_INPESA[1136] := 0;
+    g_INPESA[1137] := 0;
+    g_INPESA[1138] := 16777215;
+    g_INPESA[1139] := -1;
+    g_INPESA[1140] := -1;
+    g_INPESA[1141] := -1;
+    g_INPESA[1142] := -1;
+    g_INPESA[1143] := -1;
+    g_INPESA[1144] := -1;
+    g_INPESA[1145] := -2;
+    g_INPESA[1146] := 15;
+    g_INPESA[1147] := 0;
+    g_INPESA[1148] := 0;
+    g_INPESA[1149] := 8388607;
+    g_INPESA[1150] := -1;
+    g_INPESA[1151] := -1;
+    g_INPESA[1152] := -1;
+    g_INPESA[1153] := -1;
+    g_INPESA[1154] := -1;
+    g_INPESA[1155] := -1;
+    g_INPESA[1156] := -2;
+    g_INPESA[1157] := 15;
+    g_INPESA[1158] := 0;
+    g_INPESA[1159] := 0;
+    g_INPESA[1160] := 0;
+    g_INPESA[1161] := 511;
+    g_INPESA[1162] := -1;
+    g_INPESA[1163] := -1;
+    g_INPESA[1164] := -1;
+    g_INPESA[1165] := -1;
+    g_INPESA[1166] := -1;
+    g_INPESA[1167] := -2;
+    g_INPESA[1168] := 15;
+    g_INPESA[1169] := 0;
+    g_INPESA[1170] := 0;
+    g_INPESA[1171] := 0;
+    g_INPESA[1172] := 0;
+    g_INPESA[1173] := 0;
+    g_INPESA[1174] := 0;
+    g_INPESA[1175] := 458752;
+    g_INPESA[1176] := 4095;
+    g_INPESA[1177] := -1;
+    g_INPESA[1178] := -4;
+    g_INPESA[1179] := 15;
+    g_INPESA[1180] := 0;
+    g_INPESA[1181] := 0;
+    g_INPESA[1182] := 0;
+    g_INPESA[1183] := 0;
+    g_INPESA[1184] := 0;
+    g_INPESA[1185] := 0;
+    g_INPESA[1186] := 0;
+    g_INPESA[1187] := 0;
+    g_INPESA[1188] := 0;
+    g_INPESA[1189] := 0;
+    g_INPESA[1190] := 15;
+    g_INPESA[1191] := 0;
+    g_INPESA[1192] := 0;
+    g_INPESA[1193] := 0;
+    g_INPESA[1194] := 224;
+    g_INPESA[1195] := 0;
+    g_INPESA[1196] := 0;
+    g_INPESA[1197] := 0;
+    g_INPESA[1198] := 0;
+    g_INPESA[1199] := 0;
+    g_INPESA[1200] := 0;
+    g_INPESA[1201] := 15;
+    g_INPESA[1202] := 0;
+    g_INPESA[1203] := 192;
+    g_INPESA[1204] := 0;
+    g_INPESA[1205] := 480;
+    g_INPESA[1206] := 0;
+    g_INPESA[1207] := 0;
+    g_INPESA[1208] := 0;
+    g_INPESA[1209] := 0;
+    g_INPESA[1210] := 0;
+    g_INPESA[1211] := 0;
+    g_INPESA[1212] := 15;
+    g_INPESA[1213] := 0;
+    g_INPESA[1214] := 480;
+    g_INPESA[1215] := 14680070;
+    g_INPESA[1216] := 480;
+    g_INPESA[1217] := 0;
+    g_INPESA[1218] := 100664192;
+    g_INPESA[1219] := 3670016;
+    g_INPESA[1220] := 0;
+    g_INPESA[1221] := 0;
+    g_INPESA[1222] := 48;
+    g_INPESA[1223] := 15;
+    g_INPESA[1224] := 0;
+    g_INPESA[1225] := 260047840;
+    g_INPESA[1226] := 15728655;
+    g_INPESA[1227] := 480;
+    g_INPESA[1228] := 0;
+    g_INPESA[1229] := 251660160;
+    g_INPESA[1230] := 8126464;
+    g_INPESA[1231] := 0;
+    g_INPESA[1232] := 0;
+    g_INPESA[1233] := 56;
+    g_INPESA[1234] := 15;
+    g_INPESA[1235] := 0;
+    g_INPESA[1236] := 532677600;
+    g_INPESA[1237] := 32505887;
+    g_INPESA[1238] := 992;
+    g_INPESA[1239] := 0;
+    g_INPESA[1240] := 251660160;
+    g_INPESA[1241] := 8126464;
+    g_INPESA[1242] := 0;
+    g_INPESA[1243] := 0;
+    g_INPESA[1244] := 120;
+    g_INPESA[1245] := 15;
+    g_INPESA[1246] := 0;
+    g_INPESA[1247] := 1019217760;
+    g_INPESA[1248] := 32505887;
+    g_INPESA[1249] := 992;
+    g_INPESA[1250] := 0;
+    g_INPESA[1251] := 520097664;
+    g_INPESA[1252] := 16252928;
+    g_INPESA[1253] := 0;
+    g_INPESA[1254] := 0;
+    g_INPESA[1255] := 120;
+    g_INPESA[1256] := 15;
+    g_INPESA[1257] := 0;
+    g_INPESA[1258] := 2025850848;
+    g_INPESA[1259] := 32505887;
+    g_INPESA[1260] := 992;
+    g_INPESA[1261] := 0;
+    g_INPESA[1262] := 452988800;
+    g_INPESA[1263] := 16252928;
+    g_INPESA[1264] := 0;
+    g_INPESA[1265] := 0;
+    g_INPESA[1266] := 112;
+    g_INPESA[1267] := 15;
+    g_INPESA[1268] := 48;
+    g_INPESA[1269] := -255850784;
+    g_INPESA[1270] := 65011775;
+    g_INPESA[1271] := 960;
+    g_INPESA[1272] := 0;
+    g_INPESA[1273] := 1065357184;
+    g_INPESA[1274] := 16252928;
+    g_INPESA[1275] := 0;
+    g_INPESA[1276] := 0;
+    g_INPESA[1277] := 112;
+    g_INPESA[1278] := 15;
+    g_INPESA[1279] := 48;
+    g_INPESA[1280] := -524286268;
+    g_INPESA[1281] := 65011774;
+    g_INPESA[1282] := 960;
+    g_INPESA[1283] := 8;
+    g_INPESA[1284] := 2142248832;
+    g_INPESA[1285] := 16252928;
+    g_INPESA[1286] := 201326596;
+    g_INPESA[1287] := 1048580;
+    g_INPESA[1288] := 3145840;
+    g_INPESA[1289] := 15;
+    g_INPESA[1290] := 0;
+    g_INPESA[1291] := -524283954;
+    g_INPESA[1292] := 65011774;
+    g_INPESA[1293] := 1984;
+    g_INPESA[1294] := 3145756;
+    g_INPESA[1295] := 2117607168;
+    g_INPESA[1296] := 32505856;
+    g_INPESA[1297] := 469762062;
+    g_INPESA[1298] := 3670030;
+    g_INPESA[1299] := 3670128;
+    g_INPESA[1300] := 15;
+    g_INPESA[1301] := 1;
+    g_INPESA[1302] := -536637562;
+    g_INPESA[1303] := 130121790;
+    g_INPESA[1304] := 1976;
+    g_INPESA[1305] := 208670524;
+    g_INPESA[1306] := 1043341068;
+    g_INPESA[1307] := 32506624;
+    g_INPESA[1308] := 469762078;
+    g_INPESA[1309] := 121110542;
+    g_INPESA[1310] := 506474592;
+    g_INPESA[1311] := 15;
+    g_INPESA[1312] := 33;
+    g_INPESA[1313] := -536375412;
+    g_INPESA[1314] := 532922876;
+    g_INPESA[1315] := 50857980;
+    g_INPESA[1316] := 1047928632;
+    g_INPESA[1317] := 1008762398;
+    g_INPESA[1318] := 133171072;
+    g_INPESA[1319] := 471359516;
+    g_INPESA[1320] := 255602924;
+    g_INPESA[1321] := 1042348128;
+    g_INPESA[1322] := 15;
+    g_INPESA[1323] := 97;
+    g_INPESA[1324] := -1072722148;
+    g_INPESA[1325] := 1065862136;
+    g_INPESA[1326] := 60557308;
+    g_INPESA[1327] := 2122260280;
+    g_INPESA[1328] := 946994750;
+    g_INPESA[1329] := 266342272;
+    g_INPESA[1330] := 1010360348;
+    g_INPESA[1331] := 524171484;
+    g_INPESA[1332] := 1987180640;
+    g_INPESA[1333] := 15;
+    g_INPESA[1334] := 97;
+    g_INPESA[1335] := -1072706020;
+    g_INPESA[1336] := 2140129272;
+    g_INPESA[1337] := 121374684;
+    g_INPESA[1338] := 1988050492;
+    g_INPESA[1339] := 945946175;
+    g_INPESA[1340] := 534781824;
+    g_INPESA[1341] := 1010352158;
+    g_INPESA[1342] := 524171740;
+    g_INPESA[1343] := 1987172448;
+    g_INPESA[1344] := 15;
+    g_INPESA[1345] := 97;
+    g_INPESA[1346] := -534933988;
+    g_INPESA[1347] := 1997391736;
+    g_INPESA[1348] := 125568920;
+    g_INPESA[1349] := 1660894780;
+    g_INPESA[1350] := 820223094;
+    g_INPESA[1351] := 968891264;
+    g_INPESA[1352] := 1009893430;
+    g_INPESA[1353] := 506863516;
+    g_INPESA[1354] := 1625397344;
+    g_INPESA[1355] := 15;
+    g_INPESA[1356] := 96;
+    g_INPESA[1357] := -535065032;
+    g_INPESA[1358] := -283275663;
+    g_INPESA[1359] := -2030303336;
+    g_INPESA[1360] := -420005778;
+    g_INPESA[1361] := 1893973102;
+    g_INPESA[1362] := 1002847128;
+    g_INPESA[1363] := 1853082679;
+    g_INPESA[1364] := 1013333816;
+    g_INPESA[1365] := -521955328;
+    g_INPESA[1366] := 15;
+    g_INPESA[1367] := 224;
+    g_INPESA[1368] := -532701639;
+    g_INPESA[1369] := -12607749;
+    g_INPESA[1370] := -2019817703;
+    g_INPESA[1371] := -421037882;
+    g_INPESA[1372] := -102236930;
+    g_INPESA[1373] := 2144223128;
+    g_INPESA[1374] := 1181998119;
+    g_INPESA[1375] := 2028371737;
+    g_INPESA[1376] := -504915904;
+    g_INPESA[1377] := 15;
+    g_INPESA[1378] := 224;
+    g_INPESA[1379] := 2080374783;
+    g_INPESA[1380] := -65;
+    g_INPESA[1381] := 119279391;
+    g_INPESA[1382] := -18612337;
+    g_INPESA[1383] := -1;
+    g_INPESA[1384] := -17022992;
+    g_INPESA[1385] := 134215687;
+    g_INPESA[1386] := -3682785;
+    g_INPESA[1387] := -3904;
+    g_INPESA[1388] := 15;
+    g_INPESA[1389] := 224;
+    g_INPESA[1390] := 1071445983;
+    g_INPESA[1391] := 1945957918;
+    g_INPESA[1392] := 3935775;
+    g_INPESA[1393] := 2093203455;
+    g_INPESA[1394] := -1619423369;
+    g_INPESA[1395] := -1728570912;
+    g_INPESA[1396] := 1069346831;
+    g_INPESA[1397] := -553152993;
+    g_INPESA[1398] := 2138697920;
+    g_INPESA[1399] := 15;
+    g_INPESA[1400] := 224;
+    g_INPESA[1401] := 251659140;
+    g_INPESA[1402] := 16384;
+    g_INPESA[1403] := 8128028;
+    g_INPESA[1404] := 817892478;
+    g_INPESA[1405] := 469762048;
+    g_INPESA[1406] := 0;
+    g_INPESA[1407] := 1056981023;
+    g_INPESA[1408] := 196612;
+    g_INPESA[1409] := 404750336;
+    g_INPESA[1410] := 15;
+    g_INPESA[1411] := 224;
+    g_INPESA[1412] := 0;
+    g_INPESA[1413] := 0;
+    g_INPESA[1414] := 16252928;
+    g_INPESA[1415] := 0;
+    g_INPESA[1416] := 0;
+    g_INPESA[1417] := 0;
+    g_INPESA[1418] := 0;
+    g_INPESA[1419] := 0;
+    g_INPESA[1420] := 0;
+    g_INPESA[1421] := 15;
+    g_INPESA[1422] := 224;
+    g_INPESA[1423] := 0;
+    g_INPESA[1424] := 0;
+    g_INPESA[1425] := 28835840;
+    g_INPESA[1426] := 0;
+    g_INPESA[1427] := 0;
+    g_INPESA[1428] := 0;
+    g_INPESA[1429] := 0;
+    g_INPESA[1430] := 0;
+    g_INPESA[1431] := 0;
+    g_INPESA[1432] := 15;
+    g_INPESA[1433] := 192;
+    g_INPESA[1434] := 0;
+    g_INPESA[1435] := 0;
+    g_INPESA[1436] := 54001664;
+    g_INPESA[1437] := 0;
+    g_INPESA[1438] := 0;
+    g_INPESA[1439] := 0;
+    g_INPESA[1440] := 0;
+    g_INPESA[1441] := 0;
+    g_INPESA[1442] := 0;
+    g_INPESA[1443] := 15;
+    g_INPESA[1444] := 0;
+    g_INPESA[1445] := 0;
+    g_INPESA[1446] := 0;
+    g_INPESA[1447] := 54001664;
+    g_INPESA[1448] := 0;
+    g_INPESA[1449] := 0;
+    g_INPESA[1450] := 0;
+    g_INPESA[1451] := 0;
+    g_INPESA[1452] := 0;
+    g_INPESA[1453] := 0;
+    g_INPESA[1454] := 15;
+    g_INPESA[1455] := 0;
+    g_INPESA[1456] := 0;
+    g_INPESA[1457] := 0;
+    g_INPESA[1458] := 108003328;
+    g_INPESA[1459] := 0;
+    g_INPESA[1460] := 0;
+    g_INPESA[1461] := 0;
+    g_INPESA[1462] := 0;
+    g_INPESA[1463] := 0;
+    g_INPESA[1464] := 0;
+    g_INPESA[1465] := 15;
+    g_INPESA[1466] := 0;
+    g_INPESA[1467] := 0;
+    g_INPESA[1468] := 0;
+    g_INPESA[1469] := 132120576;
+    g_INPESA[1470] := 0;
+    g_INPESA[1471] := 0;
+    g_INPESA[1472] := 0;
+    g_INPESA[1473] := 0;
+    g_INPESA[1474] := 0;
+    g_INPESA[1475] := 0;
+    g_INPESA[1476] := 15;
+    g_INPESA[1477] := 0;
+    g_INPESA[1478] := 0;
+    g_INPESA[1479] := 0;
+    g_INPESA[1480] := 65011712;
+    g_INPESA[1481] := 0;
+    g_INPESA[1482] := 0;
+    g_INPESA[1483] := 0;
+    g_INPESA[1484] := 0;
+    g_INPESA[1485] := 0;
+    g_INPESA[1486] := 0;
+    g_INPESA[1487] := 15;
+    g_INPESA[1488] := 0;
+    g_INPESA[1489] := 0;
+    g_INPESA[1490] := 0;
+    g_INPESA[1491] := 25165824;
+    g_INPESA[1492] := 0;
+    g_INPESA[1493] := 0;
+    g_INPESA[1494] := 0;
+    g_INPESA[1495] := 0;
+    g_INPESA[1496] := 0;
+    g_INPESA[1497] := 0;
+    g_INPESA[1498] := 15;
+    g_INPESA[1499] := 0;
+    g_INPESA[1500] := 0;
+    g_INPESA[1501] := 0;
+    g_INPESA[1502] := 0;
+    g_INPESA[1503] := 0;
+    g_INPESA[1504] := 0;
+    g_INPESA[1505] := 0;
+    g_INPESA[1506] := 0;
+    g_INPESA[1507] := 0;
+    g_INPESA[1508] := 0;
+    g_INPESA[1509] := 15;
+    g_INPESA[1510] := 0;
+    g_INPESA[1511] := 0;
+    g_INPESA[1512] := 0;
+    g_INPESA[1513] := 0;
+    g_INPESA[1514] := 0;
+    g_INPESA[1515] := 0;
+    g_INPESA[1516] := 0;
+    g_INPESA[1517] := 0;
+    g_INPESA[1518] := 0;
+    g_INPESA[1519] := 0;
+    g_INPESA[1520] := 15;
+    g_INPESA[1521] := 0;
+    g_INPESA[1522] := 0;
+    g_INPESA[1523] := 0;
+    g_INPESA[1524] := 0;
+    g_INPESA[1525] := 0;
+    g_INPESA[1526] := 0;
+    g_INPESA[1527] := 0;
+    g_INPESA[1528] := 0;
+    g_INPESA[1529] := 0;
+    g_INPESA[1530] := 0;
+    g_INPESA[1531] := 15;
+    g_INPESA[1532] := 0;
+    g_INPESA[1533] := 0;
+    g_INPESA[1534] := 0;
+    g_INPESA[1535] := 0;
+    g_INPESA[1536] := 0;
+    g_INPESA[1537] := 0;
+    g_INPESA[1538] := 0;
+    g_INPESA[1539] := 0;
+    g_INPESA[1540] := 0;
+    g_INPESA[1541] := 0;
+    g_INPESA[1542] := 15;
+    g_INPESA[1543] := 0;
+    g_INPESA[1544] := 0;
+    g_INPESA[1545] := 0;
+    g_INPESA[1546] := 0;
+    g_INPESA[1547] := 0;
+    g_INPESA[1548] := 0;
+    g_INPESA[1549] := 0;
+    g_INPESA[1550] := 0;
+    g_INPESA[1551] := 0;
+    g_INPESA[1552] := 0;
+    g_INPESA[1553] := 15;
+    g_INPESA[1554] := 0;
+    g_INPESA[1555] := 0;
+    g_INPESA[1556] := 0;
+    g_INPESA[1557] := 0;
+    g_INPESA[1558] := 0;
+    g_INPESA[1559] := 0;
+    g_INPESA[1560] := 0;
+    g_INPESA[1561] := 0;
+    g_INPESA[1562] := 0;
+    g_INPESA[1563] := 0;
+    g_INPESA[1564] := 15;
+    g_INPESA[1565] := 0;
+    g_INPESA[1566] := 0;
+    g_INPESA[1567] := 0;
+    g_INPESA[1568] := 0;
+    g_INPESA[1569] := 0;
+    g_INPESA[1570] := 0;
+    g_INPESA[1571] := 0;
+    g_INPESA[1572] := 0;
+    g_INPESA[1573] := 0;
+    g_INPESA[1574] := 0;
+    g_INPESA[1575] := 15;
+    g_INPESA[1576] := 0;
+end;
+--$END  D:\EMPRESAS\AVICOLA\inpesa.iri
+--#include AvicolaLogo.iri     
+--#include Pollito.iri
+--$START  D:\EMPRESAS\AVICOLA\Config.iri
+-------------------------------------------------
+-- Used with iRev Configuration File
+-- D:\Empresas\AVICOLA\Indicador.920
+-------------------------------------------------
+
+
+-- Scale Aliases
+Scale2   : constant integer := 2;
+Scale3   : constant integer := 3;
+Scale4   : constant integer := 4;
+
+-- Setpoint Aliases
+SP1      : constant integer := 1;
+SP2      : constant integer := 2;
+SP3      : constant integer := 3;
+SP4      : constant integer := 4;
+
+-- Widget Aliases
+Lbl1S1   : constant integer := 1;
+Lbl3S1   : constant integer := 2;
+Label5   : constant integer := 3;
+Label6   : constant integer := 4;
+cont1    : constant integer := 5;
+cont2    : constant integer := 6;
+cont3    : constant integer := 7;
+cont4    : constant integer := 8;
+Label13  : constant integer := 9;
+Label14  : constant integer := 10;
+Label15  : constant integer := 11;
+Label16  : constant integer := 12;
+Num1S1   : constant integer := 14;
+Num17    : constant integer := 15;
+Num18    : constant integer := 16;
+Num19    : constant integer := 17;
+Lbl13S1  : constant integer := 18;
+cat1     : constant integer := 19;
+cat3     : constant integer := 20;
+cat2     : constant integer := 21;
+cat4     : constant integer := 22;
+Lbl5S4   : constant integer := 23;
+Lbl6S4   : constant integer := 24;
+Sym1S1   : constant integer := 25;
+Sym2S1   : constant integer := 26;
+Sym3S1   : constant integer := 27;
+Sym4S1   : constant integer := 28;
+vel1     : constant integer := 29;
+vel2     : constant integer := 30;
+tit5     : constant integer := 31;
+sub5     : constant integer := 32;
+Lbl1S6   : constant integer := 33;
+Label34  : constant integer := 34;
+Minimo6  : constant integer := 35;
+Maximo6  : constant integer := 36;
+Lbl5S6   : constant integer := 37;
+cant7    : constant integer := 38;
+peso7    : constant integer := 39;
+Bar1S3   : constant integer := 40;
+Lbl1S3   : constant integer := 41;
+Label42  : constant integer := 42;
+Label43  : constant integer := 43;
+Label44  : constant integer := 44;
+Label45  : constant integer := 45;
+
+-- Serial Port Aliases
+Port1    : constant integer := 1;
+Port2    : constant integer := 2;
+Port3    : constant integer := 3;
+Port4    : constant integer := 4;
+
+-- Analog Output Card Aliases
+
+-- Digital I/O Aliases
+DIOCRD0  : constant integer := 0;
+RELAY1   : constant integer := 1;
+RELAY2   : constant integer := 2;
+RELAY3   : constant integer := 3;
+RELAY4   : constant integer := 4;
+DIO0_7   : constant integer := 7;
+DIO0_8   : constant integer := 8;
+DIO0_9   : constant integer := 9;
+DIO0_10  : constant integer := 10;
+DIO0_11  : constant integer := 11;
+DIO0_12  : constant integer := 12;
+DIO0_13  : constant integer := 13;
+DIO0_14  : constant integer := 14;
+DIO0_15  : constant integer := 15;
+DIO0_16  : constant integer := 16;
+DIO0_17  : constant integer := 17;
+DIO0_18  : constant integer := 18;
+DIO0_19  : constant integer := 19;
+DIO0_20  : constant integer := 20;
+DIO0_21  : constant integer := 21;
+DIO0_22  : constant integer := 22;
+DIO0_23  : constant integer := 23;
+DIO0_24  : constant integer := 24;
+
+-- Database Type Definitions and Field Aliases
+type TruckDatabase is Database ("Truck")
+	ID       : string;
+	Pri_Wgt  : real;
+	Sec_Wgt  : real;
+	Ter_Wgt  : real;
+	TimeDate : datetime;
+	Scale    : integer;
+	Keyed    : integer;
+end database;
+
+Truck_ID          : constant integer := 1;
+Truck_Pri_Wgt     : constant integer := 2;
+Truck_Sec_Wgt     : constant integer := 3;
+Truck_Ter_Wgt     : constant integer := 4;
+Truck_TimeDate    : constant integer := 5;
+Truck_Scale       : constant integer := 6;
+Truck_Keyed       : constant integer := 7;
+
+type PesajesDatabase is Database ("Pesajes")
+	Pesada   : string;
+	Bascula  : string;
+	Categ    : string;
+	Fecha    : string;
+	Hora     : string;
+	Peso     : string;
+end database;
+
+Pesajes_Pesada    : constant integer := 1;
+Pesajes_Bascula   : constant integer := 2;
+Pesajes_Categ     : constant integer := 3;
+Pesajes_Fecha     : constant integer := 4;
+Pesajes_Hora      : constant integer := 5;
+Pesajes_Peso      : constant integer := 6;
+
+type PruebasDatabase is Database ("Pruebas")
+	PesoMin  : string;
+	PesoMax  : string;
+	Bascula  : integer;
+	Tipo     : integer;
+end database;
+
+Pruebas_PesoMin   : constant integer := 1;
+Pruebas_PesoMax   : constant integer := 2;
+Pruebas_Bascula   : constant integer := 3;
+Pruebas_Tipo      : constant integer := 4;
+
+type CategoDatabase is Database ("Catego")
+	Categ    : string;
+	Min      : string;
+	Max      : string;
+end database;
+
+Catego_Categ      : constant integer := 1;
+Catego_Min        : constant integer := 2;
+Catego_Max        : constant integer := 3;
+
+type CatDiaDatabase is Database ("CatDia")
+	Fecha    : string;
+	Cat1     : string;
+	Cat2     : string;
+	Cat3     : string;
+	Cat4     : string;
+end database;
+
+CatDia_Fecha      : constant integer := 1;
+CatDia_Cat1       : constant integer := 2;
+CatDia_Cat2       : constant integer := 3;
+CatDia_Cat3       : constant integer := 4;
+CatDia_Cat4       : constant integer := 5;
+
+type Pesajes2Database is Database ("Pesajes2")
+	Pesada   : string;
+	Bascula  : string;
+	Categor  : string;
+	Fecha    : string;
+	Hora     : string;
+	Peso     : string;
+end database;
+
+Pesajes2_Pesada   : constant integer := 1;
+Pesajes2_Bascula  : constant integer := 2;
+Pesajes2_Categor  : constant integer := 3;
+Pesajes2_Fecha    : constant integer := 4;
+Pesajes2_Hora     : constant integer := 5;
+Pesajes2_Peso     : constant integer := 6;
+
+type CatDia2Database is Database ("CatDia2")
+	Fecha    : string;
+	Cat1     : string;
+	Cat2     : string;
+	Cat3     : string;
+	Cat4     : string;
+end database;
+
+CatDia2_Fecha     : constant integer := 1;
+CatDia2_Cat1      : constant integer := 2;
+CatDia2_Cat2      : constant integer := 3;
+CatDia2_Cat3      : constant integer := 4;
+CatDia2_Cat4      : constant integer := 5;
+
+type CalDatabase is Database ("Cal")
+	Rodo     : integer;
+	Bascula  : integer;
+	Peso     : real;
+end database;
+
+Cal_Rodo          : constant integer := 1;
+Cal_Bascula       : constant integer := 2;
+Cal_Peso          : constant integer := 3;
+
+
+
+
+--$END  D:\EMPRESAS\AVICOLA\Config.iri
+--$START  D:\EMPRESAS\AVICOLA\Estructuras.iri
+type BasculaData is
+record
+  LecMin : real;
+  LecMax : real;
+  CeroBascula : real;
+  Bajando : integer;
+  Contador : integer;
+  EsPrimerLectura : integer;  -- Nueva variable añadida
+end record;
+--$END  D:\EMPRESAS\AVICOLA\Estructuras.iri
+--$START  D:\EMPRESAS\AVICOLA\Variables.iri
+-- Variables de Bases de Datos       
+                             
+BD1_Conteo :  CatDiaDatabase;
+BD2_Conteo :  CatDia2Database;
+BD_Categoria : CategoDatabase;  
+BD_Pruebas : PruebasDatabase; 
+BD_Cal : CalDatabase;
+
+Basc : integer := 0;    
+
+-- Variables de Estructuras
+type MatrizPesos2 is array [4, 200] of real;
+Bascula1 : BasculaData; 
+Bascula2 : BasculaData;
+Bascula3 : BasculaData;
+Bascula4 : BasculaData;   
+type Basculas2 is array [4] of BasculaData; 
+Basculas : Basculas2;
+MatrizPesos : MatrizPesos2;  
+type Pesos is array[4] of real;
+
+Timer1: integer := 0;
+Timer2: integer := 0;
+Timer3: integer := 0;
+Timer4: integer := 0;
+Timer5: integer := 0;
+Timer6: integer := 0;
+Timer7: integer := 0;
+Timer8: integer := 0;
+
+PruebasMax : real := 0;
+PruebasMin : real := 0;
+
+Bascula : integer := 1;
+Cantidad : integer := 0;
+PesoPrueba7 : real := 0;
+MinPrueba : real := 0;
+
+Categoria1Min : stored real := 1;
+Categoria2Min : stored real := 1;
+Categoria3Min : stored real := 1;
+Categoria4Min : stored real := 2; 
+                                   
+Categoria1Max : stored real := 15;
+Categoria2Max : stored real := 8;
+Categoria3Max : stored real := 15;
+Categoria4Max : stored real := 15;
+                                  
+cantCategoria1 : stored integer := 0;
+cantCategoria2 : stored integer := 0;
+cantCategoria3 : stored integer := 0;
+cantCategoria4 : stored integer := 0;    
+
+FechaGlobal : stored string;
+ 
+Velocidad : stored integer := 15;
+Accion : stored integer := 5;
+Contrasena : stored integer := 1743;                                                             
+                                  
+BasesDeDatos : stored integer := 1;
+                                   
+PromptN : integer := 0;
+PantallaActual : integer := 0;   
+PantallaAnterior :  integer := 0;  
+
+-- Variables Estaticas 
+
+APAGADO :integer := 0;
+ENCENDIDO :integer := 1;
+PantallaPresentacion :integer := 3;
+PantallaPruebas : integer := 2;
+PantallaPrincipal : integer := 1;          
+PantallaCategoria : integer := 4;
+PantallaVelocidad : integer := 5;
+--$END  D:\EMPRESAS\AVICOLA\Variables.iri
+--$START  D:\EMPRESAS\AVICOLA\Procedimientos.iri
+type    FechaHora	is  (Fecha,Hora);  
+  
+  function ArreglaDato(DatoEntrada : integer):string; --Funcion Revisada y Terminada
+ DatoSalida  : string;
+ begin
+    DatoSalida := IntegerToString(DatoEntrada,1);
+    return("0" + DatoSalida);
+end;
+
+function ObtenerFechaHora(Retorno : FechaHora) : string; --Funcion Revisada y Terminada
+ DT          : datetime;
+ Year_i      : integer;
+ Mes_i       : integer;             
+ Dia_i       : integer;
+ Hora_i      : integer;
+
+ Minuto_i    : integer;
+ Segundo_i   : integer;
+ Hora_s      : string;
+ Minuto_s    : string;
+ Segundo_s   : string;
+ Dia_s       : string;
+ Mes_s       : string;
+ Year_s      : string;
+ Dato_i      : integer;
+ Dato_s      : string;
+ begin
+    DT := SystemTime;
+    GetDate(DT,Year_i,Mes_i,Dia_i);
+    Year_i := (2000 + Year_i);
+    GetTime(DT,Hora_i,Minuto_i,Segundo_i);
+    DT := SystemTime;
+    Hora_s    := IntegerToString(Hora_i,2);
+    Minuto_s  := IntegerToString(Minuto_i,2);
+    Segundo_s := IntegerToString(Segundo_i,2);
+    Mes_s     := IntegerToString(Mes_i,2);
+    Dia_s     := IntegerToString(Dia_i,2);
+    if Hora_i<=9 then
+        Hora_s := ArreglaDato(Hora_i);
+    end if;
+    if Minuto_i<=9 then
+        Minuto_s := ArreglaDato(Minuto_i);
+    end if;
+    if Segundo_i<=9 then
+        Segundo_s := ArreglaDato(Segundo_i);
+    end if;
+    if Dia_i<=9 then
+        Dia_s := ArreglaDato(Dia_i);
+    end if;
+    if Mes_i<=9 then
+        Mes_s := ArreglaDato(Mes_i);
+    end if;
+    Year_s := IntegerToString(Year_i,4); 
+    if Retorno = Fecha then
+        return(Dia_s + "/" + Mes_s + "/" + Right$(Year_s,2));
+    else 
+        return(Hora_s + ":" + Minuto_s + ":" + Segundo_s);
+    end if;
+end;
+
+procedure Temporizador(T : integer; ON : OnOffType; TM : TimerMode; V : integer); --Funcion Revisada y Terminada
+ begin
+	if On = VOn then
+		SetTimer(T,V); SetTimerMode(T,TM); StartTimer(T);  
+		
+	else
+ 		StopTimer(T); ResetTimer(T);
+    end if;
+ end;
+ 
+ procedure CargarCategorias;
+ begin
+      BD_Categoria.GetFirst;
+      Categoria1Min := StringToReal(BD_Categoria.Min);
+      Categoria1Max := StringToReal(BD_Categoria.Max);  
+      
+      BD_Categoria.GetNext;
+      Categoria2Min := StringToReal(BD_Categoria.Min);
+      Categoria2Max := StringToReal(BD_Categoria.Max);
+      
+      BD_Categoria.GetNext;
+      Categoria3Min := StringToReal(BD_Categoria.Min);
+      Categoria3Max := StringToReal(BD_Categoria.Max);
+      
+      BD_Categoria.GetNext;
+      Categoria4Min := StringToReal(BD_Categoria.Min);
+      Categoria4Max := StringToReal(BD_Categoria.Max);
+ end;               
+
+-- Este codigo se usa principalmente para actualizar los SoftKeys
+procedure ActualizarData(Pantalla : integer);
+begin
+  if pantalla = 1 then   
+        --InitPollito;
+        --DrawGraphic(1, 250, 10, g_r,Black);
+        SetSoftkeyText(1,"Categoria");
+        SetSoftkeyText(2,"Velocidad");
+        SetSoftkeyText(3,"Pruebas");
+        SetSoftkeyText(4,"Limpiar");
+        SetSoftkeyText(5,"");
+        
+        SetLabelText(cont1, IntegerToString(CantCategoria1,2));
+        SetLabelText(cont2, IntegerToString(CantCategoria2,2));
+        SetLabelText(cont3, IntegerToString(CantCategoria3,2));
+        SetLabelText(cont4, IntegerToString(CantCategoria4,2));
+           
+  elsif pantalla = 2 then      
+        SetSoftkeyText(1,"Piston 1");
+        SetSoftkeyText(2,"Piston 2");
+        SetSoftkeyText(3,"Piston 3");
+        SetSoftkeyText(4,"Piston 4");
+        SetSoftkeyText(5,"Salir");
+  elsif pantalla = 3 then
+        SetSoftkeyText(1,"Velocidad");
+        SetSoftkeyText(2,"");
+        SetSoftkeyText(3,"");
+        SetSoftkeyText(4,"");
+   elsif pantalla = 4 then
+        --InitGranjero;
+        --DrawGraphic(1,230,100,g_Granjero,Black);
+        SetSoftkeyText(1,"Peso 1");
+        SetSoftkeyText(2,"Peso 2");  
+        SetSoftkeyText(3,"Peso 3");
+        SetSoftkeyText(4,"Peso 4"); 
+        SetSoftkeyText(5,"Salir");
+        
+        SetLabelText(cat1, "Categoria 1: " + RealToString(Categoria1Min,2,3) + "-" + RealToString(Categoria1Max,2,3) + " lb");
+        SetLabelText(cat2, "Categoria 2: " + RealToString(Categoria2Min,2,3) + "-" + RealToString(Categoria2Max,2,3) + " lb");
+        SetLabelText(cat3, "Categoria 3: " + RealToString(Categoria3Min,2,3) + "-" + RealToString(Categoria3Max,2,3) + " lb");
+        SetLabelText(cat4, "Categoria 4: " + RealToString(Categoria4Min,2,3) + "-" + RealToString(Categoria4Max,2,3) + " lb");   
+   
+    elsif pantalla = 5 then
+        --InitGranjero;
+        --DrawGraphic(1,230,100,g_Granjero,Black);
+        SetSoftkeyText(1,"V. Activ.");
+        SetSoftkeyText(2,"T. Piston");  
+        SetSoftkeyText(3,"");
+        SetSoftkeyText(4,""); 
+        SetSoftkeyText(5,"Salir");
+        
+        SetLabelText(vel1, "Vel. de Activacion: " + IntegerToString(Velocidad,2));
+        SetLabelText(vel2, "Tiempo del Piston: " + IntegerToString(Accion,2));            
+    elsif pantalla = 7 then
+        --InitGranjero;
+        --DrawGraphic(1,230,100,g_Granjero,Black);
+        SetSoftkeyText(1,"Bascula");
+        SetSoftkeyText(2,"Peso");  
+        SetSoftkeyText(3,"Reset");
+        SetSoftkeyText(4,""); 
+        SetSoftkeyText(5,"Salir");
+        
+        SetLabelText(cant7, "Cantidad: " + IntegerToString(Cantidad,2));
+        SetLabelText(peso7, "Peso: " + IntegerToString(PesoPrueba7,2));   
+  end if; 
+end;
+    
+
+function Estable(scale : integer): SysCode;          --Funcion Revisada y Terminada
+ M   : integer;
+ S	 : integer;
+ begin
+    InMotion(scale,M);
+    if M = 0 then
+        return(SysOk);
+    else
+        return(SysInvalidScale);
+    end if;
+end;    
+
+procedure CambiarPantalla(pantalla : integer);
+begin
+  PantallaAnterior := PantallaActual;
+  PantallaActual := pantalla;
+  SelectScreen(pantalla);
+  ActualizarData(pantalla);
+end;                        
+
+procedure ApagarTodosLosPistones;
+begin
+       
+    -- Apagando los BITS EL 1 Se Considera Apagado
+    if SetDigout (0, 1, APAGADO) = SysOk then
+      DisplayStatus("Apagando el Bit 1"); 
+    else
+      DisplayStatus("Error");
+    end if;   
+  
+    if SetDigout(0,2,APAGADO) = SysOk then
+      DisplayStatus("Apagando el Bit 2");
+    else
+      DisplayStatus("Error");
+    end if; 
+  
+    if SetDigout(0,3,APAGADO) = SysOk then
+     DisplayStatus("Apagando el Bit 3");
+    else
+      DisplayStatus("Error");
+    end if; 
+  
+    if SetDigout(0,4,APAGADO) = SysOk then
+      DisplayStatus("Apagando el Bit 4");
+    else
+      DisplayStatus("Error");
+    end if;
+end;
+
+procedure ApagarTodosLosSetPoints;
+begin
+    DisableSP(1);
+    DisableSP(2);
+    DisableSP(3);
+    DisableSP(4);
+end;
+
+procedure EncenderTodosLosSetPoints;
+begin   
+    EnableSP(1);
+    EnableSP(2);
+    EnableSP(3);
+    EnableSP(4);
+end;             
+
+procedure EncederTodosLosTemporizadores;
+begin
+      --Temporizador de Prueba
+      --Temporizador(14, VOn, TimerContinuous, 1);
+      
+      --Lectura de Pollo
+      Temporizador(1, VOn, TimerContinuous, 1);
+      Temporizador(3, VOn, TimerContinuous, 1);
+      Temporizador(5, VOn, TimerContinuous, 1);
+      Temporizador(7, VOn, TimerContinuous, 1); 
+      
+      --Temporizador(13, VOn, TimerContinuous, 5000);
+end;
+
+procedure EncenderPiston(piston : integer);
+begin
+  
+  if piston = 1 then
+    SetDigout(0,1,ENCENDIDO);
+    
+  elsif piston = 2 then
+    SetDigout(0,2,ENCENDIDO);
+    
+  elsif piston = 3 then
+    SetDigout(0,3,ENCENDIDO);
+  
+  elsif piston = 4 then
+    SetDigout(0,4,ENCENDIDO);
+  end if;
+end;
+       
+       
+procedure ApagarPiston(piston : integer);
+begin  
+  if piston = 1 then
+    SetDigout(0,1,APAGADO);
+    
+  elsif piston = 2 then
+    SetDigout(0,2,APAGADO);
+    
+  elsif piston = 3 then
+    SetDigout(0,3,APAGADO);
+  
+  elsif piston = 4 then
+    SetDigout(0,4,APAGADO);
+  end if;
+end; 
+           
+-- Esto no se debe tocar más                         
+procedure BotarPollo(piston: integer);
+begin  
+   if piston = 1 then
+    EncenderPiston(1);
+    Temporizador(9, VOn, TimerOneShot, Velocidad);    
+  elsif piston = 2 then
+    EncenderPiston(2);
+    Temporizador(10, VOn, TimerOneShot, Velocidad);
+  elsif piston = 3 then
+    EncenderPiston(3);
+    Temporizador(11, VOn, TimerOneShot, Velocidad);
+  elsif piston = 4 then
+    EncenderPiston(4);
+    Temporizador(12, VOn, TimerOneShot, Velocidad);
+  end if;
+  end;
+  
+  function BuscarFecha : integer;
+  contador : integer := 1;
+  begin
+      if BasesDeDatos = 1 then
+        BD1_Conteo.GetFirst;
+        
+        if BD1_Conteo.Fecha = FechaGlobal then
+          return contador;
+        else
+          while(BD1_Conteo.GetNext <> SysNoSuchRecord)
+          loop
+             contador := contador + 1;
+              if BD1_Conteo.Fecha = FechaGlobal then
+                return contador;
+              end if;
+          end loop;
+          return 0;
+        end if;
+     else
+       BD2_Conteo.GetFirst;
+       
+       if BD2_Conteo.Fecha = FechaGlobal then
+        return contador;
+       else
+        while(BD2_Conteo.GetNext <> SysNoSuchRecord)
+        loop
+           contador := contador + 1;
+            if BD2_Conteo.Fecha = FechaGlobal then
+              return contador;
+            end if;
+        end loop;
+        return 0;
+       end if;
+       
+     end if;
+  end;
+  
+  procedure CargarLosContadores;
+  begin
+      if BasesDeDatos = 1 then
+        BD1_Conteo.GetFirst;
+        
+        if BD1_Conteo.Fecha = FechaGlobal then
+          cantCategoria1 := StringToInteger(BD1_Conteo.Cat1);
+          cantCategoria2 := StringToInteger(BD1_Conteo.Cat2);
+          cantCategoria3 := StringToInteger(BD1_Conteo.Cat3);
+          cantCategoria4 := StringToInteger(BD1_Conteo.Cat4);  
+        else
+          while(BD1_Conteo.GetNext <> SysNoSuchRecord)
+          loop
+              if BD1_Conteo.Fecha = FechaGlobal then
+                cantCategoria1 := StringToInteger(BD1_Conteo.Cat1);
+                cantCategoria2 := StringToInteger(BD1_Conteo.Cat2);
+                cantCategoria3 := StringToInteger(BD1_Conteo.Cat3);
+                cantCategoria4 := StringToInteger(BD1_Conteo.Cat4);
+              end if;
+          end loop;
+          cantCategoria1 := 0;
+          cantCategoria2 := 0;
+          cantCategoria3 := 0;
+          cantCategoria4 := 0;
+        end if;
+     else
+       BD2_Conteo.GetFirst;
+       
+       if BD2_Conteo.Fecha = FechaGlobal then
+          cantCategoria1 := StringToInteger(BD2_Conteo.Cat1);
+          cantCategoria2 := StringToInteger(BD2_Conteo.Cat2);
+          cantCategoria3 := StringToInteger(BD2_Conteo.Cat3);
+          cantCategoria4 := StringToInteger(BD2_Conteo.Cat4);
+       else
+        while(BD2_Conteo.GetNext <> SysNoSuchRecord)
+        loop
+            if BD2_Conteo.Fecha = FechaGlobal then
+              cantCategoria1 := StringToInteger(BD2_Conteo.Cat1);
+              cantCategoria2 := StringToInteger(BD2_Conteo.Cat2);
+              cantCategoria3 := StringToInteger(BD2_Conteo.Cat3);
+              cantCategoria4 := StringToInteger(BD2_Conteo.Cat4);
+            end if;
+        end loop;
+        cantCategoria1 := 0;
+        cantCategoria2 := 0;
+        cantCategoria3 := 0;
+        cantCategoria4 := 0;
+       end if;
+       
+     end if;
+  end;      
+  
+ procedure ModoPruebas;
+ begin
+      -- Temporizador(18, VOn, TimerContinuous, 1);
+      CambiarPantalla(2);     
+ end;
+
+  procedure GuardarEnBD;
+  begin
+      if BasesDeDatos = 1 then
+        if BD1_Conteo.GetFirst <> SysNoSuchRecord then
+         
+        if BD1_Conteo.Fecha = FechaGlobal then
+            BD1_Conteo.Cat1 := IntegerToString(cantCategoria1,6);
+            BD1_Conteo.Cat2 := IntegerToString(cantCategoria2,6);
+            BD1_Conteo.Cat3 := IntegerToString(cantCategoria3,6);
+            BD1_Conteo.Cat4 := IntegerToString(cantCategoria4,6); 
+            BD1_Conteo.Update; 
+            DisplayStatus("Registro 1 Actualizado");
+        else
+          while(BD1_Conteo.GetNext <> SysNoSuchRecord)
+          loop
+              if BD1_Conteo.Fecha = FechaGlobal then
+                BD1_Conteo.Cat1 := IntegerToString(cantCategoria1,6);
+                BD1_Conteo.Cat2 := IntegerToString(cantCategoria2,6);
+                BD1_Conteo.Cat3 := IntegerToString(cantCategoria3,6);
+                BD1_Conteo.Cat4 := IntegerToString(cantCategoria4,6); 
+                BD1_Conteo.Update;
+                DisplayStatus("Registro 1 Actualizado"); 
+              end if;
+          end loop;
+            BD1_Conteo.Fecha := FechaGlobal;
+            BD1_Conteo.Cat1 := IntegerToString(cantCategoria1,6);
+            BD1_Conteo.Cat2 := IntegerToString(cantCategoria2,6);
+            BD1_Conteo.Cat3 := IntegerToString(cantCategoria3,6);
+            BD1_Conteo.Cat4 := IntegerToString(cantCategoria4,6); 
+            BD1_Conteo.Add;    
+            DisplayStatus("Registro 1 Añadido");  
+            end if;
+          else
+             BD1_Conteo.Fecha := FechaGlobal;
+            BD1_Conteo.Cat1 := IntegerToString(cantCategoria1,6);
+            BD1_Conteo.Cat2 := IntegerToString(cantCategoria2,6);
+            BD1_Conteo.Cat3 := IntegerToString(cantCategoria3,6);
+            BD1_Conteo.Cat4 := IntegerToString(cantCategoria4,6); 
+            BD1_Conteo.Add;
+            DisplayStatus("Registro 1 Añadido");   
+        end if;
+        
+     else
+       if BD2_Conteo.GetFirst <> SysNoSuchRecord then
+       
+       if BD2_Conteo.Fecha = FechaGlobal then
+            BD2_Conteo.Cat1 := IntegerToString(cantCategoria1,6);
+            BD2_Conteo.Cat2 := IntegerToString(cantCategoria2,6);
+            BD2_Conteo.Cat3 := IntegerToString(cantCategoria3,6);
+            BD2_Conteo.Cat4 := IntegerToString(cantCategoria4,6);
+            BD2_Conteo.Update; 
+            DisplayStatus("Registro 2 Actualizado");
+       else
+        while(BD2_Conteo.GetNext <> SysNoSuchRecord)
+        loop
+            if BD2_Conteo.Fecha = FechaGlobal then
+              BD2_Conteo.Cat1 := IntegerToString(cantCategoria1,6);
+              BD2_Conteo.Cat2 := IntegerToString(cantCategoria2,6);
+              BD2_Conteo.Cat3 := IntegerToString(cantCategoria3,6);
+              BD2_Conteo.Cat4 := IntegerToString(cantCategoria4,6);
+              BD2_Conteo.Update;
+              DisplayStatus("Registro 2 Actualizado");
+            end if;
+        end loop;
+            BD2_Conteo.Fecha := FechaGlobal;
+            BD2_Conteo.Cat1 := IntegerToString(cantCategoria1,6);
+            BD2_Conteo.Cat2 := IntegerToString(cantCategoria2,6);
+            BD2_Conteo.Cat3 := IntegerToString(cantCategoria3,6);
+            BD2_Conteo.Cat4 := IntegerToString(cantCategoria4,6);
+            BD2_Conteo.Add;
+            DisplayStatus("Registro 2 Añadido"); 
+             end if;
+        else
+                BD2_Conteo.Fecha := FechaGlobal;
+            BD2_Conteo.Cat1 := IntegerToString(cantCategoria1,6);
+            BD2_Conteo.Cat2 := IntegerToString(cantCategoria2,6);
+            BD2_Conteo.Cat3 := IntegerToString(cantCategoria3,6);
+            BD2_Conteo.Cat4 := IntegerToString(cantCategoria4,6);
+            BD2_Conteo.Add;
+            DisplayStatus("Registro 2 Añadido");
+           
+       end if;  
+     end if;                                
+  end;    
+                                                                    
+procedure GuardarPruebasEnBD(BasculaNum : integer; Tipo : integer);
+begin
+    BD_Pruebas.Bascula := Basc;
+    BD_Pruebas.Tipo := Tipo;
+    BD_Pruebas.PesoMin := RealToString(Basculas[Basc].LecMin, 2, 3);
+    
+    BD_Pruebas.PesoMax := RealToString(Basculas[Basc].LecMax, 2, 3); 
+  BD_Pruebas.Add;
+end;    
+
+procedure GuardarEnBDconTara(BasculaNum : integer; Tipo : integer);
+begin
+    BD_Pruebas.Bascula := Basc;
+    BD_Pruebas.Tipo := Tipo;
+    BD_Pruebas.PesoMin := RealToString(Basculas[Basc].LecMin, 2, 3);
+    BD_Pruebas.PesoMax := RealToString(Basculas[Basc].LecMax - MatrizPesos[1, Basculas[Basc].Contador],2, 3); 
+  BD_Pruebas.Add;
+end;                                                                
+
+procedure GuardarTarasEnMatriz;
+contadores : integer := 1 ;
+begin
+    BD_Cal.GetFirst; 
+    MatrizPesos[1, contadores]  :=  BD_Cal.Peso;
+    while(BD_Cal.GetNext <> SysNoSuchRecord or BD_Cal.Rodo < 1)
+    loop 
+        contadores := contadores + 1;
+        MatrizPesos[1, contadores]  :=  BD_Cal.Peso;    
+    end loop;
+end;
+
+procedure VerificarPeso(Bascula : integer);     
+Diferencia : real;
+begin            
+   if Bascula = 1 then
+  Diferencia := Bascula1.LecMax - Bascula1.CeroBascula;
+  if Diferencia >= Categoria1Min and Diferencia < Categoria1Max then
+    cantCategoria1 := cantCategoria1 + 1;
+    BotarPollo(1);
+  end if;
+elsif Bascula = 2 then
+  Diferencia := Bascula2.LecMax - Bascula2.CeroBascula;
+  if Diferencia >= Categoria1Min and Diferencia < Categoria1Max then
+    cantCategoria1 := cantCategoria1 + 1;
+    BotarPollo(2);
+  end if;
+elsif Bascula = 3 then
+  Diferencia := Bascula3.LecMax - Bascula3.CeroBascula;
+  if Diferencia >= Categoria1Min and Diferencia < Categoria1Max then
+    cantCategoria1 := cantCategoria1 + 1;
+    BotarPollo(3);
+  end if;
+elsif Bascula = 4 then
+  Diferencia := Bascula4.LecMax - Bascula4.CeroBascula;
+  if Diferencia >= Categoria1Min and Diferencia < Categoria1Max then
+    cantCategoria1 := cantCategoria1 + 1;
+    BotarPollo(4);
+  end if;
+end if;
+end;
+
+procedure InicializarBasculas;
+begin
+    -- Inicializa los valores de la báscula 1
+    GetNet(1, Primary, Bascula1.LecMin);
+    GetNet(1, Primary, Bascula1.LecMax); 
+
+    -- Inicializa los valores de la báscula 2
+    GetNet(2, Primary, Bascula2.LecMin);
+    GetNet(2, Primary, Bascula2.LecMax); 
+
+    -- Inicializa los valores de la báscula 3
+    GetNet(3, Primary, Bascula3.LecMin);
+    GetNet(3, Primary, Bascula3.LecMax); 
+
+    -- Inicializa los valores de la báscula 4
+    GetNet(4, Primary, Bascula4.LecMin);
+    GetNet(4, Primary, Bascula4.LecMax); 
+end;                                                                                
+
+procedure calibrandorodos;
+begin            
+    Basc := 1;
+    Basculas[Basc].Contador := 0;
+    Temporizador(19, VOn, TimerContinuous, 10);
+end;
+
+--$END  D:\EMPRESAS\AVICOLA\Procedimientos.iri
+--$START  D:\EMPRESAS\AVICOLA\SetPoints.iri
+handler Sp1Trip;
+--Declaration Section
+Peso : real;
+begin 
+    DisplayStatus("Primer SetPoint");
+    cantCategoria1 := cantCategoria1 + 1;   
+    SetLabelText(cont1, IntegerToString(cantCategoria1,4));  
+   GetNet(1,Primary, Peso); 
+   
+  if(Peso >= Categoria1Min and Peso <= Categoria1Max) then
+      DisplayStatus("Bascula 2: " + RealToString(Peso,2,2));
+      --BotarPollo(1);      
+  end if;
+    -- Verificar Rangos
+    -- if(GetNet >= Categoria1Min and GetNet
+    return;
+
+end;         
+
+handler Sp2Trip;
+--Declaration Section
+Peso : real;
+begin
+    DisplayStatus("Segundo SetPoint"); 
+    cantCategoria2 := cantCategoria2 + 1;
+    SetLabelText(cont2, IntegerToString(cantCategoria2,4)); 
+    
+    GetNet(2,Primary, Peso);
+    
+    if(Peso >= Categoria2Min and Peso <= Categoria2Max) then
+      DisplayStatus("Bascula 2: " + RealToString(Peso,2,2));
+      --BotarPollo(1);      
+    end if;
+     
+    return;
+
+end;
+
+handler Sp3Trip;
+--Declaration Section
+Peso : real;
+begin
+    DisplayStatus("Tercer SetPoint"); 
+    cantCategoria3 := cantCategoria3 + 1;
+    SetLabelText(cont3, IntegerToString(cantCategoria3,4));
+    GetNet(3,Primary, Peso); 
+    
+     if(Peso >= Categoria3Min and Peso <= Categoria3Max) then
+      DisplayStatus("Bascula 3: " + RealToString(Peso,2,2));
+      --BotarPollo(1); 
+           
+    end if;  
+     
+    return;
+
+end;
+
+handler Sp4Trip;
+--Declaration Section
+Peso : real;
+begin
+    DisplayStatus("Bascula 4: " + RealToString(Peso,2,2));  
+    
+    cantCategoria4 := cantCategoria4 + 1;  
+    SetLabelText(cont4, IntegerToString(cantCategoria4,4));
+    
+    GetNet(4,Primary, Peso);
+    
+     if(Peso >= Categoria4Min and Peso <= Categoria4Max) then
+      DisplayStatus("Bascula 4: " + RealToString(Peso,2,2));
+      BotarPollo(1);      
+     end if;
+     
+    return;
+
+end;
+
+--$END  D:\EMPRESAS\AVICOLA\SetPoints.iri
+--$START  D:\EMPRESAS\AVICOLA\Teclas.iri
+handler N0Keypressed;
+begin
+   ModoPruebas;
+end;
+                  
+handler N1Keypressed;
+begin
+  ZeroScale(1);
+end;
+
+handler N2Keypressed;
+begin
+   ZeroScale(2);
+end;
+
+handler N3Keypressed;
+begin
+    ZeroScale(3);
+end;                     
+
+handler N4Keypressed;
+begin
+   Temporizador(13, VOn, TimerOneShot, Accion);
+end;
+
+handler N5Keypressed; 
+begin
+  Temporizador(14, VOn, TimerOneShot, Accion);
+end;
+  
+handler N6Keypressed;
+begin
+    Temporizador(15, VOn, TimerOneShot, Accion);
+end;
+                  
+handler N7Keypressed;
+begin
+    Temporizador(16, VOn, TimerOneShot, Accion);
+end;
+                         
+handler N8Keypressed;
+begin
+    StopTimer(19);
+    CambiarPantalla(PantallaPrincipal);
+end;
+   
+handler N9Keypressed;
+begin
+    calibrandoRodos;
+end;
+--$END  D:\EMPRESAS\AVICOLA\Teclas.iri
+--$START  D:\EMPRESAS\AVICOLA\SoftKeys.iri
+handler User1Keypressed;
+begin
+    if PantallaActual = 1 then
+      CambiarPantalla(PantallaCategoria); 
+    elsif PantallaActual = 2 then
+      Basc := 1;  
+      Basculas[1].Contador := 0;
+      Temporizador(18, VOn, TimerContinuous, 10);
+    elsif PantallaActual = 4 then
+       PromptN := 1;
+       PromptUser("Rango Minimo: ");
+    elsif PantallaActual = 5 then
+       PromptN := 9;
+       PromptUser("V. Activacion: ");    
+    elsif PantallaActual = 7 then
+       PromptN := 13;
+       PromptUser("Bascula");
+    else
+      DisplayStatus("OtraCosa");
+    end if;
+end;  
+
+handler User2Keypressed;
+begin
+     if PantallaActual = 1 then
+      CambiarPantalla(PantallaVelocidad);
+     elsif PantallaActual = 2 then
+      Basc := 2;
+      Temporizador(18, VOn, TimerContinuous, 10);
+    elsif PantallaActual = 4 then
+       PromptN := 3;
+       PromptUser("Rango Minimo: ");
+    elsif PantallaActual = 5 then
+       PromptN := 10;
+       PromptUser("T. Piston: ");
+    elsif PantallaActual = 7 then
+       PromptN := 12;
+       PromptUser("Peso Minimo: ");
+    else
+      DisplayStatus("OtraCosa");
+    end if;
+end;
+
+handler User3Keypressed;
+begin
+    if PantallaActual = 1 then
+      CambiarPantalla(PantallaPruebas);
+    elsif PantallaActual = 2 then
+      Basc := 3;
+      Temporizador(18, VOn, TimerContinuous, 10); 
+    elsif PantallaActual = 4 then
+       PromptN := 5;
+       PromptUser("Rango Minimo: "); 
+    elsif PantallaActual = 4 then
+       PromptN := 5;
+       PromptUser("Rango Minimo: ");
+    elsif PantallaActual = 7 then
+      Cantidad := 0;
+      PesoPrueba7 := 0;
+    else
+      DisplayStatus("OtraCosa");
+    end if;
+end;
+
+handler User4Keypressed;
+begin
+    if PantallaActual = 1 then
+      cantCategoria1 := 0;
+      cantCategoria2 := 0;
+      cantCategoria3 := 0;
+      cantCategoria4 := 0;  
+       
+    elsif PantallaActual = 2 then
+      Basc := 4;
+      Temporizador(18, VOn, TimerContinuous, 10);
+    elsif PantallaActual = 4 then
+       PromptN := 7;
+       PromptUser("Rango Minimo: ");
+    else
+      DisplayStatus("OtraCosa");
+    end if;
+end;
+
+handler User5Keypressed;
+begin
+    if PantallaActual = 1 then
+      CambiarPantalla(PantallaPrincipal);
+    elsif PantallaActual = 2 then
+      StopTimer(18);
+      CambiarPantalla(PantallaPrincipal);
+    elsif PantallaActual = 4 then
+      CambiarPantalla(PantallaPrincipal);
+    elsif PantallaActual = 5 then
+      CambiarPantalla(PantallaPrincipal);    
+    elsif PantallaActual = 7 then
+      CambiarPantalla(PantallaPrincipal); 
+    else
+      DisplayStatus("No se Puede Salir");
+    end if;
+end;           
+
+--$END  D:\EMPRESAS\AVICOLA\SoftKeys.iri
+--$START  D:\EMPRESAS\AVICOLA\Comandos.iri
+handler Cmd1Handler;
+--Recepcion de Informacion
+begin
+    BasesDeDatos := 1;
+    DisplayStatus("Cambio de Base 1");
+end;             
+
+handler Cmd2Handler;
+--Configuracion de Bascula
+begin
+  BasesDeDatos := 2;
+  DisplayStatus("Cambio de Base 2");
+end;  
+
+handler Cmd3Handler;
+--Configuracion de Bascula
+begin
+ CargarCategorias;
+end;
+                          
+
+--$END  D:\EMPRESAS\AVICOLA\Comandos.iri
+--$START  D:\EMPRESAS\AVICOLA\Temporizadores.iri
+handler Timer1Trip;
+Peso : real;
+begin 
+     --Obtiene el peso de la bascula 1
+     GetNet(1,Primary,Peso);   
+                                                     
+     if Peso < (Bascula1.CeroBascula + 0.5) then 
+        if Bascula1.Bajando = 0 then
+           --Un rodo salió
+           VerificarPeso(1);
+           Bascula1.LecMax := Bascula1.CeroBascula;
+           Bascula1.Bajando := 1;        
+        end if; 
+     else
+         Bascula1.Bajando := 0;
+         if Peso > Bascula1.LecMax then
+            Bascula1.LecMax := Peso;   
+        end if;
+     end if;
+end;
+
+handler Timer2Trip;
+Peso : real;
+begin
+     -- Obtiene el peso de la báscula 2
+     GetNet(2, Primary, Peso);
+
+     if Peso < (Bascula2.CeroBascula + 0.5) then 
+        if Bascula2.Bajando = 0 then
+           -- Un rodillo salió
+           VerificarPeso(2);
+           Bascula2.LecMax := Bascula2.CeroBascula;
+           Bascula2.Bajando := 1;             
+        end if; 
+     else
+         Bascula2.Bajando := 0;
+         if Peso > Bascula2.LecMax then
+            Bascula2.LecMax := Peso;   
+        end if;
+     end if;
+end;
+
+handler Timer3Trip;
+Peso : real;
+begin
+     -- Obtiene el peso de la báscula 3
+     GetNet(3, Primary, Peso);
+
+     if Peso < (Bascula3.CeroBascula + 0.5) then 
+        if Bascula3.Bajando = 0 then
+           -- Un rodillo salió
+           VerificarPeso(3);
+           Bascula3.LecMax := Bascula3.CeroBascula;
+           Bascula3.Bajando := 1;            
+        end if; 
+     else
+         Bascula3.Bajando := 0;
+         if Peso > Bascula3.LecMax then
+            Bascula3.LecMax := Peso;   
+        end if;
+     end if;
+end;
+
+handler Timer4Trip;
+Peso : real;
+begin
+     -- Obtiene el peso de la báscula 4
+     GetNet(4, Primary, Peso);
+
+     if Peso < (Bascula4.CeroBascula + 0.5) then 
+        if Bascula4.Bajando = 0 then
+           -- Un rodillo salió
+           VerificarPeso(4);
+           Bascula4.LecMax := Bascula4.CeroBascula;
+           Bascula4.Bajando := 1;  
+        end if; 
+     else
+         Bascula4.Bajando := 0;
+         if Peso > Bascula4.LecMax then
+            Bascula4.LecMax := Peso;   
+        end if;
+     end if;
+end;
+
+handler Timer5Trip;
+--Declaration Section
+
+begin
+     ApagarPiston(1);
+end;
+
+
+handler Timer6Trip;
+--Declaration Section
+
+begin
+     ApagarPiston(2);
+end;
+
+
+handler Timer7Trip;
+  
+begin
+  ApagarPiston(3);
+end;
+
+             
+handler Timer8Trip;
+--Declaration Section
+
+begin
+     ApagarPiston(4);
+return;
+end;
+
+handler Timer9Trip;
+--Declaration Section
+begin
+     BotarPollo(1);
+return;
+end;
+
+handler Timer10Trip;
+--Declaration Section
+
+begin
+     BotarPollo(2);
+return;
+end;
+
+handler Timer11Trip;
+--Declaration Section
+
+begin
+     BotarPollo(3);
+return;
+end;
+
+handler Timer12Trip;
+--Declaration Section
+
+begin
+     BotarPollo(4);
+return;
+
+end;
+
+handler Timer17Trip;
+--Declaration Section
+
+begin
+     GuardarEnBD;
+return; 
+end;
+
+handler Timer18Trip;
+Peso : real;
+
+begin
+     -- Selecciona la báscula basada en la variable Basc
+     GetNet(Basc, Primary, Peso);
+     
+         if Peso < (Basculas[Basc].LecMin - 0.2) and Basculas[Basc].Bajando = 0 then
+             Basculas[Basc].LecMin := Peso;
+         elsif Basculas[Basc].Bajando = 0 and Peso > (Basculas[Basc].LecMin + 0.2) then
+             DisplayStatus("Subiendo"); 
+             Basculas[Basc].LecMax := Basculas[Basc].LecMin;
+             Basculas[Basc].Bajando := 1;
+         end if;
+         
+         if Peso > (Basculas[Basc].LecMax + 0.2) and Basculas[Basc].Bajando = 1 then 
+             Basculas[Basc].LecMax := Peso;
+         elsif Basculas[Basc].Bajando = 1 and Peso < (Basculas[Basc].LecMax - 0.2) then
+             Basculas[Basc].Bajando := 0;
+             
+             -- Tensión más peso meta
+             if (Basculas[Basc].LecMax - Basculas[Basc].LecMin) > (2) then
+                 SetLabelText(Minimo6, RealToString(Basculas[Basc].LecMin, 2, 3)); 
+                 SetLabelText(Maximo6, RealToString(((Basculas[Basc].LecMax - Basculas[Basc].LecMin) - 7.5), 2, 3)); 
+                 Basculas[Basc].Contador := Basculas[Basc].Contador + 1;
+                 
+                 GuardarPruebasEnBD(Basc,1);
+                 GuardarEnBDconTara(Basc,2);
+             end if; 
+             
+             DisplayStatus("Bajando");
+            Basculas[Basc].LecMin := Basculas[Basc].LecMax;
+         end if;
+         
+end;
+
+handler Timer19Trip;
+Peso : real;
+begin
+    -- Selecciona la báscula basada en la variable Basc (1 a 4)
+    GetNet(Basc, Primary, Peso);
+    
+    -- Usar variables del array para la báscula seleccionada
+    if Peso < (Basculas[Basc].LecMin - 0.2) and Basculas[Basc].Bajando = 0 then
+        Basculas[Basc].LecMin := Peso;
+    elsif Basculas[Basc].Bajando = 0 and Peso > (Basculas[Basc].LecMin + 0.2) then
+        DisplayStatus("Subiendo");
+        Basculas[Basc].LecMax := Basculas[Basc].LecMin;
+        Basculas[Basc].Bajando := 1;
+    end if;
+    
+    if Peso > (Basculas[Basc].LecMax + 0.2) and Basculas[Basc].Bajando = 1 then
+        Basculas[Basc].LecMax := Peso;
+    elsif Basculas[Basc].Bajando = 1 and Peso < (Basculas[Basc].LecMax - 0.2) then
+        Basculas[Basc].Bajando := 0;
+
+        -- Tensión más peso meta
+        if (Basculas[Basc].LecMax - Basculas[Basc].LecMin) > (2) then
+            Basculas[Basc].Contador := Basculas[Basc].Contador + 1;
+            MatrizPesos[Basc, Basculas[Basc].Contador] := Basculas[Basc].LecMax;
+            GuardarPruebasEnBD(Basc,2);
+        end if;
+        
+        DisplayStatus("Bajando");
+        Basculas[Basc].LecMin := Basculas[Basc].LecMax;
+    end if;
+    
+    return;
+end;
+                        
+handler Timer20Trip;                                                    
+Peso : Pesos;        
+i: integer;
+
+begin
+  -- Verifica si todos los contadores son mayores o iguales a 19
+  if (Basculas[1].Contador > 19) and (Basculas[2].Contador >= 19) and (Basculas[3].Contador >= 19) and (Basculas[4].Contador >= 19) then
+    DisplayStatus("TimerDetenido");
+
+  -- Actualiza los valores en los labels
+for i := 1 to 4 
+loop
+    SetLabelText(41 + i, "Cero#" + IntegerToString(i,1) + ": " + RealToString(Basculas[i].CeroBascula, 2, 2));
+end loop;
+    
+    -- Detiene el temporizador 20
+    StopTimer(20);
+  else
+    SetBargraphLevel(40, Basculas[1].Contador * 100 / 19);
+
+    -- Muestra los valores mínimos en la pantalla
+    DisplayStatus("Min1: " + RealToString(Basculas[1].LecMin, 2, 2) +
+                  " Min2: " + RealToString(Basculas[2].LecMin, 2, 2) +
+                  " Min3: " + RealToString(Basculas[3].LecMin, 2, 2) +
+                  " Min4: " + RealToString(Basculas[4].LecMin, 2, 2));
+
+    -- Calibrando las básculas
+    for i := 1 to 4
+    loop
+      GetNet(i, Primary, Peso[i]);
+
+      if Basculas[i].Contador <> 19 then
+        if Peso[i] < (Basculas[i].LecMin - 0.2) and (Basculas[i].Bajando = 0) then
+          Basculas[i].LecMin := Peso[i];
+        elsif (Basculas[i].Bajando = 0) and (Peso[i] > (Basculas[i].LecMin + 0.2)) then
+          Basculas[i].LecMax := Basculas[i].LecMin;
+          Basculas[i].Bajando := 1;
+        end if;
+
+        if Peso[i] > (Basculas[i].LecMax + 0.2) and (Basculas[i].Bajando = 1) then
+          Basculas[i].LecMax := Peso[i];
+        elsif (Basculas[i].Bajando = 1) and (Peso[i] < (Basculas[i].LecMax - 0.2)) then
+          Basculas[i].Bajando := 0;
+          if Basculas[i].EsPrimerLectura = 1 then
+            Basculas[i].EsPrimerLectura := 0;
+          else
+            SetLabelText(41 + i, RealToString(Basculas[i].CeroBascula, 2, 2));
+            Basculas[i].CeroBascula := Basculas[i].CeroBascula + Basculas[i].LecMin;
+            Basculas[i].Contador := Basculas[i].Contador + 1;
+            Basculas[i].LecMin := Basculas[i].LecMax;
+          end if;
+        end if;
+      else
+        Basculas[i].CeroBascula := Basculas[i].CeroBascula / 20.0;
+        Basculas[i].Contador := Basculas[i].Contador + 1;
+      end if;
+    end loop;
+  end if;
+end;
+
+--$END  D:\EMPRESAS\AVICOLA\Temporizadores.iri
+--$START  D:\EMPRESAS\AVICOLA\Entrys.iri
+handler Userentry;
+--Declaration Section
+s : string;
+begin
+    if EnterKey = EventKey then
+      s := GetEntry;       
+           
+    if PromptN = 1 then
+      Categoria1Min := StringToReal(s);
+      ClosePrompt;
+      PromptN := 2;
+      PromptUser("Rango Maximo: ");
+    elsif PromptN = 2 then
+      Categoria1Max := StringToReal(s); 
+      BD_Categoria.GetFirst;  
+      BD_Categoria.Min := RealToString(Categoria1Min,2,3);
+      BD_Categoria.Max := RealToString(Categoria1Max,2,3);
+      BD_Categoria.Update;
+      ClosePrompt;
+      CambiarPantalla(PantallaCategoria);
+      
+    elsif PromptN = 3 then
+      Categoria2Min := StringToReal(s);
+      ClosePrompt;
+      PromptN := 4;
+      PromptUser("Rango Maximo: ");
+    elsif PromptN = 4 then
+      Categoria2Max := StringToReal(s);
+      BD_Categoria.GetFirst;
+      BD_Categoria.GetNext;  
+      BD_Categoria.Min := RealToString(Categoria2Min,2,3);
+      BD_Categoria.Max := RealToString(Categoria2Max,2,3);
+      BD_Categoria.Update;
+      ClosePrompt;
+      CambiarPantalla(PantallaCategoria);
+          
+    elsif PromptN = 5 then
+      Categoria3Min := StringToReal(s);
+      ClosePrompt;
+      PromptN := 6;
+      PromptUser("Rango Maximo: ");
+    elsif PromptN = 6 then
+      Categoria3Max := StringToReal(s);
+      BD_Categoria.GetFirst;  
+      BD_Categoria.GetNext;
+      BD_Categoria.GetNext;
+      BD_Categoria.Min := RealToString(Categoria3Min,2,3);
+      BD_Categoria.Max := RealToString(Categoria3Max,2,3);
+      BD_Categoria.Update;
+      ClosePrompt; 
+      CambiarPantalla(PantallaCategoria);
+      
+    elsif PromptN = 7 then
+      Categoria4Min := StringToReal(s);
+      ClosePrompt;
+      PromptN := 8;
+      PromptUser("Rango Maximo: ");
+    elsif PromptN = 8 then
+      Categoria4Max := StringToReal(s);
+      BD_Categoria.GetFirst;
+      BD_Categoria.GetNext;
+      BD_Categoria.GetNext;
+      BD_Categoria.GetNext;  
+      BD_Categoria.Min := RealToString(Categoria4Min,2,3);
+      BD_Categoria.Max := RealToString(Categoria4Max,2,3);
+      BD_Categoria.Update; 
+      ClosePrompt;
+      CambiarPantalla(PantallaCategoria);
+      
+    elsif PromptN = 9 then
+      Velocidad := StringToInteger(s);
+      ClosePrompt; 
+      CambiarPantalla(PantallaVelocidad);
+    elsif PromptN = 10 then
+      Accion := StringToInteger(s);
+      ClosePrompt;
+      CambiarPantalla(PantallaVelocidad);
+    elsif PromptN = 11 then
+      Contrasena := StringToInteger(s);
+      ClosePrompt;    
+    elsif PromptN = 12 then
+      MinPrueba := StringToInteger(s);
+      ClosePrompt;  
+    elsif PromptN = 13 then
+      Bascula := StringToInteger(s);
+      ClosePrompt;
+    end if;
+   end if;
+end;
+
+--$END  D:\EMPRESAS\AVICOLA\Entrys.iri
+                                                                      
+begin      
+  --CambiarPantalla(PantallaPresentacion);
+  
+  --initINPESA;
+  --DrawGraphic(3,0,30,g_INPESA,Black); 
+  --ProgramDelay(500);      
+  
+  --initAvicola;
+  --DrawGraphic(3,30,0,g_Avicola,Black);   
+  --ProgramDelay(500); 
+
+  -- Primero se apagan todos los pistones 
+  --ApagarTodosLosPistones;   
+  --if FechaGlobal <> "" then
+    --GuardarEnBD;
+  --end if;
+  
+ -- FechaGlobal := ObtenerFechaHora(Fecha);
+  
+  --Extrae la informacion de las categorias
+  ---CargarCategorias;
+  --CambiarPantalla(PantallaPrincipal);
+  
+  --Extrae la informacion de los contadores 
+  --CargarLosContadores;
+  
+  InicializarBasculas;  
+  GuardarTarasEnMatriz;
+  
+  --EncederTodosLosTemporizadores;
+  --SelectScreen(6);   
+  SelectScreen(3);
+  --Temporizador(18, VOn, TimerContinuous, 10);
+  
+      
+end AvicolaLaVida;
+--$END  D:\EMPRESAS\AVICOLA\index.src
+

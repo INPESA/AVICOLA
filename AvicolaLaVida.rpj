@@ -9,6 +9,7 @@ file=D:\EMPRESAS\AVICOLA\Entrys.iri
 file=D:\EMPRESAS\AVICOLA\Temporizadores.iri
 file=D:\EMPRESAS\AVICOLA\Comandos.iri
 file=D:\EMPRESAS\AVICOLA\Config.iri
+file=D:\Empresas\AVICOLA\Estructuras.iri
 retainout=False
 target=et=1
 indtarget=1

@@ -1,26 +1,23 @@
--- Variables de control         
-                                 
+-- Variables de Bases de Datos       
+                             
 BD1_Conteo :  CatDiaDatabase;
 BD2_Conteo :  CatDia2Database;
 BD_Categoria : CategoDatabase;  
-BD_Pruebas : PruebasDatabase;   
+BD_Pruebas : PruebasDatabase; 
+BD_Cal : CalDatabase;
 
-LecMin1 : real := 0;
-LecMax1 : real := 0;
-LecMin2 : real := 0;
-LecMax2 : real := 0;
-LecMin3 : real := 0;
-LecMax3 : real := 0;
-LecMin4 : real := 0;
-LecMax4 : real := 0;
-LecMin5 : real := 0;
-LecMax5 : real := 0;
-LecMin6 : real := 0;
-LecMax6 : real := 0;
-LecMin7 : real := 0;
-LecMax7 : real := 0;
-LecMin8 : real := 0;
-LecMax8 : real := 0;       
+Basc : integer := 0;    
+
+-- Variables de Estructuras
+type MatrizPesos2 is array [4, 200] of real;
+Bascula1 : BasculaData; 
+Bascula2 : BasculaData;
+Bascula3 : BasculaData;
+Bascula4 : BasculaData;   
+type Basculas2 is array [4] of BasculaData; 
+Basculas : Basculas2;
+MatrizPesos : MatrizPesos2;  
+type Pesos is array[4] of real;
 
 Timer1: integer := 0;
 Timer2: integer := 0;
@@ -33,41 +30,32 @@ Timer8: integer := 0;
 
 PruebasMax : real := 0;
 PruebasMin : real := 0;
-Bajando : integer := 0;
 
 Bascula : integer := 1;
 Cantidad : integer := 0;
 PesoPrueba7 : real := 0;
 MinPrueba : real := 0;
-                              
-                                 
+
+Categoria1Min : stored real := 1;
+Categoria2Min : stored real := 1;
+Categoria3Min : stored real := 1;
+Categoria4Min : stored real := 2; 
+                                   
+Categoria1Max : stored real := 15;
+Categoria2Max : stored real := 8;
+Categoria3Max : stored real := 15;
+Categoria4Max : stored real := 15;
+                                  
 cantCategoria1 : stored integer := 0;
 cantCategoria2 : stored integer := 0;
 cantCategoria3 : stored integer := 0;
 cantCategoria4 : stored integer := 0;    
 
 FechaGlobal : stored string;
-
-Categoria1Max : stored real := 15;
-Categoria2Max : stored real := 8;
-Categoria3Max : stored real := 15;
-Categoria4Max : stored real := 15; 
  
 Velocidad : stored integer := 15;
 Accion : stored integer := 5;
-Contrasena : stored integer := 1743;                                  
-                                   
-Categoria1Min : stored real := 1;
-Categoria2Min : stored real := 1;
-Categoria3Min : stored real := 1;
-Categoria4Min : stored real := 2; 
-
-BasculaBloqueada1 : integer := 0;
-BasculaBloqueada2 : integer := 0;
-BasculaBloqueada3 : integer := 0;
-BasculaBloqueada4 : integer := 0;
-
-SetPointLimit : stored real := 1;
+Contrasena : stored integer := 1743;                                                             
                                   
 BasesDeDatos : stored integer := 1;
                                    
@@ -84,31 +72,3 @@ PantallaPruebas : integer := 2;
 PantallaPrincipal : integer := 1;          
 PantallaCategoria : integer := 4;
 PantallaVelocidad : integer := 5;
-                                            
-                                            
-CeroBascula1 : real := 0;       
-CeroBascula2 : real := 0;
-CeroBascula3 : real := 0;
-CeroBascula4 : real := 0;           
-
-contador1 : integer := 0;    
-contador2 : integer := 0;  
-contador3 : integer := 0;  
-contador4 : integer := 0;  
-                                
-Bajando1 : integer := 1;       
-Bajando2 : integer := 1;
-Bajando3 : integer := 1;
-Bajando4 : integer := 1;
-Bajando5 : integer := 1;
-Bajando6 : integer := 1;
-Bajando7 : integer := 1;
-Bajando8 : integer := 1;
-Bajando9 : integer := 1;
-Bajando10 : integer := 1;
-Bajando11 : integer := 1; 
-
-EsPrimerLectura1 : integer := 1;         
-EsPrimerLectura2 : integer := 1;
-EsPrimerLectura3 : integer := 1;
-EsPrimerLectura4 : integer := 1;

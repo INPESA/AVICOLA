@@ -1,346 +1,88 @@
 handler Timer1Trip;
---Declaration Section
 Peso : real;
-Diferencia : real;
 begin 
      --Obtiene el peso de la bascula 1
      GetNet(1,Primary,Peso);   
-     Timer1 := 1;
-                                  
-     --Verifica si el peso está bajando                             
-     if Peso < (LecMin1 - 0.2) and Bajando = 0 then
-          LecMin1 := Peso;
-     --Verifica cuando el peso comienza a subir y configura el nuevo máximo
-     elsif Bajando = 0 and Peso > (LecMin1 + 0.2) then 
-          LecMax1 := LecMin1;
-          Bajando := 1;
-          if Timer2 = 0 then  
-            Temporizador(2, VOn, TimerContinuous, 1); 
-          end if;
+                                                     
+     if Peso < (Bascula1.CeroBascula + 0.5) then 
+        if Bascula1.Bajando = 0 then
+           --Un rodo salió
+           VerificarPeso(1);
+           Bascula1.LecMax := Bascula1.CeroBascula;
+           Bascula1.Bajando := 1;        
+        end if; 
+     else
+         Bascula1.Bajando := 0;
+         if Peso > Bascula1.LecMax then
+            Bascula1.LecMax := Peso;   
+        end if;
      end if;
-         
-     -- El peso está subiendo    
-     if Peso > (LecMax1 + 0.2) and Bajando = 1 then 
-          LecMax1 := Peso;
-          
-     -- En este momento el pollo ya salió     
-     elsif Bajando = 1 and Peso < (LecMax1 - 0.2) then
-          
-          if Timer2 = 1 then
-            StopTimer(1);
-            Timer1 := 0;
-          end if;
-          
-          Bajando := 0;                
-          -- Tensión más peso meta
-          Diferencia := LecMax1 - LecMin1;    
-          DisplayStatus("Bascula 1 = " + RealToString(Diferencia,2,2));
-          if Diferencia > Categoria1Min and Diferencia < Categoria1Max then
-            cantCategoria1 := cantCategoria1 + 1;
-            Temporizador(13, VOn, TimerOneShot, Velocidad);  
-          end if; 
-          
-          LecMin1 := LecMax1;
-     end if;
-   
-    return;
 end;
 
 handler Timer2Trip;
---Declaration Section
 Peso : real;
-Diferencia : real;
-begin 
-     --Obtiene el peso de la bascula 1
-     GetNet(1,Primary,Peso); 
-     Timer2 := 1;
-                                  
-     --Verifica si el peso está bajando                             
-     if Peso < (LecMin2 - 0.2) and Bajando = 0 then
-          LecMin2 := Peso;
-     --Verifica cuando el peso comienza a subir y configura el nuevo máximo
-     elsif Bajando = 0 and Peso > (LecMin2 + 0.2) then 
-          LecMax2 := LecMin2;
-          Bajando := 1; 
-          if Timer1 = 0 then  
-            Temporizador(1, VOn, TimerContinuous, 1); 
-          end if;
+begin
+     -- Obtiene el peso de la báscula 2
+     GetNet(2, Primary, Peso);
+
+     if Peso < (Bascula2.CeroBascula + 0.5) then 
+        if Bascula2.Bajando = 0 then
+           -- Un rodillo salió
+           VerificarPeso(2);
+           Bascula2.LecMax := Bascula2.CeroBascula;
+           Bascula2.Bajando := 1;             
+        end if; 
+     else
+         Bascula2.Bajando := 0;
+         if Peso > Bascula2.LecMax then
+            Bascula2.LecMax := Peso;   
+        end if;
      end if;
-         
-     -- El peso está subiendo    
-     if Peso > (LecMax2 + 0.2) and Bajando = 1 then 
-          LecMax2 := Peso;
-          
-          
-     -- En este momento el pollo ya salió     
-     elsif Bajando = 1 and Peso < (LecMax2 - 0.2) then
-          if Timer1 = 1 then  
-            StopTimer(2); 
-          end if;
-          Bajando := 0;                
-          -- Tensión más peso meta
-          Diferencia := LecMax2 - LecMin2; 
-          DisplayStatus("Bascula 1 T2 = " + RealToString(Diferencia,2,2));
-          if Diferencia > Categoria1Min and Diferencia < Categoria1Max then
-            cantCategoria1 := cantCategoria1 + 1;
-            Temporizador(13, VOn, TimerOneShot, Velocidad);  
-          end if; 
-          
-          LecMin2 := LecMax2;
-     end if;
-   
-    return;
 end;
 
-                       
-                       
 handler Timer3Trip;
---Declaration Section
 Peso : real;
-Diferencia : real;
-begin 
-     --Obtiene el peso de la bascula 2
-     GetNet(2,Primary,Peso);
-                                  
-     --Verifica si el peso está bajando                             
-     if Peso < (LecMin3 - 0.2) and Bajando = 0 then
-          LecMin3 := Peso;
-     --Verifica cuando el peso comienza a subir y configura el nuevo máximo
-     elsif Bajando = 0 and Peso > (LecMin3 + 0.2) then 
-          LecMax3 := LecMin3;
-          Bajando := 1;   
-          Temporizador(4, VOn, TimerContinuous, 1);
+begin
+     -- Obtiene el peso de la báscula 3
+     GetNet(3, Primary, Peso);
+
+     if Peso < (Bascula3.CeroBascula + 0.5) then 
+        if Bascula3.Bajando = 0 then
+           -- Un rodillo salió
+           VerificarPeso(3);
+           Bascula3.LecMax := Bascula3.CeroBascula;
+           Bascula3.Bajando := 1;            
+        end if; 
+     else
+         Bascula3.Bajando := 0;
+         if Peso > Bascula3.LecMax then
+            Bascula3.LecMax := Peso;   
+        end if;
      end if;
-         
-     -- El peso está subiendo    
-     if Peso > (LecMax3 + 0.2) and Bajando = 1 then 
-          LecMax3 := Peso;
-          
-          
-     -- En este momento el pollo ya salió     
-     elsif Bajando = 1 and Peso < (LecMax3 - 0.2) then
-          StopTimer(3);
-          Bajando := 0;                
-          -- Tensión más peso meta
-          Diferencia := LecMax3 - LecMin3;            
-          DisplayStatus("Bascula 2" + RealToString(Diferencia,2,2));
-          if Diferencia > Categoria2Min and Diferencia < Categoria2Max then
-            cantCategoria2 := cantCategoria2 + 1;
-            Temporizador(14, VOn, TimerOneShot, Velocidad);  
-          end if; 
-          
-          LecMin3 := LecMax3;
-     end if;
-   
-    return;
 end;
 
 handler Timer4Trip;
---Declaration Section
 Peso : real;
-Diferencia : real;
-begin 
-     --Obtiene el peso de la bascula 2
-     GetNet(2,Primary,Peso);
-                                  
-     --Verifica si el peso está bajando                             
-     if Peso < (LecMin4 - 0.2) and Bajando = 0 then
-          LecMin4 := Peso;
-     --Verifica cuando el peso comienza a subir y configura el nuevo máximo
-     elsif Bajando = 0 and Peso > (LecMin4 + 0.2) then 
-          LecMax4 := LecMin4;
-          Bajando := 1;  
-          Temporizador(3, VOn, TimerContinuous, 1);
+begin
+     -- Obtiene el peso de la báscula 4
+     GetNet(4, Primary, Peso);
+
+     if Peso < (Bascula4.CeroBascula + 0.5) then 
+        if Bascula4.Bajando = 0 then
+           -- Un rodillo salió
+           VerificarPeso(4);
+           Bascula4.LecMax := Bascula4.CeroBascula;
+           Bascula4.Bajando := 1;  
+        end if; 
+     else
+         Bascula4.Bajando := 0;
+         if Peso > Bascula4.LecMax then
+            Bascula4.LecMax := Peso;   
+        end if;
      end if;
-         
-     -- El peso está subiendo    
-     if Peso > (LecMax4 + 0.2) and Bajando = 1 then 
-          LecMax4 := Peso;
-          
-          
-     -- En este momento el pollo ya salió     
-     elsif Bajando = 1 and Peso < (LecMax4 - 0.2) then
-          StopTimer(4);
-          Bajando := 0;                
-          -- Tensión más peso meta
-          Diferencia := LecMax4 - LecMin4;            
-          DisplayStatus("Bascula 2 T2" + RealToString(Diferencia,2,2));
-          if Diferencia > Categoria2Min and Diferencia < Categoria2Max then
-            cantCategoria2 := cantCategoria2 + 1;
-            Temporizador(14, VOn, TimerOneShot, Velocidad);  
-          end if; 
-          
-          LecMin4 := LecMax4;
-     end if;
-   
-    return;
 end;
 
 handler Timer5Trip;
---Declaration Section
-Peso : real;
-Diferencia : real;
-begin 
-     --Obtiene el peso de la bascula 3
-     GetNet(3,Primary,Peso);
-                                  
-     --Verifica si el peso está bajando                             
-     if Peso < (LecMin3 - 0.2) and Bajando = 0 then
-          LecMin3 := Peso;
-     --Verifica cuando el peso comienza a subir y configura el nuevo máximo
-     elsif Bajando = 0 and Peso > (LecMin3 + 0.2) then 
-          LecMax3 := LecMin3;
-          Bajando := 1;  
-          Temporizador(6, VOn, TimerContinuous, 1);
-     end if;
-         
-     -- El peso está subiendo    
-     if Peso > (LecMax3 + 0.2) and Bajando = 1 then 
-          LecMax3 := Peso;
-         
-          
-     -- En este momento el pollo ya salió     
-     elsif Bajando = 1 and Peso < (LecMax3 - 0.2) then
-          StopTimer(5);
-          Bajando := 0;                
-          -- Tensión más peso meta
-          Diferencia := LecMax3 - LecMin3;            
-          DisplayStatus(RealToString(Diferencia,2,2));
-          if Diferencia > Categoria3Min and Diferencia < Categoria3Max then
-            cantCategoria3 := cantCategoria3 + 1;
-            Temporizador(15, VOn, TimerOneShot, Velocidad);  
-          end if; 
-          
-          LecMin3 := LecMax3;
-     end if;
-   
-    return;
-end;
-
-handler Timer6Trip;
---Declaration Section
-Peso : real;
-Diferencia : real;
-begin 
-     --Obtiene el peso de la bascula 3
-     GetNet(3,Primary,Peso);
-                                  
-     --Verifica si el peso está bajando                             
-     if Peso < (LecMin4 - 0.2) and Bajando = 0 then
-          LecMin4 := Peso;
-     --Verifica cuando el peso comienza a subir y configura el nuevo máximo
-     elsif Bajando = 0 and Peso > (LecMin4 + 0.2) then 
-          LecMax4 := LecMin4;
-          Bajando := 1;   
-          Temporizador(5, VOn, TimerContinuous, 1);
-     end if;
-         
-     -- El peso está subiendo    
-     if Peso > (LecMax4 + 0.2) and Bajando = 1 then 
-          LecMax4 := Peso;
-          
-          
-     -- En este momento el pollo ya salió     
-     elsif Bajando = 1 and Peso < (LecMax4 - 0.2) then
-          StopTimer(6);
-          Bajando := 0;                
-          -- Tensión más peso meta
-          Diferencia := LecMax4 - LecMin4;            
-          DisplayStatus(RealToString(Diferencia,2,2));
-          if Diferencia > Categoria3Min and Diferencia < Categoria3Max then
-            cantCategoria3 := cantCategoria3 + 1;
-            Temporizador(15, VOn, TimerOneShot, Velocidad);  
-          end if; 
-          
-          LecMin4 := LecMax4;
-     end if;
-   
-    return;
-end;
-
-handler Timer7Trip;
---Declaration Section
-Peso : real;
-Diferencia : real;
-begin 
-     --Obtiene el peso de la bascula 4
-     GetNet(4,Primary,Peso);
-                                  
-     --Verifica si el peso está bajando                             
-     if Peso < (LecMin3 - 0.2) and Bajando = 0 then
-          LecMin3 := Peso;
-     --Verifica cuando el peso comienza a subir y configura el nuevo máximo
-     elsif Bajando = 0 and Peso > (LecMin3 + 0.2) then 
-          LecMax3 := LecMin3;
-          Bajando := 1;        
-          Temporizador(8, VOn, TimerContinuous, 1);
-     end if;
-         
-     -- El peso está subiendo    
-     if Peso > (LecMax3 + 0.2) and Bajando = 1 then 
-          LecMax3 := Peso;
-          
-          
-     -- En este momento el pollo ya salió     
-     elsif Bajando = 1 and Peso < (LecMax3 - 0.2) then
-          StopTimer(7);
-          Bajando := 0;                
-          -- Tensión más peso meta
-          Diferencia := LecMax3 - LecMin3;            
-          DisplayStatus(RealToString(Diferencia,2,2));
-          if Diferencia > Categoria4Min and Diferencia < Categoria4Max then
-            cantCategoria4 := cantCategoria4 + 1;
-            Temporizador(16, VOn, TimerOneShot, Velocidad);  
-          end if; 
-          
-          LecMin3 := LecMax3;
-     end if;
-   
-    return;
-end;
-
-handler Timer8Trip;
---Declaration Section
-Peso : real;
-Diferencia : real;
-begin 
-     --Obtiene el peso de la bascula 4
-     GetNet(4,Primary,Peso);
-                                  
-     --Verifica si el peso está bajando                             
-     if Peso < (LecMin4 - 0.2) and Bajando = 0 then
-          LecMin4 := Peso;
-     --Verifica cuando el peso comienza a subir y configura el nuevo máximo
-     elsif Bajando = 0 and Peso > (LecMin4 + 0.2) then 
-          LecMax4 := LecMin4;
-          Bajando := 1;  
-          Temporizador(7, VOn, TimerContinuous, 1);
-     end if;
-         
-     -- El peso está subiendo    
-     if Peso > (LecMax4 + 0.2) and Bajando = 1 then
-          LecMax4 := Peso;
-          
-          
-     -- En este momento el pollo ya salió     
-     elsif Bajando = 1 and Peso < (LecMax4 - 0.2) then
-          StopTimer(8);
-          Bajando := 0;                
-          -- Tensión más peso meta
-          Diferencia := LecMax4 - LecMin4;            
-          DisplayStatus(RealToString(Diferencia,2,2));
-          if Diferencia > Categoria4Min and Diferencia < Categoria4Max then
-            cantCategoria4 := cantCategoria4 + 1;
-            Temporizador(16, VOn, TimerOneShot, Velocidad);  
-          end if; 
-          
-          LecMin4 := LecMax4;
-     end if;
-   
-    return;
-end;
-
-handler Timer9Trip;
 --Declaration Section
 
 begin
@@ -348,7 +90,7 @@ begin
 end;
 
 
-handler Timer10Trip;
+handler Timer6Trip;
 --Declaration Section
 
 begin
@@ -356,14 +98,14 @@ begin
 end;
 
 
-handler Timer11Trip;
+handler Timer7Trip;
   
 begin
   ApagarPiston(3);
 end;
 
              
-handler Timer12Trip;
+handler Timer8Trip;
 --Declaration Section
 
 begin
@@ -371,14 +113,14 @@ begin
 return;
 end;
 
-handler Timer13Trip;
+handler Timer9Trip;
 --Declaration Section
 begin
      BotarPollo(1);
 return;
 end;
 
-handler Timer14Trip;
+handler Timer10Trip;
 --Declaration Section
 
 begin
@@ -386,7 +128,7 @@ begin
 return;
 end;
 
-handler Timer15Trip;
+handler Timer11Trip;
 --Declaration Section
 
 begin
@@ -394,7 +136,7 @@ begin
 return;
 end;
 
-handler Timer16Trip;
+handler Timer12Trip;
 --Declaration Section
 
 begin
@@ -413,197 +155,130 @@ end;
 
 handler Timer18Trip;
 Peso : real;
+
 begin
+     -- Selecciona la báscula basada en la variable Basc
+     GetNet(Basc, Primary, Peso);
      
-     GetNet(2,Primary,Peso);
-     
-     if Peso < (LecMin1 - 0.2) and Bajando = 0 then
-          LecMin1 := Peso;
-     elsif Bajando = 0 and Peso > (LecMin1 + 0.2) then
-          DisplayStatus("Subiendo"); 
-          LecMax1 := LecMin1;
-           Bajando := 1;
-     end if;
-     
-     if Peso > (LecMax1 + 0.2) and Bajando = 1 then 
-          LecMax1 := Peso;
-     elsif Bajando = 1 and Peso < (LecMax1 - 0.2) then
-          Bajando := 0;  
-                             
-                             -- Tension mas peso meta
-          if (LecMax1 - LecMin1) > (3) then
-            SetLabelText(Minimo6, RealToString(LecMin1 ,2,3)); 
-            SetLabelText(Maximo6, RealToString(((LecMax2 - LecMin1) - 7.5) ,2,3)); 
-            GuardarPruebasEnBD;
-          end if; 
-          
-          DisplayStatus("Bajando");
-          LecMin1 := LecMAx1;
-     end if;
-     
-return;
-end;           
+         if Peso < (Basculas[Basc].LecMin - 0.2) and Basculas[Basc].Bajando = 0 then
+             Basculas[Basc].LecMin := Peso;
+         elsif Basculas[Basc].Bajando = 0 and Peso > (Basculas[Basc].LecMin + 0.2) then
+             DisplayStatus("Subiendo"); 
+             Basculas[Basc].LecMax := Basculas[Basc].LecMin;
+             Basculas[Basc].Bajando := 1;
+         end if;
+         
+         if Peso > (Basculas[Basc].LecMax + 0.2) and Basculas[Basc].Bajando = 1 then 
+             Basculas[Basc].LecMax := Peso;
+         elsif Basculas[Basc].Bajando = 1 and Peso < (Basculas[Basc].LecMax - 0.2) then
+             Basculas[Basc].Bajando := 0;
+             
+             -- Tensión más peso meta
+             if (Basculas[Basc].LecMax - Basculas[Basc].LecMin) > (2) then
+                 SetLabelText(Minimo6, RealToString(Basculas[Basc].LecMin, 2, 3)); 
+                 SetLabelText(Maximo6, RealToString(((Basculas[Basc].LecMax - Basculas[Basc].LecMin) - 7.5), 2, 3)); 
+                 Basculas[Basc].Contador := Basculas[Basc].Contador + 1;
+                 
+                 GuardarPruebasEnBD(Basc,1);
+                 GuardarEnBDconTara(Basc,2);
+             end if; 
+             
+             DisplayStatus("Bajando");
+            Basculas[Basc].LecMin := Basculas[Basc].LecMax;
+         end if;
+         
+end;
 
 handler Timer19Trip;
 Peso : real;
-begin              
-
-
-
-    GetNet(Bascula,Primary,Peso);
-     
-     if Peso < (LecMin1 - 0.1) and Bajando = 0 then
-          LecMin1 := Peso;
-     elsif Bajando = 0 and Peso > (LecMin1 + 0.1) then 
-          LecMax1 := LecMin1;
-          Bajando := 1;
-     end if;
-     
-     if Peso > (LecMax1 + 0.1) and Bajando = 1 then 
-          LecMax1 := Peso;
-     elsif Bajando = 1 and Peso < (LecMax1 - 0.1) then
-          Bajando := 0;  
-                             
-          -- Tension mas peso meta
-          if (LecMax1 - LecMin1) >= (8 + MinPrueba)  then
-           
-            Temporizador(9, VOn, TimerOneShot, Accion);
-          
-            Cantidad := Cantidad + 1;    
-            PesoPrueba7 :=   (LecMax1 - LecMin1) - 8;
-            SetLabelText(cant7, IntegerToString(Cantidad,4)); 
-            SetLabelText(peso7, "Peso : "  + RealToString(PesoPrueba7,4,2));  
-          end if; 
-          
-          LecMin1 := LecMax1;
-     end if;    
-end;                                                    
-
-handler Timer20Trip;
-  Peso1 : real;   
-  Peso2 : real;
-  Peso3 : real;
-  Peso4 : real;
-begin             
-             
-  -- Verifica si todos los contadores son mayores o iguales a 19
-  if (contador1 > 19) and (contador2 >= 19) and (contador3 >= 19) and (contador4 >= 19) then
-   
-              DisplayStatus("TimerDetenido");
-    -- Actualiza los valores en los labels        
-        -- Detiene el temporizador 20 
-     SetLabelText(42, RealToString(CeroBascula1, 2, 2));
-    SetLabelText(43, RealToString(CeroBascula2, 2, 2));
-    SetLabelText(44, RealToString(CeroBascula3, 2, 2));
-    SetLabelText(45, RealToString(CeroBascula4, 2, 2));  
-      StopTimer(20); 
- 
-else
-     SetBargraphLevel(40, contador1 * 100 / 19);
-     DisplayStatus("LecMin1: " + RealToString(LecMin1, 2, 2) + " LecMin2: " + RealToString(LecMin2, 2, 2) + " LecMin3: " + RealToString(LecMin3, 2, 2) + " LecMin4: " + RealToString(LecMin4, 2, 2));
-
-  -- Calibrando el cero en la báscula 1
-  GetNet(1, Primary, Peso1); 
-         
-     if contador1 <> 19 then
-     if Peso1 < (LecMin1 - 0.2) and Bajando1 = 0 then
-          LecMin1 := Peso1;
-     elsif Bajando1 = 0 and Peso1 > (LecMin1 + 0.2) then
-          LecMax1 := LecMin1;
-           Bajando1 := 1;
-     end if;
-     
-     if Peso1 > (LecMax1 + 0.2) and Bajando1 = 1 then 
-          LecMax1 := Peso1;
-     elsif Bajando1 = 1 and Peso1 < (LecMax1 - 0.2) then
-          Bajando1 := 0;                                      
-          if EsPrimerLectura1 = 1  then  
-            EsPrimerLectura1 := 0;
-          else
-            SetLabelText(42, RealToString(CeroBascula1, 2, 2));
-            CeroBascula1 := CeroBascula1 + LecMin1;  -- Suma LecMin1 en vez del peso actual
-            contador1 := contador1 + 1;
-            LecMin1 := LecMax1; 
-          end if;
+begin
+    -- Selecciona la báscula basada en la variable Basc (1 a 4)
+    GetNet(Basc, Primary, Peso);
+    
+    -- Usar variables del array para la báscula seleccionada
+    if Peso < (Basculas[Basc].LecMin - 0.2) and Basculas[Basc].Bajando = 0 then
+        Basculas[Basc].LecMin := Peso;
+    elsif Basculas[Basc].Bajando = 0 and Peso > (Basculas[Basc].LecMin + 0.2) then
+        DisplayStatus("Subiendo");
+        Basculas[Basc].LecMax := Basculas[Basc].LecMin;
+        Basculas[Basc].Bajando := 1;
     end if;
-  else 
-    -- Solo actualiza el promedio sin reiniciar el contador
-    CeroBascula1 := CeroBascula1 / 20.0;  -- Promedia LecMin acumulado
-    contador1 := contador1 + 1;
+    
+    if Peso > (Basculas[Basc].LecMax + 0.2) and Basculas[Basc].Bajando = 1 then
+        Basculas[Basc].LecMax := Peso;
+    elsif Basculas[Basc].Bajando = 1 and Peso < (Basculas[Basc].LecMax - 0.2) then
+        Basculas[Basc].Bajando := 0;
+
+        -- Tensión más peso meta
+        if (Basculas[Basc].LecMax - Basculas[Basc].LecMin) > (2) then
+            Basculas[Basc].Contador := Basculas[Basc].Contador + 1;
+            MatrizPesos[Basc, Basculas[Basc].Contador] := Basculas[Basc].LecMax;
+            GuardarPruebasEnBD(Basc,2);
+        end if;
+        
+        DisplayStatus("Bajando");
+        Basculas[Basc].LecMin := Basculas[Basc].LecMax;
+    end if;
+    
+    return;
+end;
+                        
+handler Timer20Trip;                                                    
+Peso : Pesos;        
+i: integer;
+
+begin
+  -- Verifica si todos los contadores son mayores o iguales a 19
+  if (Basculas[1].Contador > 19) and (Basculas[2].Contador >= 19) and (Basculas[3].Contador >= 19) and (Basculas[4].Contador >= 19) then
+    DisplayStatus("TimerDetenido");
+
+  -- Actualiza los valores en los labels
+for i := 1 to 4 
+loop
+    SetLabelText(41 + i, "Cero#" + IntegerToString(i,1) + ": " + RealToString(Basculas[i].CeroBascula, 2, 2));
+end loop;
+    
+    -- Detiene el temporizador 20
+    StopTimer(20);
+  else
+    SetBargraphLevel(40, Basculas[1].Contador * 100 / 19);
+
+    -- Muestra los valores mínimos en la pantalla
+    DisplayStatus("Min1: " + RealToString(Basculas[1].LecMin, 2, 2) +
+                  " Min2: " + RealToString(Basculas[2].LecMin, 2, 2) +
+                  " Min3: " + RealToString(Basculas[3].LecMin, 2, 2) +
+                  " Min4: " + RealToString(Basculas[4].LecMin, 2, 2));
+
+    -- Calibrando las básculas
+    for i := 1 to 4
+    loop
+      GetNet(i, Primary, Peso[i]);
+
+      if Basculas[i].Contador <> 19 then
+        if Peso[i] < (Basculas[i].LecMin - 0.2) and (Basculas[i].Bajando = 0) then
+          Basculas[i].LecMin := Peso[i];
+        elsif (Basculas[i].Bajando = 0) and (Peso[i] > (Basculas[i].LecMin + 0.2)) then
+          Basculas[i].LecMax := Basculas[i].LecMin;
+          Basculas[i].Bajando := 1;
+        end if;
+
+        if Peso[i] > (Basculas[i].LecMax + 0.2) and (Basculas[i].Bajando = 1) then
+          Basculas[i].LecMax := Peso[i];
+        elsif (Basculas[i].Bajando = 1) and (Peso[i] < (Basculas[i].LecMax - 0.2)) then
+          Basculas[i].Bajando := 0;
+          if Basculas[i].EsPrimerLectura = 1 then
+            Basculas[i].EsPrimerLectura := 0;
+          else
+            SetLabelText(41 + i, RealToString(Basculas[i].CeroBascula, 2, 2));
+            Basculas[i].CeroBascula := Basculas[i].CeroBascula + Basculas[i].LecMin;
+            Basculas[i].Contador := Basculas[i].Contador + 1;
+            Basculas[i].LecMin := Basculas[i].LecMax;
+          end if;
+        end if;
+      else
+        Basculas[i].CeroBascula := Basculas[i].CeroBascula / 20.0;
+        Basculas[i].Contador := Basculas[i].Contador + 1;
+      end if;
+    end loop;
   end if;
-  -- Calibrando el cero en la báscula 2
-GetNet(2, Primary, Peso2);
-
-if contador2 <> 19 then
-  if Peso2 < (LecMin2 - 0.2) and Bajando2 = 0 then
-    LecMin2 := Peso2;
-  elsif Bajando2 = 0 and Peso2 > (LecMin2 + 0.2) then
-    LecMax2 := LecMin2;
-    Bajando2 := 1;
-  end if;
-
-  if Peso2 > (LecMax2 + 0.2) and Bajando2 = 1 then
-    LecMax2 := Peso2;
-  elsif Bajando2 = 1 and Peso2 < (LecMax2 - 0.2) then
-    Bajando2 := 0;
-    CeroBascula2 := CeroBascula2 + LecMin2;  -- Suma LecMin2 en vez del peso actual
-    contador2 := contador2 + 1;
-    LecMin2 := LecMax2;
-  end if;
-else
-  -- Solo actualiza el promedio sin reiniciar el contador
-  CeroBascula2 := CeroBascula2 / 20.0;  -- Promedia LecMin acumulado   
-  contador2 := contador2 + 1;
-end if;
-
--- Calibrando el cero en la báscula 3
-GetNet(3, Primary, Peso3);
-
-if contador3 <> 19 then
-  if Peso3 < (LecMin3 - 0.2) and Bajando3 = 0 then
-    LecMin3 := Peso3;
-  elsif Bajando3 = 0 and Peso3 > (LecMin3 + 0.2) then
-    LecMax3 := LecMin3;
-    Bajando3 := 1;
-  end if;
-
-  if Peso3 > (LecMax3 + 0.2) and Bajando3 = 1 then
-    LecMax3 := Peso3;
-  elsif Bajando3 = 1 and Peso3 < (LecMax3 - 0.2) then
-    Bajando3 := 0;
-    CeroBascula3 := CeroBascula3 + LecMin3;  -- Suma LecMin3 en vez del peso actual
-    contador3 := contador3 + 1;
-    LecMin3 := LecMax3;
-  end if;
-else
-  -- Solo actualiza el promedio sin reiniciar el contador
-  CeroBascula3 := CeroBascula3 / 20.0;  -- Promedia LecMin acumulado
-  contador3 := contador3 + 1;
-end if;
-
--- Calibrando el cero en la báscula 4
-GetNet(4, Primary, Peso4);
-
-if contador4 <> 19 then
-  if Peso4 < (LecMin4 - 0.2) and Bajando4 = 0 then
-    LecMin4 := Peso4;
-  elsif Bajando4 = 0 and Peso4 > (LecMin4 + 0.2) then
-    LecMax4 := LecMin4;
-    Bajando4 := 1;
-  end if;
-
-  if Peso4 > (LecMax4 + 0.2) and Bajando4 = 1 then
-    LecMax4 := Peso4;
-  elsif Bajando4 = 1 and Peso4 < (LecMax4 - 0.2) then
-    Bajando4 := 0;
-    CeroBascula4 := CeroBascula4 + LecMin4;  -- Suma LecMin4 en vez del peso actual
-    contador4 := contador4 + 1;
-    LecMin4 := LecMax4;
-  end if;
-else
-  -- Solo actualiza el promedio sin reiniciar el contador
-  CeroBascula4 := CeroBascula4 / 20.0;  -- Promedia LecMin acumulado     
-  contador4 := contador4 + 1;
-end if;
-              end if;
-end;                         
+end;

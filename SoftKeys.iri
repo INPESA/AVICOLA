@@ -3,7 +3,9 @@ begin
     if PantallaActual = 1 then
       CambiarPantalla(PantallaCategoria); 
     elsif PantallaActual = 2 then
-      BotarPollo(1);
+      Basc := 1;  
+      Basculas[1].Contador := 0;
+      Temporizador(18, VOn, TimerContinuous, 10);
     elsif PantallaActual = 4 then
        PromptN := 1;
        PromptUser("Rango Minimo: ");
@@ -23,7 +25,8 @@ begin
      if PantallaActual = 1 then
       CambiarPantalla(PantallaVelocidad);
      elsif PantallaActual = 2 then
-      BotarPollo(4);  
+      Basc := 2;
+      Temporizador(18, VOn, TimerContinuous, 10);
     elsif PantallaActual = 4 then
        PromptN := 3;
        PromptUser("Rango Minimo: ");
@@ -43,7 +46,8 @@ begin
     if PantallaActual = 1 then
       CambiarPantalla(PantallaPruebas);
     elsif PantallaActual = 2 then
-      BotarPollo(3);  
+      Basc := 3;
+      Temporizador(18, VOn, TimerContinuous, 10); 
     elsif PantallaActual = 4 then
        PromptN := 5;
        PromptUser("Rango Minimo: "); 
@@ -67,7 +71,8 @@ begin
       cantCategoria4 := 0;  
        
     elsif PantallaActual = 2 then
-      BotarPollo(2);
+      Basc := 4;
+      Temporizador(18, VOn, TimerContinuous, 10);
     elsif PantallaActual = 4 then
        PromptN := 7;
        PromptUser("Rango Minimo: ");
@@ -81,7 +86,8 @@ begin
     if PantallaActual = 1 then
       CambiarPantalla(PantallaPrincipal);
     elsif PantallaActual = 2 then
-      CambiarPantalla(PantallaPrincipal);   
+      StopTimer(18);
+      CambiarPantalla(PantallaPrincipal);
     elsif PantallaActual = 4 then
       CambiarPantalla(PantallaPrincipal);
     elsif PantallaActual = 5 then

@@ -1,6 +1,6 @@
 -------------------------------------------------
 -- Used with iRev Configuration File
--- C:\INPESA\AvicolaLaVida\Indicador.920
+-- D:\Empresas\AVICOLA\Indicador.920
 -------------------------------------------------
 
 
@@ -54,6 +54,12 @@ Maximo6  : constant integer := 36;
 Lbl5S6   : constant integer := 37;
 cant7    : constant integer := 38;
 peso7    : constant integer := 39;
+Bar1S3   : constant integer := 40;
+Lbl1S3   : constant integer := 41;
+Label42  : constant integer := 42;
+Label43  : constant integer := 43;
+Label44  : constant integer := 44;
+Label45  : constant integer := 45;
 
 -- Serial Port Aliases
 Port1    : constant integer := 1;
@@ -126,10 +132,14 @@ Pesajes_Peso      : constant integer := 6;
 type PruebasDatabase is Database ("Pruebas")
 	PesoMin  : string;
 	PesoMax  : string;
+	Bascula  : integer;
+	Tipo     : integer;
 end database;
 
 Pruebas_PesoMin   : constant integer := 1;
 Pruebas_PesoMax   : constant integer := 2;
+Pruebas_Bascula   : constant integer := 3;
+Pruebas_Tipo      : constant integer := 4;
 
 type CategoDatabase is Database ("Catego")
 	Categ    : string;
@@ -184,6 +194,16 @@ CatDia2_Cat1      : constant integer := 2;
 CatDia2_Cat2      : constant integer := 3;
 CatDia2_Cat3      : constant integer := 4;
 CatDia2_Cat4      : constant integer := 5;
+
+type CalDatabase is Database ("Cal")
+	Rodo     : integer;
+	Bascula  : integer;
+	Peso     : real;
+end database;
+
+Cal_Rodo          : constant integer := 1;
+Cal_Bascula       : constant integer := 2;
+Cal_Peso          : constant integer := 3;
 
 
 

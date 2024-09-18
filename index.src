@@ -3,7 +3,8 @@ program AvicolaLaVida;
 #include inpesa.iri
 --#include AvicolaLogo.iri     
 --#include Pollito.iri
-#include Config.iri                                                                   
+#include Config.iri 
+#include Estructuras.iri                                                                  
 #include Variables.iri
 #include Procedimientos.iri
 #include SetPoints.iri    
@@ -39,28 +40,13 @@ begin
   --Extrae la informacion de los contadores 
   --CargarLosContadores;
   
-  GetNet(1, Primary, LecMin1);
-  GetNet(1, Primary, LecMax1);  
-  GetNet(2, Primary, LecMin2);
-  GetNet(2, Primary, LecMax2);
-  GetNet(3, Primary, LecMin3);
-  GetNet(3, Primary, LecMax3);
-  GetNet(4, Primary, LecMin4);
-  GetNet(4, Primary, LecMax4);  
-  --GetNet(3, Primary, LecMin1);
-  --GetNet(3, Primary, LecMax1);  
-  --GetNet(3, Primary, LecMin2);
-  --GetNet(3, Primary, LecMax2);
-  --GetNet(4, Primary, LecMin3);
-  --GetNet(4, Primary, LecMax3);
-  --GetNet(4, Primary, LecMin4);
-  --GetNet(4, Primary, LecMax4);   
-  
+  InicializarBasculas;  
+  GuardarTarasEnMatriz;
   
   --EncederTodosLosTemporizadores;
   --SelectScreen(6);   
-              SelectScreen(3);
-  Temporizador(20, VOn, TimerContinuous, 5);
+  SelectScreen(3);
+  --Temporizador(18, VOn, TimerContinuous, 10);
   
       
 end AvicolaLaVida;

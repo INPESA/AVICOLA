@@ -1,21 +1,21 @@
 handler N0Keypressed;
 begin
-  ZeroScale(1);
+   ModoPruebas;
 end;
                   
 handler N1Keypressed;
 begin
-  ZeroScale(2);
+  ZeroScale(1);
 end;
 
 handler N2Keypressed;
 begin
-   ZeroScale(3);
+   ZeroScale(2);
 end;
 
 handler N3Keypressed;
 begin
-    ZeroScale(4);
+    ZeroScale(3);
 end;                     
 
 handler N4Keypressed;
@@ -40,10 +40,11 @@ end;
                          
 handler N8Keypressed;
 begin
-    DisplayStatus("Prurbas");
+    StopTimer(19);
+    CambiarPantalla(PantallaPrincipal);
 end;
    
 handler N9Keypressed;
 begin
-   ModoPruebas;
+    calibrandoRodos;
 end;

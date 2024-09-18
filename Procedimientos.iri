@@ -10,7 +10,7 @@ end;
 function ObtenerFechaHora(Retorno : FechaHora) : string; --Funcion Revisada y Terminada
  DT          : datetime;
  Year_i      : integer;
- Mes_i       : integer;          
+ Mes_i       : integer;             
  Dia_i       : integer;
  Hora_i      : integer;
 
@@ -174,14 +174,6 @@ begin
   SelectScreen(pantalla);
   ActualizarData(pantalla);
 end;                        
-
-procedure InicializarSetPoints;
-begin
-  SetSPValue(1, SetPointLimit);
-  SetSPValue(2, SetPointLimit);
-  SetSPValue(3, SetPointLimit);
-  SetSPValue(4, SetPointLimit);  
-end;      
 
 procedure ApagarTodosLosPistones;
 begin
@@ -383,13 +375,12 @@ begin
      end if;
   end;      
   
-   procedure ModoPruebas;
+ procedure ModoPruebas;
  begin
-      Temporizador(15, VOn, TimerContinuous, 1);
-      CambiarPantalla(7);     
-      ActualizarData(7);
+      -- Temporizador(18, VOn, TimerContinuous, 1);
+      CambiarPantalla(2);     
  end;
-  
+
   procedure GuardarEnBD;
   begin
       if BasesDeDatos = 1 then
@@ -472,16 +463,92 @@ begin
             DisplayStatus("Registro 2 Añadido");
            
        end if;  
-     end if;
-                                    
-                                    
-                                    
-  end;  
-                                    
-                                    
-procedure GuardarPruebasEnBD;
+     end if;                                
+  end;    
+                                                                    
+procedure GuardarPruebasEnBD(BasculaNum : integer; Tipo : integer);
 begin
-  BD_Pruebas.PesoMin := RealToString(LecMin1,2,3); 
-  BD_Pruebas.PesoMax := RealToString(( (LecMax1 - LecMin1) - 7.5) ,2,3);
+    BD_Pruebas.Bascula := Basc;
+    BD_Pruebas.Tipo := Tipo;
+    BD_Pruebas.PesoMin := RealToString(Basculas[Basc].LecMin, 2, 3);
+    
+    BD_Pruebas.PesoMax := RealToString(Basculas[Basc].LecMax, 2, 3); 
   BD_Pruebas.Add;
+end;    
+
+procedure GuardarEnBDconTara(BasculaNum : integer; Tipo : integer);
+begin
+    BD_Pruebas.Bascula := Basc;
+    BD_Pruebas.Tipo := Tipo;
+    BD_Pruebas.PesoMin := RealToString(Basculas[Basc].LecMin, 2, 3);
+    BD_Pruebas.PesoMax := RealToString(Basculas[Basc].LecMax - MatrizPesos[1, Basculas[Basc].Contador],2, 3); 
+  BD_Pruebas.Add;
+end;                                                                
+
+procedure GuardarTarasEnMatriz;
+contadores : integer := 1 ;
+begin
+    BD_Cal.GetFirst; 
+    MatrizPesos[1, contadores]  :=  BD_Cal.Peso;
+    while(BD_Cal.GetNext <> SysNoSuchRecord or BD_Cal.Rodo < 1)
+    loop 
+        contadores := contadores + 1;
+        MatrizPesos[1, contadores]  :=  BD_Cal.Peso;    
+    end loop;
+end;
+
+procedure VerificarPeso(Bascula : integer);     
+Diferencia : real;
+begin            
+   if Bascula = 1 then
+  Diferencia := Bascula1.LecMax - Bascula1.CeroBascula;
+  if Diferencia >= Categoria1Min and Diferencia < Categoria1Max then
+    cantCategoria1 := cantCategoria1 + 1;
+    BotarPollo(1);
+  end if;
+elsif Bascula = 2 then
+  Diferencia := Bascula2.LecMax - Bascula2.CeroBascula;
+  if Diferencia >= Categoria1Min and Diferencia < Categoria1Max then
+    cantCategoria1 := cantCategoria1 + 1;
+    BotarPollo(2);
+  end if;
+elsif Bascula = 3 then
+  Diferencia := Bascula3.LecMax - Bascula3.CeroBascula;
+  if Diferencia >= Categoria1Min and Diferencia < Categoria1Max then
+    cantCategoria1 := cantCategoria1 + 1;
+    BotarPollo(3);
+  end if;
+elsif Bascula = 4 then
+  Diferencia := Bascula4.LecMax - Bascula4.CeroBascula;
+  if Diferencia >= Categoria1Min and Diferencia < Categoria1Max then
+    cantCategoria1 := cantCategoria1 + 1;
+    BotarPollo(4);
+  end if;
+end if;
+end;
+
+procedure InicializarBasculas;
+begin
+    -- Inicializa los valores de la báscula 1
+    GetNet(1, Primary, Bascula1.LecMin);
+    GetNet(1, Primary, Bascula1.LecMax); 
+
+    -- Inicializa los valores de la báscula 2
+    GetNet(2, Primary, Bascula2.LecMin);
+    GetNet(2, Primary, Bascula2.LecMax); 
+
+    -- Inicializa los valores de la báscula 3
+    GetNet(3, Primary, Bascula3.LecMin);
+    GetNet(3, Primary, Bascula3.LecMax); 
+
+    -- Inicializa los valores de la báscula 4
+    GetNet(4, Primary, Bascula4.LecMin);
+    GetNet(4, Primary, Bascula4.LecMax); 
+end;                                                                                
+
+procedure calibrandorodos;
+begin            
+    Basc := 1;
+    Basculas[Basc].Contador := 0;
+    Temporizador(19, VOn, TimerContinuous, 10);
 end;

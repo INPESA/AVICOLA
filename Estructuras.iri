@@ -1,0 +1,9 @@
+type BasculaData is
+record
+  LecMin : real;
+  LecMax : real;
+  CeroBascula : real;
+  Bajando : integer;
+  Contador : integer;
+  EsPrimerLectura : integer;  -- Nueva variable añadida
+end record;
