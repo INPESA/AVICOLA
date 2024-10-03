@@ -53,7 +53,11 @@ begin
        PromptUser("Rango Minimo: "); 
     elsif PantallaActual = 4 then
        PromptN := 5;
-       PromptUser("Rango Minimo: ");
+       PromptUser("Rango Minimo: "); 
+    elsif PantallaActual = 5 then
+       BD_Pruebas.Clear;
+       StopTimer(18);
+       Temporizador(19, VOn, TimerContinuous, 10); 
     elsif PantallaActual = 7 then
       Cantidad := 0;
       PesoPrueba7 := 0;
@@ -65,17 +69,16 @@ end;
 handler User4Keypressed;
 begin
     if PantallaActual = 1 then
-      cantCategoria1 := 0;
-      cantCategoria2 := 0;
-      cantCategoria3 := 0;
-      cantCategoria4 := 0;  
-       
+     ModoPruebas;
     elsif PantallaActual = 2 then
       Basc := 4;
       Temporizador(18, VOn, TimerContinuous, 10);
     elsif PantallaActual = 4 then
        PromptN := 7;
-       PromptUser("Rango Minimo: ");
+       PromptUser("Rango Minimo: "); 
+     elsif PantallaActual = 5 then
+       PromptN := 14;
+       PromptUser("Contador: "); 
     else
       DisplayStatus("OtraCosa");
     end if;
@@ -84,7 +87,10 @@ end;
 handler User5Keypressed;
 begin
     if PantallaActual = 1 then
-      CambiarPantalla(PantallaPrincipal);
+      cantCategoria1 := 0;
+      cantCategoria2 := 0;
+      cantCategoria3 := 0;
+      cantCategoria4 := 0;  
     elsif PantallaActual = 2 then
       StopTimer(18);
       CambiarPantalla(PantallaPrincipal);

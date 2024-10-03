@@ -83,7 +83,29 @@ begin
       ClosePrompt;  
     elsif PromptN = 13 then
       Bascula := StringToInteger(s);
-      ClosePrompt;
-    end if;
+      ClosePrompt; 
+    elsif PromptN = 14 then
+      Basculas[1].Contador := StringToInteger(s);
+      ClosePrompt;   
+    elsif PromptN = 15 then
+      Basc := StringToInteger(s);
+      ClosePrompt; 
+      ApagarTodosLosTemporizadores;   
+      IniciarCalibracionCero;
+    elsif PromptN = 16 then
+      Basc := StringToInteger(s);
+      ClosePrompt;       
+      ApagarTodosLosTemporizadores; 
+      IniciarCalibracionRodos;
+    elsif PromptN = 17 then     
+        BotarPollo(StringToInteger(s));  
+        ClosePrompt;
+    end if;          
+    elsif PromptN = 18 then
+            Basc := StringToInteger(s);
+        ClosePrompt;    
+       
+       IniciarPruebas;   
+       ApagarTodosLosTemporizadores; 
    end if;
 end;

@@ -20,22 +20,22 @@ end;
 
 handler N4Keypressed;
 begin
-   Temporizador(13, VOn, TimerOneShot, Accion);
+   BotarPollo(1);
 end;
 
 handler N5Keypressed; 
 begin
-  Temporizador(14, VOn, TimerOneShot, Accion);
+  BotarPollo(2);
 end;
   
 handler N6Keypressed;
 begin
-    Temporizador(15, VOn, TimerOneShot, Accion);
+    BotarPollo(3);
 end;
                   
 handler N7Keypressed;
 begin
-    Temporizador(16, VOn, TimerOneShot, Accion);
+    BotarPollo(4);
 end;
                          
 handler N8Keypressed;
@@ -45,6 +45,6 @@ begin
 end;
    
 handler N9Keypressed;
-begin
-    calibrandoRodos;
-end;
+begin                                                              
+   DisplayStatus("Rodo #" + IntegerToString(Basculas[Basc].Contador,3));
+end;       

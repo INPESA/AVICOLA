@@ -5,7 +5,9 @@ program AvicolaLaVida;
 --#include Pollito.iri
 #include Config.iri 
 #include Estructuras.iri                                                                  
-#include Variables.iri
+#include Variables.iri      
+#include Globales.iri  
+#include Pantalla.iri
 #include Procedimientos.iri
 #include SetPoints.iri    
 #include Teclas.iri    
@@ -34,8 +36,9 @@ begin
  -- FechaGlobal := ObtenerFechaHora(Fecha);
   
   --Extrae la informacion de las categorias
-  ---CargarCategorias;
-  --CambiarPantalla(PantallaPrincipal);
+  ---CargarCategorias;  
+  CargarVelocidad;
+  CambiarPantalla(PantallaPrincipal);
   
   --Extrae la informacion de los contadores 
   --CargarLosContadores;
@@ -44,9 +47,9 @@ begin
   GuardarTarasEnMatriz;
   
   --EncederTodosLosTemporizadores;
-  --SelectScreen(6);   
-  SelectScreen(3);
-  --Temporizador(18, VOn, TimerContinuous, 10);
+  Basc := 1;  
+  Temporizador(18, VOn, TimerContinuous, 10);
   
       
-end AvicolaLaVida;
+      
+      end AvicolaLaVida;

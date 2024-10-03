@@ -1,0 +1,81 @@
+type    FechaHora	is  (Fecha,Hora);  
+  
+  function ArreglaDato(DatoEntrada : integer):string; --Funcion Revisada y Terminada
+ DatoSalida  : string;
+ begin
+    DatoSalida := IntegerToString(DatoEntrada,1);
+    return("0" + DatoSalida);
+end;
+
+function ObtenerFechaHora(Retorno : FechaHora) : string; --Funcion Revisada y Terminada
+ DT          : datetime;
+ Year_i      : integer;
+ Mes_i       : integer;             
+ Dia_i       : integer;
+ Hora_i      : integer;
+
+ Minuto_i    : integer;
+ Segundo_i   : integer;
+ Hora_s      : string;
+ Minuto_s    : string;
+ Segundo_s   : string;
+ Dia_s       : string;
+ Mes_s       : string;
+ Year_s      : string;
+ Dato_i      : integer;
+ Dato_s      : string;
+ begin
+    DT := SystemTime;
+    GetDate(DT,Year_i,Mes_i,Dia_i);
+    Year_i := (2000 + Year_i);
+    GetTime(DT,Hora_i,Minuto_i,Segundo_i);
+    DT := SystemTime;
+    Hora_s    := IntegerToString(Hora_i,2);
+    Minuto_s  := IntegerToString(Minuto_i,2);
+    Segundo_s := IntegerToString(Segundo_i,2);
+    Mes_s     := IntegerToString(Mes_i,2);
+    Dia_s     := IntegerToString(Dia_i,2);
+    if Hora_i<=9 then
+        Hora_s := ArreglaDato(Hora_i);
+    end if;
+    if Minuto_i<=9 then
+        Minuto_s := ArreglaDato(Minuto_i);
+    end if;
+    if Segundo_i<=9 then
+        Segundo_s := ArreglaDato(Segundo_i);
+    end if;
+    if Dia_i<=9 then
+        Dia_s := ArreglaDato(Dia_i);
+    end if;
+    if Mes_i<=9 then
+        Mes_s := ArreglaDato(Mes_i);
+    end if;
+    Year_s := IntegerToString(Year_i,4); 
+    if Retorno = Fecha then
+        return(Dia_s + "/" + Mes_s + "/" + Right$(Year_s,2));
+    else 
+        return(Hora_s + ":" + Minuto_s + ":" + Segundo_s);
+    end if;
+end;
+
+procedure Temporizador(T : integer; ON : OnOffType; TM : TimerMode; V : integer); --Funcion Revisada y Terminada
+ begin
+	if On = VOn then
+		SetTimer(T,V); SetTimerMode(T,TM); StartTimer(T);  
+		
+	else
+ 		StopTimer(T); ResetTimer(T);
+    end if;
+ end;
+ 
+function Estable(scale : integer): SysCode;          --Funcion Revisada y Terminada
+ M   : integer;
+ S	 : integer;
+ begin
+    InMotion(scale,M);
+    if M = 0 then
+        return(SysOk);
+    else
+        return(SysInvalidScale);
+    end if;
+end;    

@@ -84,7 +84,6 @@ end;
 
 handler Timer5Trip;
 --Declaration Section
-
 begin
      ApagarPiston(1);
 end;
@@ -116,7 +115,7 @@ end;
 handler Timer9Trip;
 --Declaration Section
 begin
-     BotarPollo(1);
+     EncenderPiston(1);
 return;
 end;
 
@@ -124,7 +123,7 @@ handler Timer10Trip;
 --Declaration Section
 
 begin
-     BotarPollo(2);
+     EncenderPiston(1);
 return;
 end;
 
@@ -132,7 +131,7 @@ handler Timer11Trip;
 --Declaration Section
 
 begin
-     BotarPollo(3);
+    EncenderPiston(1);
 return;
 end;
 
@@ -140,7 +139,7 @@ handler Timer12Trip;
 --Declaration Section
 
 begin
-     BotarPollo(4);
+     EncenderPiston(1);
 return;
 
 end;
@@ -155,15 +154,13 @@ end;
 
 handler Timer18Trip;
 Peso : real;
-
-begin
+begin  
      -- Selecciona la báscula basada en la variable Basc
      GetNet(Basc, Primary, Peso);
      
          if Peso < (Basculas[Basc].LecMin - 0.2) and Basculas[Basc].Bajando = 0 then
              Basculas[Basc].LecMin := Peso;
-         elsif Basculas[Basc].Bajando = 0 and Peso > (Basculas[Basc].LecMin + 0.2) then
-             DisplayStatus("Subiendo"); 
+         elsif Basculas[Basc].Bajando = 0 and Peso > (Basculas[Basc].LecMin + 0.2) then 
              Basculas[Basc].LecMax := Basculas[Basc].LecMin;
              Basculas[Basc].Bajando := 1;
          end if;
@@ -174,111 +171,55 @@ begin
              Basculas[Basc].Bajando := 0;
              
              -- Tensión más peso meta
-             if (Basculas[Basc].LecMax - Basculas[Basc].LecMin) > (2) then
-                 SetLabelText(Minimo6, RealToString(Basculas[Basc].LecMin, 2, 3)); 
-                 SetLabelText(Maximo6, RealToString(((Basculas[Basc].LecMax - Basculas[Basc].LecMin) - 7.5), 2, 3)); 
-                 Basculas[Basc].Contador := Basculas[Basc].Contador + 1;
+             if (Basculas[Basc].LecMax - Basculas[Basc].LecMin) > (2) then 
                  
-                 GuardarPruebasEnBD(Basc,1);
-                 GuardarEnBDconTara(Basc,2);
+                 if Basculas[Basc].Contador = 122 then
+                   Basculas[Basc].Contador  := 1; 
+                 else
+                      Basculas[Basc].Contador := Basculas[Basc].Contador + 1;
+                 end if;
+                  
+                 --GuardarPruebasEnBD(Basc,1);  
+                 if (Basculas[Basc].LecMax - MatrizPesos[1, Basculas[Basc].Contador]) >= 4.0 then
+                     DisplayStatus("Lec: " + RealToString(Basculas[Basc].LecMax, 2, 2) + 
+              " -  " + RealToString(MatrizPesos[1, Basculas[Basc].Contador], 2, 2)  + " - " 
+               + IntegerToString(Basculas[Basc].Contador,3));
+                    GuardarEnBDconTara(Basc,2);
+                    Temporizador(9, VOn, TimerOneShot, Accion);
+                 end if;  
+                   
              end if; 
              
-             DisplayStatus("Bajando");
+            
             Basculas[Basc].LecMin := Basculas[Basc].LecMax;
          end if;
          
 end;
 
+--Calibracion
 handler Timer19Trip;
 Peso : real;
 begin
-    -- Selecciona la báscula basada en la variable Basc (1 a 4)
-    GetNet(Basc, Primary, Peso);
-    
-    -- Usar variables del array para la báscula seleccionada
-    if Peso < (Basculas[Basc].LecMin - 0.2) and Basculas[Basc].Bajando = 0 then
-        Basculas[Basc].LecMin := Peso;
-    elsif Basculas[Basc].Bajando = 0 and Peso > (Basculas[Basc].LecMin + 0.2) then
-        DisplayStatus("Subiendo");
-        Basculas[Basc].LecMax := Basculas[Basc].LecMin;
-        Basculas[Basc].Bajando := 1;
-    end if;
-    
-    if Peso > (Basculas[Basc].LecMax + 0.2) and Basculas[Basc].Bajando = 1 then
-        Basculas[Basc].LecMax := Peso;
-    elsif Basculas[Basc].Bajando = 1 and Peso < (Basculas[Basc].LecMax - 0.2) then
-        Basculas[Basc].Bajando := 0;
-
-        -- Tensión más peso meta
-        if (Basculas[Basc].LecMax - Basculas[Basc].LecMin) > (2) then
-            Basculas[Basc].Contador := Basculas[Basc].Contador + 1;
-            MatrizPesos[Basc, Basculas[Basc].Contador] := Basculas[Basc].LecMax;
-            GuardarPruebasEnBD(Basc,2);
-        end if;
-        
-        DisplayStatus("Bajando");
-        Basculas[Basc].LecMin := Basculas[Basc].LecMax;
-    end if;
-    
-    return;
-end;
-                        
-handler Timer20Trip;                                                    
-Peso : Pesos;        
-i: integer;
-
-begin
-  -- Verifica si todos los contadores son mayores o iguales a 19
-  if (Basculas[1].Contador > 19) and (Basculas[2].Contador >= 19) and (Basculas[3].Contador >= 19) and (Basculas[4].Contador >= 19) then
-    DisplayStatus("TimerDetenido");
-
-  -- Actualiza los valores en los labels
-for i := 1 to 4 
-loop
-    SetLabelText(41 + i, "Cero#" + IntegerToString(i,1) + ": " + RealToString(Basculas[i].CeroBascula, 2, 2));
-end loop;
-    
-    -- Detiene el temporizador 20
-    StopTimer(20);
-  else
-    SetBargraphLevel(40, Basculas[1].Contador * 100 / 19);
-
-    -- Muestra los valores mínimos en la pantalla
-    DisplayStatus("Min1: " + RealToString(Basculas[1].LecMin, 2, 2) +
-                  " Min2: " + RealToString(Basculas[2].LecMin, 2, 2) +
-                  " Min3: " + RealToString(Basculas[3].LecMin, 2, 2) +
-                  " Min4: " + RealToString(Basculas[4].LecMin, 2, 2));
-
-    -- Calibrando las básculas
-    for i := 1 to 4
-    loop
-      GetNet(i, Primary, Peso[i]);
-
-      if Basculas[i].Contador <> 19 then
-        if Peso[i] < (Basculas[i].LecMin - 0.2) and (Basculas[i].Bajando = 0) then
-          Basculas[i].LecMin := Peso[i];
-        elsif (Basculas[i].Bajando = 0) and (Peso[i] > (Basculas[i].LecMin + 0.2)) then
-          Basculas[i].LecMax := Basculas[i].LecMin;
-          Basculas[i].Bajando := 1;
-        end if;
-
-        if Peso[i] > (Basculas[i].LecMax + 0.2) and (Basculas[i].Bajando = 1) then
-          Basculas[i].LecMax := Peso[i];
-        elsif (Basculas[i].Bajando = 1) and (Peso[i] < (Basculas[i].LecMax - 0.2)) then
-          Basculas[i].Bajando := 0;
-          if Basculas[i].EsPrimerLectura = 1 then
-            Basculas[i].EsPrimerLectura := 0;
-          else
-            SetLabelText(41 + i, RealToString(Basculas[i].CeroBascula, 2, 2));
-            Basculas[i].CeroBascula := Basculas[i].CeroBascula + Basculas[i].LecMin;
-            Basculas[i].Contador := Basculas[i].Contador + 1;
-            Basculas[i].LecMin := Basculas[i].LecMax;
-          end if;
-        end if;
-      else
-        Basculas[i].CeroBascula := Basculas[i].CeroBascula / 20.0;
-        Basculas[i].Contador := Basculas[i].Contador + 1;
-      end if;
-    end loop;
-  end if;
+   -- Selecciona la báscula basada en la variable Basc
+     GetNet(Basc, Primary, Peso);
+     
+         if Peso < (Basculas[Basc].LecMin - 0.2) and Basculas[Basc].Bajando = 0 then
+             Basculas[Basc].LecMin := Peso;
+         elsif Basculas[Basc].Bajando = 0 and Peso > (Basculas[Basc].LecMin + 0.2) then 
+             Basculas[Basc].LecMax := Basculas[Basc].LecMin;
+             Basculas[Basc].Bajando := 1;
+         end if;
+         
+         if Peso > (Basculas[Basc].LecMax + 0.2) and Basculas[Basc].Bajando = 1 then 
+             Basculas[Basc].LecMax := Peso;
+         elsif Basculas[Basc].Bajando = 1 and Peso < (Basculas[Basc].LecMax - 0.2) then
+             Basculas[Basc].Bajando := 0;
+             
+             -- Tensión más peso meta
+             if (Basculas[Basc].LecMax - Basculas[Basc].LecMin) > (2) then 
+                    GuardarPruebasEnBD(Basc,1); 
+             end if; 
+             
+            Basculas[Basc].LecMin := Basculas[Basc].LecMax;
+   end if;       
 end;

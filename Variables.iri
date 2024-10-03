@@ -53,8 +53,8 @@ cantCategoria4 : stored integer := 0;
 
 FechaGlobal : stored string;
  
-Velocidad : stored integer := 15;
-Accion : stored integer := 5;
+Velocidad : stored integer := 10;
+Accion : stored integer := 60;
 Contrasena : stored integer := 1743;                                                             
                                   
 BasesDeDatos : stored integer := 1;
