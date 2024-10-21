@@ -10,6 +10,8 @@ file=D:\EMPRESAS\AVICOLA\Temporizadores.iri
 file=D:\EMPRESAS\AVICOLA\Comandos.iri
 file=D:\EMPRESAS\AVICOLA\Config.iri
 file=D:\Empresas\AVICOLA\Estructuras.iri
+file=D:\Empresas\AVICOLA\Globales.iri
+file=D:\Empresas\AVICOLA\Pantalla.iri
 retainout=False
 target=et=1
 indtarget=1

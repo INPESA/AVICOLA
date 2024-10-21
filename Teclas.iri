@@ -1,6 +1,6 @@
 handler N0Keypressed;
 begin
-   ModoPruebas;
+   DisplayStatus("Vacio");
 end;
                   
 handler N1Keypressed;

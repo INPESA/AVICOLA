@@ -99,13 +99,28 @@ begin
       IniciarCalibracionRodos;
     elsif PromptN = 17 then     
         BotarPollo(StringToInteger(s));  
-        ClosePrompt;
-    end if;          
+        ClosePrompt;          
     elsif PromptN = 18 then
-            Basc := StringToInteger(s);
-        ClosePrompt;    
        
-       IniciarPruebas;   
+       Basc := StringToInteger(s);   
+       ClosePrompt;                         
+              
+       DisplayStatus(IntegerToString(Basc,1)); 
+              
        ApagarTodosLosTemporizadores; 
+                                    
+       IniciarPruebas;  
+       elsif PromptN = 19 then
+       
+       Basc := StringToInteger(s);   
+       ClosePrompt;                         
+              
+       DisplayStatus(IntegerToString(Basc,1)); 
+              
+       ApagarTodosLosTemporizadores; 
+                                    
+       IniciarPruebasTara;         
+            
+   end if; 
    end if;
 end;

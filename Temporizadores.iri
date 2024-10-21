@@ -222,4 +222,36 @@ begin
              
             Basculas[Basc].LecMin := Basculas[Basc].LecMax;
    end if;       
+end;                                     
+
+--Prueba de Calibracion
+handler Timer20Trip;
+Peso : real;
+begin
+   -- Selecciona la báscula basada en la variable Basc
+     GetNet(Basc, Primary, Peso);
+     
+         if Peso < (Basculas[Basc].LecMin - 0.2) and Basculas[Basc].Bajando = 0 then
+             Basculas[Basc].LecMin := Peso;
+         elsif Basculas[Basc].Bajando = 0 and Peso > (Basculas[Basc].LecMin + 0.2) then 
+             Basculas[Basc].LecMax := Basculas[Basc].LecMin;
+             Basculas[Basc].Bajando := 1;
+         end if;
+         
+         if Peso > (Basculas[Basc].LecMax + 0.2) and Basculas[Basc].Bajando = 1 then 
+             Basculas[Basc].LecMax := Peso;
+         elsif Basculas[Basc].Bajando = 1 and Peso < (Basculas[Basc].LecMax - 0.2) then
+             Basculas[Basc].Bajando := 0;
+             
+             --GuardarPruebasEnBD(Basc,1);  
+              if (Basculas[Basc].LecMax - Basculas[Basc].LecMin) > (2) then 
+                     DisplayStatus("Lec: " + RealToString(Basculas[Basc].LecMax, 2, 2) + 
+              " -  " + RealToString(MatrizPesos[1, Basculas[Basc].Contador], 2, 2)  + " - " 
+               + IntegerToString(Basculas[Basc].Contador,3));
+                    GuardarEnBDconTara(Basc,2);     
+              end if;
+             
+            Basculas[Basc].LecMin := Basculas[Basc].LecMax;
+   end if;       
 end;
+

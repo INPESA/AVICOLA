@@ -3,9 +3,8 @@ begin
     if PantallaActual = 1 then
       CambiarPantalla(PantallaCategoria); 
     elsif PantallaActual = 2 then
-      Basc := 1;  
-      Basculas[1].Contador := 0;
-      Temporizador(18, VOn, TimerContinuous, 10);
+       PromptN := 15;
+       PromptUser("Bascula: ");  
     elsif PantallaActual = 4 then
        PromptN := 1;
        PromptUser("Rango Minimo: ");
@@ -25,8 +24,8 @@ begin
      if PantallaActual = 1 then
       CambiarPantalla(PantallaVelocidad);
      elsif PantallaActual = 2 then
-      Basc := 2;
-      Temporizador(18, VOn, TimerContinuous, 10);
+      PromptN := 16;
+       PromptUser("Bascula: ");  
     elsif PantallaActual = 4 then
        PromptN := 3;
        PromptUser("Rango Minimo: ");
@@ -46,8 +45,8 @@ begin
     if PantallaActual = 1 then
       CambiarPantalla(PantallaPruebas);
     elsif PantallaActual = 2 then
-      Basc := 3;
-      Temporizador(18, VOn, TimerContinuous, 10); 
+      PromptN := 19;
+       PromptUser("Bascula: ");  
     elsif PantallaActual = 4 then
        PromptN := 5;
        PromptUser("Rango Minimo: "); 
@@ -55,9 +54,8 @@ begin
        PromptN := 5;
        PromptUser("Rango Minimo: "); 
     elsif PantallaActual = 5 then
-       BD_Pruebas.Clear;
-       StopTimer(18);
-       Temporizador(19, VOn, TimerContinuous, 10); 
+       PromptN := 17;
+       PromptUser("Piston: "); 
     elsif PantallaActual = 7 then
       Cantidad := 0;
       PesoPrueba7 := 0;
@@ -69,10 +67,10 @@ end;
 handler User4Keypressed;
 begin
     if PantallaActual = 1 then
-     ModoPruebas;
+     DisplayStatus("Aun no funciona");
     elsif PantallaActual = 2 then
-      Basc := 4;
-      Temporizador(18, VOn, TimerContinuous, 10);
+      PromptN := 18;
+      PromptUser("Bascula: ");
     elsif PantallaActual = 4 then
        PromptN := 7;
        PromptUser("Rango Minimo: "); 
