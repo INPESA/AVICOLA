@@ -17,8 +17,7 @@ begin
             elsif MenuEntry = MenuPesoPromedio  then
                 PromptN := EntryPesoPromedio;
                 PromptUser("Peso Promedio: ");
-            end if;             
-        end if; 
+            end if;              
    ------------------------------------------------------------------------     
     
     --Ajuste de Categoria Minima       
@@ -95,5 +94,6 @@ begin
        ApagarTodosLosTemporizadores; 
                                     
        IniciarPruebas; 
+    end if;   
     end if;
 end;
