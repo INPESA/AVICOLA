@@ -1,50 +1,114 @@
 handler N0Keypressed;
 begin
-   DisplayStatus("Vacio");
+    if PantallaActual = PantallaPrincipal then
+        DisplayStatus("Vacio");
+    elsif PantallaActual = PantallaVelocidad then
+        DisplayStatus("Pantalla Presentacion");
+    end if;
 end;
-                  
+
 handler N1Keypressed;
 begin
-  ZeroScale(1);
+    if PantallaActual = PantallaPrincipal then
+        ZeroScale(1);
+    elsif PantallaActual = PantallaVelocidad then
+        Temporizador(5, VOn, TimerOneShot, Velocidad); 
+    elsif PantallaActual = PantallaCalibracion then
+        ApagarTemporizador(1);  
+        DisplayStatus("Bascula 1 Apagada");
+    end if;
 end;
 
 handler N2Keypressed;
 begin
-   ZeroScale(2);
+    if PantallaActual = PantallaPrincipal then
+        ZeroScale(2);
+    elsif PantallaActual = PantallaVelocidad then
+        Temporizador(8, VOn, TimerOneShot, Velocidad);
+    elsif PantallaActual = PantallaCalibracion then
+        ApagarTemporizador(2);
+        DisplayStatus("Bascula 2 Apagada");
+    end if;
 end;
 
 handler N3Keypressed;
 begin
-    ZeroScale(3);
-end;                     
+    if PantallaActual = PantallaPrincipal then
+        ZeroScale(3);
+    elsif PantallaActual = PantallaVelocidad then
+        Temporizador(6, VOn, TimerOneShot, Velocidad);
+    elsif PantallaActual = PantallaCalibracion then
+        ApagarTemporizador(3);
+        DisplayStatus("Bascula 3 Apagada");
+    end if;
+end;
 
 handler N4Keypressed;
 begin
-   BotarPollo(1);
+    if PantallaActual = PantallaPrincipal then
+        ZeroScale(4);
+    elsif PantallaActual = PantallaVelocidad then
+        Temporizador(7, VOn, TimerOneShot, Velocidad);
+    elsif PantallaActual = PantallaCalibracion then
+        ApagarTemporizador(4);   
+        DisplayStatus("Bascula 4 Apagada");
+    end if;
 end;
 
-handler N5Keypressed; 
+handler N5Keypressed;
 begin
-  BotarPollo(2);
+    if PantallaActual = PantallaPrincipal then
+        BotarPollo(1);
+    elsif PantallaActual = PantallaVelocidad then
+        Temporizador(9, VOn, TimerOneShot, Accion);
+    elsif PantallaActual = PantallaCalibracion then
+        EncenderTemporizador(1);  
+        DisplayStatus("Bascula 1 Encendida");
+    end if;
 end;
-  
+
 handler N6Keypressed;
 begin
-    BotarPollo(3);
+    if PantallaActual = PantallaPrincipal then
+        BotarPollo(2);
+    elsif PantallaActual = PantallaVelocidad then
+        Temporizador(12, VOn, TimerOneShot, Accion);
+    elsif PantallaActual = PantallaCalibracion then
+        EncenderTemporizador(2);   
+        DisplayStatus("Bascula 2 Encendida");
+    end if;
 end;
-                  
+
 handler N7Keypressed;
 begin
-    BotarPollo(4);
+    if PantallaActual = PantallaPrincipal then
+        BotarPollo(3);
+    elsif PantallaActual = PantallaVelocidad then
+        Temporizador(10, VOn, TimerOneShot, Accion);
+    elsif PantallaActual = PantallaCalibracion then
+        EncenderTemporizador(3);  
+        DisplayStatus("Bascula 3 Encendida");
+    end if;
 end;
-                         
+
 handler N8Keypressed;
 begin
-    StopTimer(19);
-    CambiarPantalla(PantallaPrincipal);
+    if PantallaActual = PantallaPrincipal then
+        BotarPollo(4);
+    elsif PantallaActual = PantallaVelocidad then
+        Temporizador(11, VOn, TimerOneShot, Accion);
+    elsif PantallaActual = PantallaCalibracion then
+        EncenderTemporizador(4); 
+        DisplayStatus("Bascula 4 Encendida");
+    end if;
 end;
-   
+
+
 handler N9Keypressed;
-begin                                                              
-   DisplayStatus("Rodo #" + IntegerToString(Basculas[Basc].Contador,3));
-end;       
+begin
+    if PantallaActual = PantallaPrincipal then
+        Temporizador(18, VOn, TimerContinuous, 10);
+    elsif PantallaActual = PantallaVelocidad then
+        Temporizador(13, VOn, TimerOneShot, Accion);
+    end if;
+end;

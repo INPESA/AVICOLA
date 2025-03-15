@@ -1,22 +1,3 @@
-procedure CargarCategorias;
- begin
-      BD_Categoria.GetFirst;
-      Categoria1Min := StringToReal(BD_Categoria.Min);
-      Categoria1Max := StringToReal(BD_Categoria.Max);  
-      
-      BD_Categoria.GetNext;
-      Categoria2Min := StringToReal(BD_Categoria.Min);
-      Categoria2Max := StringToReal(BD_Categoria.Max);
-      
-      BD_Categoria.GetNext;
-      Categoria3Min := StringToReal(BD_Categoria.Min);
-      Categoria3Max := StringToReal(BD_Categoria.Max);
-      
-      BD_Categoria.GetNext;
-      Categoria4Min := StringToReal(BD_Categoria.Min);
-      Categoria4Max := StringToReal(BD_Categoria.Max);
- end;               
-
 procedure ApagarTodosLosPistones;
 begin
        
@@ -44,7 +25,17 @@ begin
     else
       DisplayStatus("Error");
     end if;
-end;  
+end;    
+
+procedure ApagarTemporizador(Temp : integer);
+begin
+   StopTimer(Temp);
+end;
+
+procedure EncenderTemporizador(Temp : integer);
+begin
+     Temporizador(Temp, VOn, TimerContinuous, 10);
+end;
 
 procedure EncederTodosLosTemporizadores;
 begin 
@@ -57,13 +48,7 @@ end;
 
 procedure ApagarTodosLosTemporizadores;
 begin 
-      --Lectura de Pollo
-      Temporizador(1, VOn, TimerContinuous, 10);
-      Temporizador(2, VOn, TimerContinuous, 10);
-      Temporizador(3, VOn, TimerContinuous, 10);
-      Temporizador(4, VOn, TimerContinuous, 10);     
-      Temporizador(18, VOn, TimerContinuous, 10);
-      Temporizador(19, VOn, TimerContinuous, 10);
+     StopTimer(1); 
 end;
 
 procedure EncenderPiston(piston : integer);
@@ -85,7 +70,7 @@ end;
        
        
 procedure ApagarPiston(piston : integer);
-begin  
+begin                                            
   if piston = 1 then
     SetDigout(0,1,APAGADO);
     
@@ -103,20 +88,40 @@ end;
 -- Esto no se debe tocar más                         
 procedure BotarPollo(piston: integer);
 begin  
-   if piston = 1 then      
-    Temporizador(9, VOn, TimerOneShot, Accion);
-    Temporizador(5, VOn, TimerOneShot, Velocidad);    
-  elsif piston = 2 then
-    Temporizador(10, VOn, TimerOneShot, Accion);
-    Temporizador(6, VOn, TimerOneShot, Velocidad);
+   if piston = 1 then  
+        Temporizador(Timer1, VOn, TimerOneShot, Accion);  
+        if (Timer1 = 13) then
+            Timer1 := 9;   
+        else  
+            Timer1 := Timer1 + 1;
+        end if;    
+
   elsif piston = 3 then
-    Temporizador(11, VOn, TimerOneShot, Accion);
-    Temporizador(7, VOn, TimerOneShot, Velocidad);
+        Temporizador(Timer2, VOn, TimerOneShot, Accion);  
+        if (Timer2 = 18) then
+            Timer2 := 14;   
+        else  
+            Timer2 := Timer2 + 1;
+        end if;
+
   elsif piston = 4 then
-    Temporizador(12, VOn, TimerOneShot, Accion);
-    Temporizador(8, VOn, TimerOneShot, Velocidad);
+        Temporizador(Timer3, VOn, TimerOneShot, Accion);  
+        if (Timer3 = 23) then
+            Timer3 := 19;   
+        else  
+            Timer3 := Timer3 + 1;
+        end if;
+
+  elsif piston = 2 then
+        Temporizador(Timer4, VOn, TimerOneShot, Accion);  
+        if (Timer4 = 28) then
+            Timer4 := 24;   
+        else  
+            Timer4 := Timer4 + 1;
+        end if;
   end if;
-  end;
+end;
+
   
   function BuscarFecha : integer;
   contador : integer := 1;
@@ -308,9 +313,14 @@ begin
     BD_Pruebas.Tipo := Tipo;
     BD_Pruebas.PesoMin := RealToString(Basculas[Basc].LecMin, 2, 3);
     BD_Pruebas.PesoMax := RealToString(Basculas[Basc].LecMax - MatrizPesos[1, Basculas[Basc].Contador],2, 3);     
-    Temporizador(9, VOn, TimerOneShot, Accion);
+    BotarPollo(1);
   BD_Pruebas.Add;
-end;                                                                
+end;      
+
+procedure LimpiarBD;
+begin
+    BD_Pruebas.Clear;
+end;                                                          
 
 procedure GuardarTarasEnMatriz;
 contadores : integer := 1 ;
@@ -322,56 +332,45 @@ begin
         contadores := contadores + 1;
         MatrizPesos[1, contadores]  :=  BD_Cal.Peso;    
     end loop;
-end;
+end;  
 
-procedure VerificarPeso(Bascula : integer);     
-Diferencia : real;
-begin            
-   if Bascula = 1 then
-  Diferencia := Bascula1.LecMax - Bascula1.CeroBascula;
-  if Diferencia >= Categoria1Min and Diferencia < Categoria1Max then
-    cantCategoria1 := cantCategoria1 + 1;
-    BotarPollo(1);
-  end if;
-elsif Bascula = 2 then
-  Diferencia := Bascula2.LecMax - Bascula2.CeroBascula;
-  if Diferencia >= Categoria1Min and Diferencia < Categoria1Max then
-    cantCategoria1 := cantCategoria1 + 1;
-    BotarPollo(2);
-  end if;
-elsif Bascula = 3 then
-  Diferencia := Bascula3.LecMax - Bascula3.CeroBascula;
-  if Diferencia >= Categoria1Min and Diferencia < Categoria1Max then
-    cantCategoria1 := cantCategoria1 + 1;
-    BotarPollo(3);
-  end if;
-elsif Bascula = 4 then
-  Diferencia := Bascula4.LecMax - Bascula4.CeroBascula;
-  if Diferencia >= Categoria1Min and Diferencia < Categoria1Max then
-    cantCategoria1 := cantCategoria1 + 1;
-    BotarPollo(4);
-  end if;
-end if;
-end;
-
-procedure InicializarBasculas;
-begin
-    -- Inicializa los valores de la báscula 1
-    GetNet(1, Primary, Bascula1.LecMin);
-    GetNet(1, Primary, Bascula1.LecMax); 
-
-    -- Inicializa los valores de la báscula 2
-    GetNet(2, Primary, Bascula2.LecMin);
-    GetNet(2, Primary, Bascula2.LecMax); 
-
-    -- Inicializa los valores de la báscula 3
-    GetNet(3, Primary, Bascula3.LecMin);
-    GetNet(3, Primary, Bascula3.LecMax); 
-
-    -- Inicializa los valores de la báscula 4
-    GetNet(4, Primary, Bascula4.LecMin);
-    GetNet(4, Primary, Bascula4.LecMax); 
-end;                                                                                
+-----------------------Funcion Principal de Pesaje------------------------
+--**********************************************************************--
+ procedure PesajeBascula(Bascula : integer); 
+ Peso : real; 
+ PesoReal : real;
+ begin
+ 
+    GetNet(Bascula, Primary, Peso);
+     
+if Peso < (Basculas[Bascula].LecMin - 0.2) and Basculas[Bascula].Bajando = 0 then
+    Basculas[Bascula].LecMin := Peso;
+elsif Basculas[Bascula].Bajando = 0 and Peso > (Basculas[Bascula].LecMin + 0.2) then 
+    Basculas[Bascula].LecMax := Basculas[Bascula].LecMin;
+    Basculas[Bascula].Bajando := 1;
+end if;                 
+         
+if Peso > (Basculas[Bascula].LecMax + 0.2) and Basculas[Bascula].Bajando = 1 then 
+    Basculas[Bascula].LecMax := Peso;
+elsif Basculas[Bascula].Bajando = 1 and Peso < (Basculas[Bascula].LecMax - 0.2) then
+    Basculas[Bascula].Bajando := 0;  
+    
+    PesoReal := (Basculas[Bascula].LecMax - Basculas[Bascula].LecMin) - Basculas[Bascula].PesoPromedio;
+             
+    -- Valor de los Rodos 
+    if (Basculas[Bascula].LecMax - Basculas[Bascula].LecMin) > (5) then 
+        SetLabelText(35,"Bascula " + IntegerToString(Bascula, 2) + " : " + RealToString(PesoReal,2,2));
+        if PesoReal >= (Basculas[Bascula].CategoriaMin - 0.2) and PesoReal <= (Basculas[Bascula].CategoriaMax) + 0.2 then   
+            SetLabelText(36,"Bascula " + IntegerToString(Bascula, 2) + " : " + RealToString(PesoReal,2,2)); 
+            BotarPollo(Bascula);
+        end if;
+    end if;  
+              
+    Basculas[Bascula].LecMin := Basculas[Bascula].LecMax;
+     end if;
+ end;                                                                                 
+--**********************************************************************--
+-------------------------------------------------------------------------- 
 
 procedure IniciarCalibracionRodos;
 begin            
@@ -385,13 +384,6 @@ begin
     DisplayStatus("Cal Basc " + IntegerToString(Basc, 1));
     Temporizador(19, VOn, TimerContinuous, 10);
 end; 
-
-procedure CargarVelocidad;
-begin
-        Accion := 60;
-        Velocidad := 10;
- 
-end;
                          
                          
 procedure IniciarPruebas;

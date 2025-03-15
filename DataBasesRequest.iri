@@ -1,0 +1,32 @@
+---------------------- CATEGOR�AS ----------------------
+
+procedure CargarCategorias;
+i: integer;  
+begin
+    BD_Categoria.GetFirst;
+    
+    for i := 1 to 4 loop  
+        Basculas[i].CategoriaMin := StringToReal(BD_Categoria.Min);
+        Basculas[i].CategoriaMax := StringToReal(BD_Categoria.Max); 
+        SetLabelText((18 + i), "Categoria " + IntegerToString(i,1) + " " + BD_Categoria.Min + " " + BD_Categoria.Max);
+        BD_Categoria.GetNext;    
+    end loop;
+end;   
+
+procedure GuardarCategorias;
+i: integer;
+begin   
+    for i := 1 to 4 loop  
+        BD_Categoria.Min := RealToString(Basculas[i].CategoriaMin, 2, 2);
+        BD_Categoria.Max := RealToString(Basculas[i].CategoriaMax, 2, 2);
+        BD_Categoria.Add;  
+    end loop;
+end;    
+
+---------------------- VELOCIDAD ----------------------
+
+procedure CargarVelocidad;
+begin
+    Accion := 338;
+    Velocidad := 10;
+end;

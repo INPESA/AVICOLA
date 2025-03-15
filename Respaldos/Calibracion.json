@@ -1,0 +1,27 @@
+[
+    {
+      "Bascula": 1,
+      "PesoZero": 0.0,
+      "Span": 100.0,
+      "PesoSpan": 200.0
+    },
+    {
+      "Bascula": 2,
+      "PesoZero": 0.5,
+      "Span": 110.0,
+      "PesoSpan": 210.0
+    },
+    {
+      "Bascula": 3,
+      "PesoZero": 1.0,
+      "Span": 120.0,
+      "PesoSpan": 220.0
+    },
+    {
+      "Bascula": 4,
+      "PesoZero": 1.5,
+      "Span": 130.0,
+      "PesoSpan": 230.0
+    }
+  ]
+  

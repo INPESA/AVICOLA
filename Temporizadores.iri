@@ -1,85 +1,21 @@
 handler Timer1Trip;
-Peso : real;
 begin 
-     --Obtiene el peso de la bascula 1
-     GetNet(1,Primary,Peso);   
-                                                     
-     if Peso < (Bascula1.CeroBascula + 0.5) then 
-        if Bascula1.Bajando = 0 then
-           --Un rodo salió
-           VerificarPeso(1);
-           Bascula1.LecMax := Bascula1.CeroBascula;
-           Bascula1.Bajando := 1;        
-        end if; 
-     else
-         Bascula1.Bajando := 0;
-         if Peso > Bascula1.LecMax then
-            Bascula1.LecMax := Peso;   
-        end if;
-     end if;
+    PesajeBascula(1);
 end;
 
 handler Timer2Trip;
-Peso : real;
 begin
-     -- Obtiene el peso de la báscula 2
-     GetNet(2, Primary, Peso);
-
-     if Peso < (Bascula2.CeroBascula + 0.5) then 
-        if Bascula2.Bajando = 0 then
-           -- Un rodillo salió
-           VerificarPeso(2);
-           Bascula2.LecMax := Bascula2.CeroBascula;
-           Bascula2.Bajando := 1;             
-        end if; 
-     else
-         Bascula2.Bajando := 0;
-         if Peso > Bascula2.LecMax then
-            Bascula2.LecMax := Peso;   
-        end if;
-     end if;
+     PesajeBascula(2);
 end;
 
 handler Timer3Trip;
-Peso : real;
 begin
-     -- Obtiene el peso de la báscula 3
-     GetNet(3, Primary, Peso);
-
-     if Peso < (Bascula3.CeroBascula + 0.5) then 
-        if Bascula3.Bajando = 0 then
-           -- Un rodillo salió
-           VerificarPeso(3);
-           Bascula3.LecMax := Bascula3.CeroBascula;
-           Bascula3.Bajando := 1;            
-        end if; 
-     else
-         Bascula3.Bajando := 0;
-         if Peso > Bascula3.LecMax then
-            Bascula3.LecMax := Peso;   
-        end if;
-     end if;
+    PesajeBascula(3);
 end;
 
 handler Timer4Trip;
-Peso : real;
 begin
-     -- Obtiene el peso de la báscula 4
-     GetNet(4, Primary, Peso);
-
-     if Peso < (Bascula4.CeroBascula + 0.5) then 
-        if Bascula4.Bajando = 0 then
-           -- Un rodillo salió
-           VerificarPeso(4);
-           Bascula4.LecMax := Bascula4.CeroBascula;
-           Bascula4.Bajando := 1;  
-        end if; 
-     else
-         Bascula4.Bajando := 0;
-         if Peso > Bascula4.LecMax then
-            Bascula4.LecMax := Peso;   
-        end if;
-     end if;
+     PesajeBascula(4);
 end;
 
 handler Timer5Trip;
@@ -115,44 +51,158 @@ end;
 handler Timer9Trip;
 --Declaration Section
 begin
-     EncenderPiston(1);
+     EncenderPiston(1); 
+     Temporizador(5, VOn, TimerOneShot, Velocidad); 
 return;
 end;
 
 handler Timer10Trip;
---Declaration Section
-
 begin
      EncenderPiston(1);
+     Temporizador(5, VOn, TimerOneShot, Velocidad); 
 return;
 end;
 
 handler Timer11Trip;
---Declaration Section
-
 begin
     EncenderPiston(1);
+    Temporizador(5, VOn, TimerOneShot, Velocidad); 
 return;
 end;
 
 handler Timer12Trip;
---Declaration Section
 
 begin
-     EncenderPiston(1);
+     EncenderPiston(1); 
+     Temporizador(5, VOn, TimerOneShot, Velocidad); 
 return;
 
 end;
 
-handler Timer17Trip;
+handler Timer13Trip;
 --Declaration Section
 
 begin
-     GuardarEnBD;
+     EncenderPiston(1); 
+     Temporizador(5, VOn, TimerOneShot, Velocidad);
 return; 
+end; 
+
+handler Timer14Trip;
+--Declaration Section
+begin
+     EncenderPiston(2); 
+     Temporizador(6, VOn, TimerOneShot, Velocidad); 
+return;
+end;
+
+handler Timer15Trip;
+begin
+     EncenderPiston(2);
+     Temporizador(6, VOn, TimerOneShot, Velocidad); 
+return;
+end;
+
+handler Timer16Trip;
+begin
+    EncenderPiston(2);
+    Temporizador(6, VOn, TimerOneShot, Velocidad); 
+return;
+end;
+
+handler Timer17Trip;
+begin
+     EncenderPiston(2); 
+     Temporizador(6, VOn, TimerOneShot, Velocidad); 
+return;
 end;
 
 handler Timer18Trip;
+--Declaration Section
+begin
+     EncenderPiston(2); 
+     Temporizador(6, VOn, TimerOneShot, Velocidad);
+return; 
+end;   
+
+
+handler Timer19Trip;
+--Declaration Section
+begin
+     EncenderPiston(3); 
+     Temporizador(7, VOn, TimerOneShot, Velocidad); 
+return;
+end;
+
+handler Timer20Trip;
+begin
+     EncenderPiston(3);
+     Temporizador(7, VOn, TimerOneShot, Velocidad); 
+return;
+end;
+
+handler Timer21Trip;
+begin
+    EncenderPiston(3);
+    Temporizador(7, VOn, TimerOneShot, Velocidad); 
+return;
+end;
+
+handler Timer22Trip;
+begin
+     EncenderPiston(3); 
+     Temporizador(7, VOn, TimerOneShot, Velocidad); 
+return;
+end;
+
+handler Timer23Trip;
+--Declaration Section
+begin
+     EncenderPiston(3); 
+     Temporizador(7, VOn, TimerOneShot, Velocidad);
+return; 
+end;
+
+handler Timer24Trip;
+--Declaration Section
+begin
+     EncenderPiston(4); 
+     Temporizador(8, VOn, TimerOneShot, Velocidad); 
+return;
+end;
+
+handler Timer25Trip;
+begin
+     EncenderPiston(4);
+     Temporizador(8, VOn, TimerOneShot, Velocidad); 
+return;
+end;
+
+handler Timer26Trip;
+begin
+    EncenderPiston(4);
+    Temporizador(8, VOn, TimerOneShot, Velocidad); 
+return;
+end;
+
+handler Timer27Trip;
+begin
+     EncenderPiston(4); 
+     Temporizador(8, VOn, TimerOneShot, Velocidad); 
+return;
+end;
+
+handler Timer28Trip;
+--Declaration Section
+begin
+     EncenderPiston(4); 
+     Temporizador(8, VOn, TimerOneShot, Velocidad);
+return; 
+end;
+
+
+
+handler Timer29Trip;
 Peso : real;
 begin  
      -- Selecciona la báscula basada en la variable Basc
@@ -171,7 +221,7 @@ begin
              Basculas[Basc].Bajando := 0;
              
              -- Tensión más peso meta
-             if (Basculas[Basc].LecMax - Basculas[Basc].LecMin) > (2) then 
+             if (Basculas[Basc].LecMax - Basculas[Basc].LecMin) > (5) then 
                  
                  if Basculas[Basc].Contador = 122 then
                    Basculas[Basc].Contador  := 1; 
@@ -185,7 +235,7 @@ begin
               " -  " + RealToString(MatrizPesos[1, Basculas[Basc].Contador], 2, 2)  + " - " 
                + IntegerToString(Basculas[Basc].Contador,3));
                     GuardarEnBDconTara(Basc,2);
-                    Temporizador(9, VOn, TimerOneShot, Accion);
+                    BotarPollo(1);
                  end if;  
                    
              end if; 
@@ -197,35 +247,13 @@ begin
 end;
 
 --Calibracion
-handler Timer19Trip;
-Peso : real;
+handler Timer30Trip;
 begin
-   -- Selecciona la báscula basada en la variable Basc
-     GetNet(Basc, Primary, Peso);
-     
-         if Peso < (Basculas[Basc].LecMin - 0.2) and Basculas[Basc].Bajando = 0 then
-             Basculas[Basc].LecMin := Peso;
-         elsif Basculas[Basc].Bajando = 0 and Peso > (Basculas[Basc].LecMin + 0.2) then 
-             Basculas[Basc].LecMax := Basculas[Basc].LecMin;
-             Basculas[Basc].Bajando := 1;
-         end if;
-         
-         if Peso > (Basculas[Basc].LecMax + 0.2) and Basculas[Basc].Bajando = 1 then 
-             Basculas[Basc].LecMax := Peso;
-         elsif Basculas[Basc].Bajando = 1 and Peso < (Basculas[Basc].LecMax - 0.2) then
-             Basculas[Basc].Bajando := 0;
-             
-             -- Tensión más peso meta
-             if (Basculas[Basc].LecMax - Basculas[Basc].LecMin) > (2) then 
-                    GuardarPruebasEnBD(Basc,1); 
-             end if; 
-             
-            Basculas[Basc].LecMin := Basculas[Basc].LecMax;
-   end if;       
+  PesajeBascula(Basc);
 end;                                     
 
 --Prueba de Calibracion
-handler Timer20Trip;
+handler Timer31Trip;
 Peso : real;
 begin
    -- Selecciona la báscula basada en la variable Basc
@@ -243,7 +271,7 @@ begin
          elsif Basculas[Basc].Bajando = 1 and Peso < (Basculas[Basc].LecMax - 0.2) then
              Basculas[Basc].Bajando := 0;
              
-             --GuardarPruebasEnBD(Basc,1);  
+             GuardarPruebasEnBD(Basc,1);  
               if (Basculas[Basc].LecMax - Basculas[Basc].LecMin) > (2) then 
                      DisplayStatus("Lec: " + RealToString(Basculas[Basc].LecMax, 2, 2) + 
               " -  " + RealToString(MatrizPesos[1, Basculas[Basc].Contador], 2, 2)  + " - " 

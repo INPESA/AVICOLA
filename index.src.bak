@@ -7,8 +7,9 @@ program AvicolaLaVida;
 #include Estructuras.iri                                                                  
 #include Variables.iri      
 #include Globales.iri  
-#include Pantalla.iri
-#include Procedimientos.iri
+#include Pantalla.iri 
+#include DataBasesRequest.iri
+#include Procedimientos.iri 
 #include SetPoints.iri    
 #include Teclas.iri    
 #include SoftKeys.iri 
@@ -27,8 +28,7 @@ begin
   --DrawGraphic(3,30,0,g_Avicola,Black);   
   --ProgramDelay(500); 
 
-  -- Primero se apagan todos los pistones 
-  --ApagarTodosLosPistones;   
+  -- Primero se apagan todos los pistones   
   --if FechaGlobal <> "" then
     --GuardarEnBD;
   --end if;
@@ -36,20 +36,22 @@ begin
  -- FechaGlobal := ObtenerFechaHora(Fecha);
   
   --Extrae la informacion de las categorias
-  ---CargarCategorias;  
+  CargarCategorias;  
   CargarVelocidad;
   CambiarPantalla(PantallaPrincipal);
   
   --Extrae la informacion de los contadores 
   --CargarLosContadores;
   
-  InicializarBasculas;  
+  ApagarTodosLosPistones;  
   GuardarTarasEnMatriz;
   
-  --EncederTodosLosTemporizadores;
-  Basc := 1;  
-  Temporizador(18, VOn, TimerContinuous, 10);
-  
-      
-      
-      end AvicolaLaVida;
+  EncederTodosLosTemporizadores;
+  Basc := 1;        
+  Basculas[1].PesoPromedio := 7.5;
+  Basculas[2].PesoPromedio := 2.9;
+  Basculas[3].PesoPromedio := 2.5;
+  Basculas[4].PesoPromedio := 5.5;
+  --Temporizador(30, VOn, TimerContinuous, 10);
+    
+  end AvicolaLaVida;

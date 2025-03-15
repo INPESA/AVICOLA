@@ -6,27 +6,17 @@ BD_Categoria : CategoDatabase;
 BD_Pruebas : PruebasDatabase; 
 BD_Cal : CalDatabase;
 
-Basc : integer := 0;    
+Basc : integer := 0;   
 
 -- Variables de Estructuras
-type MatrizPesos2 is array [4, 200] of real;
-Bascula1 : BasculaData; 
-Bascula2 : BasculaData;
-Bascula3 : BasculaData;
-Bascula4 : BasculaData;   
+type MatrizPesos2 is array [4, 200] of real;     
+type Pesos is array [4] of real;
+ 
 type Basculas2 is array [4] of BasculaData; 
-Basculas : Basculas2;
-MatrizPesos : MatrizPesos2;  
-type Pesos is array[4] of real;
+Basculas : stored Basculas2;
 
-Timer1: integer := 0;
-Timer2: integer := 0;
-Timer3: integer := 0;
-Timer4: integer := 0;
-Timer5: integer := 0;
-Timer6: integer := 0;
-Timer7: integer := 0;
-Timer8: integer := 0;
+
+MatrizPesos : MatrizPesos2;  
 
 PruebasMax : real := 0;
 PruebasMin : real := 0;
@@ -54,7 +44,7 @@ cantCategoria4 : stored integer := 0;
 FechaGlobal : stored string;
  
 Velocidad : stored integer := 10;
-Accion : stored integer := 60;
+Accion : stored integer := 335;
 Contrasena : stored integer := 1743;                                                             
                                   
 BasesDeDatos : stored integer := 1;
@@ -64,11 +54,34 @@ PantallaActual : integer := 0;
 PantallaAnterior :  integer := 0;  
 
 -- Variables Estaticas 
-
 APAGADO :integer := 0;
-ENCENDIDO :integer := 1;
-PantallaPresentacion :integer := 3;
+ENCENDIDO :integer := 1;    
+--------------------------
+
+--------------------------- Pantallas---------------------------
+PantallaPrincipal : integer := 1; --Se accede al encendido o al salir de otra pantalla 
 PantallaPruebas : integer := 2;
-PantallaPrincipal : integer := 1;          
-PantallaCategoria : integer := 4;
-PantallaVelocidad : integer := 5;
+PantallaPresentacion :integer := 3;         
+PantallaCategoria : integer := 4; --Se accede con el SoftKey1
+PantallaVelocidad : integer := 5; --Se accede con el SoftKey2
+PantallaCalibracion : integer := 6; --Se accede con el SoftKey3 
+----------------------------------------------------------------
+
+
+--Timers para los pistones van de su numero inicial hasta +5      
+Timer1 : integer := 9;   
+Timer2 : integer := 14; 
+Timer3 : integer := 19;
+Timer4 : integer := 24;
+--------------------------------------------------------------                                     
+   
+--Entrys
+EntryBascula : integer := 1;  
+EntryCategoriaMinima : integer := 2;  
+EntryCategoriaMaxima : integer := 3; 
+EntryPesoPromedio : integer := 4;
+MenuEntry : integer;                 
+
+-------------MenuEntry
+MenuCategoria : integer := 1;   
+MenuPesoPromedio : integer := 2; 
