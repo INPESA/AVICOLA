@@ -2,11 +2,13 @@ type BasculaData is
 record
   LecMin : real;
   LecMax : real;
-  CeroBascula : real;
+  TActivacion : integer;
+  VActivacion : integer;
   Bajando : integer;
   Contador : integer;
   EsPrimerLectura : integer; 
   PesoPromedio : real;   
   CategoriaMin : real;
   CategoriaMax : real;
+  
 end record;

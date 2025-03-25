@@ -32,24 +32,18 @@ begin
         SetSoftkeyText(2,"Aj. Peso");  
         SetSoftkeyText(3,"");
         SetSoftkeyText(4,""); 
-        SetSoftkeyText(5,"Salir");
-        
-        SetLabelText(cat1, "Categoria 1: " + RealToString(Categoria1Min,2,3) + "-" + RealToString(Categoria1Max,2,3) + " lb");
-        SetLabelText(cat2, "Categoria 2: " + RealToString(Categoria2Min,2,3) + "-" + RealToString(Categoria2Max,2,3) + " lb");
-        SetLabelText(cat3, "Categoria 3: " + RealToString(Categoria3Min,2,3) + "-" + RealToString(Categoria3Max,2,3) + " lb");
-        SetLabelText(cat4, "Categoria 4: " + RealToString(Categoria4Min,2,3) + "-" + RealToString(Categoria4Max,2,3) + " lb");   
-   
-    elsif pantalla = 5 then
+        SetSoftkeyText(5,"Salir");     
+    elsif pantalla = PantallaVelocidad then
         --InitGranjero;
         --DrawGraphic(1,230,100,g_Granjero,Black);
         SetSoftkeyText(1,"V. Activ.");
         SetSoftkeyText(2,"T. Piston");  
-        SetSoftkeyText(3,"Piston");
-        SetSoftkeyText(4,"Rodo"); 
+        SetSoftkeyText(3,"");
+        SetSoftkeyText(4,""); 
         SetSoftkeyText(5,"Salir");
         
-        SetLabelText(vel1, "Vel. de Activacion: " + IntegerToString(Velocidad,2));
-        SetLabelText(vel2, "Tiempo del Piston: " + IntegerToString(Accion,2)); 
+        SetLabelText(vel1, "Vel 1: " + IntegerToString(Velocidad,2));
+        SetLabelText(vel2, "Tiempo 1: " + IntegerToString(Accion,2)); 
         SetLabelText(46, IntegerToString(Basculas[1].Contador, 1));    
     elsif pantalla = PantallaCalibracion then
         --InitGranjero;

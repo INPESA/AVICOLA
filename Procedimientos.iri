@@ -211,117 +211,7 @@ end;
        
      end if;
   end;      
-
-  procedure GuardarEnBD;
-  begin
-      if BasesDeDatos = 1 then
-        if BD1_Conteo.GetFirst <> SysNoSuchRecord then
-         
-        if BD1_Conteo.Fecha = FechaGlobal then
-            BD1_Conteo.Cat1 := IntegerToString(cantCategoria1,6);
-            BD1_Conteo.Cat2 := IntegerToString(cantCategoria2,6);
-            BD1_Conteo.Cat3 := IntegerToString(cantCategoria3,6);
-            BD1_Conteo.Cat4 := IntegerToString(cantCategoria4,6); 
-            BD1_Conteo.Update; 
-            DisplayStatus("Registro 1 Actualizado");
-        else
-          while(BD1_Conteo.GetNext <> SysNoSuchRecord)
-          loop
-              if BD1_Conteo.Fecha = FechaGlobal then
-                BD1_Conteo.Cat1 := IntegerToString(cantCategoria1,6);
-                BD1_Conteo.Cat2 := IntegerToString(cantCategoria2,6);
-                BD1_Conteo.Cat3 := IntegerToString(cantCategoria3,6);
-                BD1_Conteo.Cat4 := IntegerToString(cantCategoria4,6); 
-                BD1_Conteo.Update;
-                DisplayStatus("Registro 1 Actualizado"); 
-              end if;
-          end loop;
-            BD1_Conteo.Fecha := FechaGlobal;
-            BD1_Conteo.Cat1 := IntegerToString(cantCategoria1,6);
-            BD1_Conteo.Cat2 := IntegerToString(cantCategoria2,6);
-            BD1_Conteo.Cat3 := IntegerToString(cantCategoria3,6);
-            BD1_Conteo.Cat4 := IntegerToString(cantCategoria4,6); 
-            BD1_Conteo.Add;    
-            DisplayStatus("Registro 1 Añadido");  
-            end if;
-          else
-             BD1_Conteo.Fecha := FechaGlobal;
-            BD1_Conteo.Cat1 := IntegerToString(cantCategoria1,6);
-            BD1_Conteo.Cat2 := IntegerToString(cantCategoria2,6);
-            BD1_Conteo.Cat3 := IntegerToString(cantCategoria3,6);
-            BD1_Conteo.Cat4 := IntegerToString(cantCategoria4,6); 
-            BD1_Conteo.Add;
-            DisplayStatus("Registro 1 Añadido");   
-        end if;
-        
-     else
-       if BD2_Conteo.GetFirst <> SysNoSuchRecord then
-       
-       if BD2_Conteo.Fecha = FechaGlobal then
-            BD2_Conteo.Cat1 := IntegerToString(cantCategoria1,6);
-            BD2_Conteo.Cat2 := IntegerToString(cantCategoria2,6);
-            BD2_Conteo.Cat3 := IntegerToString(cantCategoria3,6);
-            BD2_Conteo.Cat4 := IntegerToString(cantCategoria4,6);
-            BD2_Conteo.Update; 
-            DisplayStatus("Registro 2 Actualizado");
-       else
-        while(BD2_Conteo.GetNext <> SysNoSuchRecord)
-        loop
-            if BD2_Conteo.Fecha = FechaGlobal then
-              BD2_Conteo.Cat1 := IntegerToString(cantCategoria1,6);
-              BD2_Conteo.Cat2 := IntegerToString(cantCategoria2,6);
-              BD2_Conteo.Cat3 := IntegerToString(cantCategoria3,6);
-              BD2_Conteo.Cat4 := IntegerToString(cantCategoria4,6);
-              BD2_Conteo.Update;
-              DisplayStatus("Registro 2 Actualizado");
-            end if;
-        end loop;
-            BD2_Conteo.Fecha := FechaGlobal;
-            BD2_Conteo.Cat1 := IntegerToString(cantCategoria1,6);
-            BD2_Conteo.Cat2 := IntegerToString(cantCategoria2,6);
-            BD2_Conteo.Cat3 := IntegerToString(cantCategoria3,6);
-            BD2_Conteo.Cat4 := IntegerToString(cantCategoria4,6);
-            BD2_Conteo.Add;
-            DisplayStatus("Registro 2 Añadido"); 
-             end if;
-        else
-                BD2_Conteo.Fecha := FechaGlobal;
-            BD2_Conteo.Cat1 := IntegerToString(cantCategoria1,6);
-            BD2_Conteo.Cat2 := IntegerToString(cantCategoria2,6);
-            BD2_Conteo.Cat3 := IntegerToString(cantCategoria3,6);
-            BD2_Conteo.Cat4 := IntegerToString(cantCategoria4,6);
-            BD2_Conteo.Add;
-            DisplayStatus("Registro 2 Añadido");
-           
-       end if;  
-     end if;                                
-  end;    
-                                                                    
-procedure GuardarPruebasEnBD(BasculaNum : integer; Tipo : integer);
-begin
-    BD_Pruebas.Bascula := Basc;
-    BD_Pruebas.Tipo := Tipo;
-    BD_Pruebas.PesoMin := RealToString(Basculas[Basc].LecMin, 2, 3);
-    
-    BD_Pruebas.PesoMax := RealToString(Basculas[Basc].LecMax, 2, 3); 
-  BD_Pruebas.Add;
-end;    
-
-procedure GuardarEnBDconTara(BasculaNum : integer; Tipo : integer);
-begin
-    BD_Pruebas.Bascula := Basc;
-    BD_Pruebas.Tipo := Tipo;
-    BD_Pruebas.PesoMin := RealToString(Basculas[Basc].LecMin, 2, 3);
-    BD_Pruebas.PesoMax := RealToString(Basculas[Basc].LecMax - MatrizPesos[1, Basculas[Basc].Contador],2, 3);     
-    BotarPollo(1);
-  BD_Pruebas.Add;
-end;      
-
-procedure LimpiarBD;
-begin
-    BD_Pruebas.Clear;
-end;                                                          
-
+                                                      
 procedure GuardarTarasEnMatriz;
 contadores : integer := 1 ;
 begin
@@ -358,7 +248,7 @@ elsif Basculas[Bascula].Bajando = 1 and Peso < (Basculas[Bascula].LecMax - 0.2) 
     PesoReal := (Basculas[Bascula].LecMax - Basculas[Bascula].LecMin) - Basculas[Bascula].PesoPromedio;
              
     -- Valor de los Rodos 
-    if (Basculas[Bascula].LecMax - Basculas[Bascula].LecMin) > (5) then 
+    if (Basculas[Bascula].LecMax - Basculas[Bascula].LecMin) > (1.5) then 
         SetLabelText(35,"Bascula " + IntegerToString(Bascula, 2) + " : " + RealToString(PesoReal,2,2));
         if PesoReal >= (Basculas[Bascula].CategoriaMin - 0.2) and PesoReal <= (Basculas[Bascula].CategoriaMax) + 0.2 then   
             SetLabelText(36,"Bascula " + IntegerToString(Bascula, 2) + " : " + RealToString(PesoReal,2,2)); 

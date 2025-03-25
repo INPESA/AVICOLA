@@ -9,8 +9,7 @@ program AvicolaLaVida;
 #include Globales.iri  
 #include Pantalla.iri 
 #include DataBasesRequest.iri
-#include Procedimientos.iri 
-#include SetPoints.iri    
+#include Procedimientos.iri     
 #include Teclas.iri    
 #include SoftKeys.iri 
 #include Comandos.iri
@@ -37,7 +36,7 @@ begin
   
   --Extrae la informacion de las categorias
   CargarCategorias;  
-  CargarVelocidad;
+  CargarPistones;
   CambiarPantalla(PantallaPrincipal);
   
   --Extrae la informacion de los contadores 
@@ -48,10 +47,10 @@ begin
   
   EncederTodosLosTemporizadores;
   Basc := 1;        
-  Basculas[1].PesoPromedio := 7.5;
-  Basculas[2].PesoPromedio := 2.9;
-  Basculas[3].PesoPromedio := 2.5;
-  Basculas[4].PesoPromedio := 5.5;
+  Basculas[1].PesoPromedio := 0;
+  Basculas[2].PesoPromedio := 0;
+  Basculas[3].PesoPromedio := 0;
+  Basculas[4].PesoPromedio := 0;
   --Temporizador(30, VOn, TimerContinuous, 10);
     
   end AvicolaLaVida;

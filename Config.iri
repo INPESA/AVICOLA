@@ -1,6 +1,6 @@
 -------------------------------------------------
 -- Used with iRev Configuration File
--- D:\Empresas\AVICOLA\Indicador.920
+-- D:\_DOCUMENTOS\Empresas\AVICOLA\Indicador.920
 -------------------------------------------------
 
 
@@ -60,6 +60,11 @@ Label42  : constant integer := 42;
 Label43  : constant integer := 43;
 Label44  : constant integer := 44;
 Label45  : constant integer := 45;
+Lbl6S3   : constant integer := 46;
+Lbl5S5   : constant integer := 47;
+Lbl6S5   : constant integer := 48;
+Lbl7S5   : constant integer := 49;
+Lbl8S5   : constant integer := 50;
 
 -- Serial Port Aliases
 Port1    : constant integer := 1;
@@ -204,6 +209,16 @@ end database;
 Cal_Rodo          : constant integer := 1;
 Cal_Bascula       : constant integer := 2;
 Cal_Peso          : constant integer := 3;
+
+type PistonDatabase is Database ("Piston")
+	Piston   : integer;
+	vel      : integer;
+	tiempo   : integer;
+end database;
+
+Piston_Piston     : constant integer := 1;
+Piston_vel        : constant integer := 2;
+Piston_tiempo     : constant integer := 3;
 
 
 

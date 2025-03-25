@@ -270,8 +270,7 @@ begin
              Basculas[Basc].LecMax := Peso;
          elsif Basculas[Basc].Bajando = 1 and Peso < (Basculas[Basc].LecMax - 0.2) then
              Basculas[Basc].Bajando := 0;
-             
-             GuardarPruebasEnBD(Basc,1);  
+            
               if (Basculas[Basc].LecMax - Basculas[Basc].LecMin) > (2) then 
                      DisplayStatus("Lec: " + RealToString(Basculas[Basc].LecMax, 2, 2) + 
               " -  " + RealToString(MatrizPesos[1, Basculas[Basc].Contador], 2, 2)  + " - " 

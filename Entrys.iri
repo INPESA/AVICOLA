@@ -30,7 +30,7 @@ begin
     
     --Ajuste de Categoria Maxima
     elsif PromptN = EntryCategoriaMaxima then
-      Basculas[Basc].CategoriaMin := StringToReal(s); 
+      Basculas[Basc].CategoriaMax := StringToReal(s); 
       ClosePrompt;         
       SetLabelText((18 + Basc), "Categoria " + IntegerToString(Basc,1) + " " + RealToString(Basculas[Basc].CategoriaMin,2,2) + " " + RealToString(Basculas[Basc].CategoriaMax,2,2));
     ----------------------------------------------

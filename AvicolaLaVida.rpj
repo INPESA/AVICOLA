@@ -12,6 +12,7 @@ file=D:\_DOCUMENTOS\Empresas\AVICOLA\Config.iri
 file=D:\_DOCUMENTOS\Empresas\AVICOLA\Estructuras.iri
 file=D:\_DOCUMENTOS\Empresas\AVICOLA\Globales.iri
 file=D:\_DOCUMENTOS\Empresas\AVICOLA\Pantalla.iri
+file=D:\_DOCUMENTOS\Empresas\AVICOLA\DataBasesRequest.iri
 retainout=False
 target=et=1
 indtarget=1

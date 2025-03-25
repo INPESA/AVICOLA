@@ -1,4 +1,4 @@
----------------------- CATEGORï¿½AS ----------------------
+---------------------- CATEGORÍAS ----------------------
 
 procedure CargarCategorias;
 i: integer;  
@@ -15,7 +15,8 @@ end;
 
 procedure GuardarCategorias;
 i: integer;
-begin   
+begin 
+    BD_Categoria.Clear;  
     for i := 1 to 4 loop  
         BD_Categoria.Min := RealToString(Basculas[i].CategoriaMin, 2, 2);
         BD_Categoria.Max := RealToString(Basculas[i].CategoriaMax, 2, 2);
@@ -23,10 +24,47 @@ begin
     end loop;
 end;    
 
----------------------- VELOCIDAD ----------------------
+---------------------- PISTON ----------------------
 
-procedure CargarVelocidad;
+procedure CargarPistones;
+i: integer;
 begin
-    Accion := 338;
-    Velocidad := 10;
+  BD_Piston.GetFirst;
+  for i := 1 to 4 loop
+    Basculas[i].TActivacion := BD_Piston.Tiempo;
+    Basculas[i].VActivacion := BD_Piston.Vel;
+    BD_Piston.GetNext;
+  end loop;
 end;
+
+
+procedure GuardarPistones;
+i: integer;
+begin
+    BD_Piston.Clear;  
+    for i := 1 to 4 loop  
+        BD_Piston.Tiempo := Basculas[i].TActivacion;
+        BD_Piston.Vel := Basculas[i].VActivacion;
+        BD_Piston.Add;  
+    end loop;
+end;
+        
+        
+  procedure GuardarEnBD;
+  begin
+    DisplayStatus("Guardar en BD");  
+  end;    
+
+procedure GuardarEnBDconTara(BasculaNum : integer; Tipo : integer);
+begin
+    BD_Pruebas.Bascula := Basc;
+    BD_Pruebas.Tipo := Tipo;
+    BD_Pruebas.PesoMin := RealToString(Basculas[Basc].LecMin, 2, 3);
+    BD_Pruebas.PesoMax := RealToString(Basculas[Basc].LecMax - MatrizPesos[1, Basculas[Basc].Contador],2, 3);     
+  BD_Pruebas.Add;
+end;      
+
+procedure LimpiarBD;
+begin
+    BD_Pruebas.Clear;
+end;    
