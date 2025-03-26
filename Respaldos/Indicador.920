@@ -1,5 +1,5 @@
 @REVISION=5.13.0
-@CRC=-670729478
+@CRC=-629806244
 @CODFile=D:\_DOCUMENTOS\Empresas\AVICOLA\index.cod
 
 [BEGIN]
@@ -206,6 +206,9 @@ DB.OFFSET.7#0=619
 DB.SCHEMA.8#0=300,0,Rodo,3,4,Bascula,2,2,Peso,4,4
 DB.ALIAS.8#0=Cal
 DB.OFFSET.8#0=13951
+DB.SCHEMA.9#0=6,0,Piston,2,2,vel,3,4,tiempo,3,4
+DB.ALIAS.9#0=Piston
+DB.OFFSET.9#0=146
 SC.SRC#1=A,1
 SC.ALIAS#1=
 SC.VISIBLE#1=ON
@@ -601,28 +604,36 @@ WDGT#25=6,130,58,1,Sym1S1,1,1,2,1,1
 WDGT#26=6,130,106,1,Sym2S1,1,2,2,1,1
 WDGT#27=6,280,58,1,Sym3S1,1,3,2,1,1
 WDGT#28=6,280,106,1,Sym4S1,1,4,2,1,1
-WDGT#29=4,10,84,171,Velocidad Accionamiento: 100,1,1,2,vel1,2,0,0,1,5
-WDGT#30=4,10,114,175,Tiempo de Activacion: 100,1,1,2,vel2,2,0,0,1,5
-WDGT#31=4,42,26,193,Instrumentos de Pesaje S.A.,1,1,2,tit5,4,0,0,1,5
-WDGT#32=4,48,50,189,Avicola La Vida - Categorias,1,1,2,sub5,4,0,0,1,5
-WDGT#33=4,24,34,121,Peso Minimo,1,1,1,Lbl1S6,4,0,0,1,6
-WDGT#34=4,176,34,76,Peso Maximo,1,1,1,Label34,4,0,0,1,6
-WDGT#35=4,8,70,137,Caption,1,1,1,Minimo6,2,0,0,1,6
-WDGT#36=4,164,70,141,Caption,1,1,1,Maximo6,2,0,0,1,6
-WDGT#37=4,60,110,201,Caption,2,3,3,Lbl5S6,1,1,1,1,6
-WDGT#38=4,36,38,209,Cantidad:,2,1,3,cant7,2,0,0,1,7
-WDGT#39=4,16,90,273,Peso:,2,1,3,peso7,2,0,0,1,7
-WDGT#40=3,20,54,280,21,2,1,2,1,Bar1S3,2,0,0,1,3
-WDGT#41=4,20,22,280,Calibrando 0 de la bascula,1,3,2,Lbl1S3,4,0,0,1,3
-WDGT#42=4,30,109,120,Valor 1 =,1,3,2,Label42,2,0,0,1,3
-WDGT#43=4,170,139,120,Valor 3 =,1,3,2,Label43,2,0,0,1,3
-WDGT#44=4,30,139,120,Valor2 =,1,3,2,Label44,2,0,0,1,3
-WDGT#45=4,170,109,120,Valor2 =,1,3,2,Label45,2,0,0,1,3
-WDGT#46=4,52,79,225,Rodo#1 : lb,2,3,2,Lbl6S3,2,0,0,1,3
-WDGT#47=4,12,154,65,Caption,2,1,1,Lbl5S5,1,1,1,1,5
-WDGT#48=4,84,154,76,Caption,2,1,1,Lbl6S5,1,1,1,1,5
-WDGT#49=4,168,166,76,Caption,2,1,1,Lbl7S5,1,1,1,1,5
-WDGT#50=4,240,150,76,Caption,2,1,1,Lbl8S5,1,1,1,1,5
+WDGT#29=4,80,19,195,Instrumentos de Pesaje S.A.,1,1,2,tit5,4,0,0,1,5
+WDGT#30=4,80,39,195,Avicola La Vida - Pistones,1,1,2,sub5,4,0,0,1,5
+WDGT#31=4,5,89,75,Vel 1: XX,1,3,1,VEL1,2,0,0,1,5
+WDGT#32=4,82,89,77,Vel 2: XX,1,3,1,VEL2,2,0,0,1,5
+WDGT#33=4,162,89,76,Vel 3: XX,1,3,1,VEL3,2,0,0,1,5
+WDGT#34=4,242,89,76,Vel 4: XX,1,3,1,VEL4,2,0,0,1,5
+WDGT#35=4,5,108,75,T1:,1,3,1,TIM1,2,0,0,1,5
+WDGT#36=4,82,108,76,T2,1,3,1,TIM2,2,0,0,1,5
+WDGT#37=4,162,108,76,T3,1,3,1,TIM3,2,0,0,1,5
+WDGT#38=4,242,108,76,T4,1,3,1,TIM4,2,0,0,1,5
+WDGT#39=4,5,69,75,Piston 1,1,3,1,PIS1,4,0,0,1,5
+WDGT#40=4,82,69,75,Piston 2,1,3,1,PIS2,4,0,0,1,5
+WDGT#41=4,162,69,75,Piston 3,1,3,1,PIS3,4,0,0,1,5
+WDGT#42=4,242,69,75,Piston 4,1,3,1,PIS4,4,0,0,1,5
+WDGT#43=4,16,142,285,Para probar el piston presione en el teclado numerico,1,1,1,Lbl5S5,4,0,0,1,5
+WDGT#44=4,48,162,213,el numero correspondiente al piston (1-4),1,1,1,Lbl6S5,4,0,0,1,5
+WDGT#45=4,24,34,121,Peso Minimo,1,1,1,Lbl1S6,4,0,0,1,6
+WDGT#46=4,176,34,76,Peso Maximo,1,1,1,Label34,4,0,0,1,6
+WDGT#47=4,8,70,137,Caption,1,1,1,Minimo6,2,0,0,1,6
+WDGT#48=4,164,70,141,Caption,1,1,1,Maximo6,2,0,0,1,6
+WDGT#49=4,60,110,201,Caption,2,3,3,Lbl5S6,1,1,1,1,6
+WDGT#50=4,36,38,209,Cantidad:,2,1,3,cant7,2,0,0,1,7
+WDGT#51=4,16,90,273,Peso:,2,1,3,peso7,2,0,0,1,7
+WDGT#52=3,20,54,280,21,2,1,2,1,Bar1S3,2,0,0,1,3
+WDGT#53=4,20,22,280,Calibrando 0 de la bascula,1,3,2,Lbl1S3,4,0,0,1,3
+WDGT#54=4,30,109,120,Valor 1 =,1,3,2,Label42,2,0,0,1,3
+WDGT#55=4,170,139,120,Valor 3 =,1,3,2,Label43,2,0,0,1,3
+WDGT#56=4,30,139,120,Valor2 =,1,3,2,Label44,2,0,0,1,3
+WDGT#57=4,170,109,120,Valor2 =,1,3,2,Label45,2,0,0,1,3
+WDGT#58=4,52,79,225,Rodo#1 : lb,2,3,2,Lbl6S3,2,0,0,1,3
 SP.KIND#1=WAITSS
 SP.ALIAS#1=SP1
 SP.ENABLE#1=ON
