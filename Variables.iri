@@ -13,11 +13,10 @@ Basc : integer := 0;
 type MatrizPesos2 is array [4, 200] of real;     
 type Pesos is array [4] of real;
  
-type Basculas2 is array [4] of BasculaData; 
-Basculas : stored Basculas2;
+Basculas : stored BasculasArray;
+Config : stored ConfigArray;
 
 MatrizPesos : MatrizPesos2;  
-
 PruebasMax : real := 0;
 PruebasMin : real := 0;
 

@@ -26,7 +26,7 @@ begin
     
     --Ajuste de Categoria Minima       
     elsif PromptN = EntryCategoriaMinima then
-      Basculas[Basc].CategoriaMin := StringToReal(s);
+      Config[Basc].CategoriaMin := StringToReal(s);
       ClosePrompt;
       PromptN := EntryCategoriaMaxima;
       PromptUser("Rango Maximo: ");
@@ -34,9 +34,9 @@ begin
     
     --Ajuste de Categoria Maxima
     elsif PromptN = EntryCategoriaMaxima then
-      Basculas[Basc].CategoriaMax := StringToReal(s); 
+      Config[Basc].CategoriaMax := StringToReal(s); 
       ClosePrompt;         
-      SetLabelText((18 + Basc), "Categoria " + IntegerToString(Basc,1) + " " + RealToString(Basculas[Basc].CategoriaMin,2,2) + " " + RealToString(Basculas[Basc].CategoriaMax,2,2));
+      SetLabelText((18 + Basc), "Categoria " + IntegerToString(Basc,1) + " " + RealToString(Config[Basc].CategoriaMin,2,2) + " " + RealToString(Config[Basc].CategoriaMax,2,2));
     ----------------------------------------------
     
     --------------------Ajuste de Peso Promedio  
@@ -45,14 +45,14 @@ begin
         ClosePrompt; 
           
     elsif PromptN = EntryVActivacion then
-        Basculas[Basc].VActivacion := StringToReal(s); 
+        Config[Basc].VActivacion := StringToReal(s); 
         ClosePrompt;         
-        SetLabelText((30 + Basc), "Vel 1: " + IntegerToString(Basculas[Basc].VActivacion,2));
+        SetLabelText((30 + Basc), "Vel 1: " + IntegerToString(Config[Basc].VActivacion,2));
             
     elsif PromptN = EntryTActivacion then
-        Basculas[Basc].TActivacion := StringToReal(s); 
+        Config[Basc].TActivacion := StringToReal(s); 
         ClosePrompt;         
-        SetLabelText((34 + Basc), "Tiem 1: " + IntegerToString(Basculas[Basc].TActivacion,2));
+        SetLabelText((34 + Basc), "Tiem 1: " + IntegerToString(Config[Basc].TActivacion,2));
       
     elsif PromptN = 7 then
       DisplayStatus("Vacio");

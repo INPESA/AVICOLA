@@ -2,13 +2,20 @@ type BasculaData is
 record
   LecMin : real;
   LecMax : real;
-  TActivacion : integer;
-  VActivacion : integer;
   Bajando : integer;
   Contador : integer;
   EsPrimerLectura : integer; 
   PesoPromedio : real;   
-  CategoriaMin : real;
-  CategoriaMax : real;
-  
 end record;
+
+type BasculasArray is array[4] of BasculaData;
+
+type ConfigData is
+record
+  VActivacion : integer;
+  TActivacion : integer;
+  CategoriaMin : integer;
+  CategoriaMax : integer;
+end record;
+
+type ConfigArray is array[4] of ConfigData;

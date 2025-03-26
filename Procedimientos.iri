@@ -250,7 +250,7 @@ elsif Basculas[Bascula].Bajando = 1 and Peso < (Basculas[Bascula].LecMax - 0.2) 
     -- Valor de los Rodos 
     if (Basculas[Bascula].LecMax - Basculas[Bascula].LecMin) > (1.5) then 
         SetLabelText(35,"Bascula " + IntegerToString(Bascula, 2) + " : " + RealToString(PesoReal,2,2));
-        if PesoReal >= (Basculas[Bascula].CategoriaMin - 0.2) and PesoReal <= (Basculas[Bascula].CategoriaMax) + 0.2 then   
+        if PesoReal >= (Config[Bascula].CategoriaMin - 0.2) and PesoReal <= (Config[Bascula].CategoriaMax) + 0.2 then   
             SetLabelText(36,"Bascula " + IntegerToString(Bascula, 2) + " : " + RealToString(PesoReal,2,2)); 
             BotarPollo(Bascula);
         end if;
