@@ -7,7 +7,7 @@ begin
     for i := 1 to 4 loop  
         Config[i].CategoriaMin := StringToReal(BD_Categoria.Min);
         Config[i].CategoriaMax := StringToReal(BD_Categoria.Max); 
-        SetLabelText((13 + i), "Categoria " + IntegerToString(i,1) + " " + BD_Categoria.Min + " " + BD_Categoria.Max);
+        SetLabelText((0 + i), "Categoria " + IntegerToString(i,1) + " " + BD_Categoria.Min + " " + BD_Categoria.Max);
         BD_Categoria.GetNext;    
     end loop;
 end;   
@@ -32,8 +32,8 @@ begin
   for i := 1 to 4 loop
     Config[i].TActivacion := BD_Piston.Tiempo;
     Config[i].VActivacion := BD_Piston.Vel;
-    SetLabelText((21 + i), "Vel 1: " + IntegerToString(Config[i].VActivacion,2));
-    SetLabelText((25 + i), "Tiem 1: " + IntegerToString(Config[i].TActivacion,2));   
+    SetLabelText((8 + i), "Vel 1: " + IntegerToString(Config[i].VActivacion,2));
+    SetLabelText((12 + i), "Tiem 1: " + IntegerToString(Config[i].TActivacion,2));   
     BD_Piston.GetNext;
   end loop;
 end;
@@ -49,13 +49,33 @@ begin
         BD_Piston.Add;  
     end loop;
 end;
-        
-        
-  procedure GuardarEnBD;
-  begin
-    DisplayStatus("Guardar en BD");  
-  end;    
+         
+---------------------- CONTEOS POR CATEGORIA ----------------------
+procedure GuardarContadores;
+i : integer;
+begin
+        BD_Conteo.Fecha := FechaGlobal;
+        BD_Conteo.Cat1 := IntegerToString(Config[1].ContadorCat,4);
+        BD_Conteo.Cat2 := IntegerToString(Config[2].ContadorCat,4);
+        BD_Conteo.Cat3 := IntegerToString(Config[3].ContadorCat,4);
+        BD_Conteo.Cat4 := IntegerToString(Config[4].ContadorCat,4);
+        BD_Conteo.Add;
 
+        Config[1].ContadorCat := 0;
+        Config[2].ContadorCat := 0;
+        Config[3].ContadorCat := 0;
+        Config[4].ContadorCat := 0;  
+end;
+
+procedure CargarContadores;
+i : integer;
+begin
+  for i := 1 to 4 loop
+    SetLabelText((41 + i),  IntegerToString(Config[i].ContadorCat,4));
+  end loop;
+end;
+
+---------------------- PRUEBAS ----------------------
 procedure GuardarEnBDconTara(BasculaNum : integer; Tipo : integer);
 begin
     BD_Pruebas.Bascula := Basc;

@@ -12,7 +12,7 @@ begin
     if PantallaActual = PantallaPrincipal then
         ZeroScale(1);
     elsif PantallaActual = PantallaVelocidad then
-        Temporizador(5, VOn, TimerOneShot, Velocidad); 
+        Temporizador(9, VOn, TimerOneShot, Config[1].TActivacion); 
     elsif PantallaActual = PantallaCalibracion then
         ApagarTemporizador(1);  
         DisplayStatus("Bascula 1 Apagada");
@@ -24,7 +24,7 @@ begin
     if PantallaActual = PantallaPrincipal then
         ZeroScale(2);
     elsif PantallaActual = PantallaVelocidad then
-        Temporizador(8, VOn, TimerOneShot, Velocidad);
+        Temporizador(14, VOn, TimerOneShot, Config[2].TActivacion);
     elsif PantallaActual = PantallaCalibracion then
         ApagarTemporizador(2);
         DisplayStatus("Bascula 2 Apagada");
@@ -36,7 +36,7 @@ begin
     if PantallaActual = PantallaPrincipal then
         ZeroScale(3);
     elsif PantallaActual = PantallaVelocidad then
-        Temporizador(6, VOn, TimerOneShot, Velocidad);
+        Temporizador(19, VOn, TimerOneShot, Config[3].TActivacion);
     elsif PantallaActual = PantallaCalibracion then
         ApagarTemporizador(3);
         DisplayStatus("Bascula 3 Apagada");
@@ -48,7 +48,7 @@ begin
     if PantallaActual = PantallaPrincipal then
         ZeroScale(4);
     elsif PantallaActual = PantallaVelocidad then
-        Temporizador(7, VOn, TimerOneShot, Velocidad);
+        Temporizador(24, VOn, TimerOneShot, Config[4].TActivacion);
     elsif PantallaActual = PantallaCalibracion then
         ApagarTemporizador(4);   
         DisplayStatus("Bascula 4 Apagada");

@@ -1,7 +1,6 @@
 -- Variables de Bases de Datos       
                              
-BD1_Conteo :  CatDiaDatabase;
-BD2_Conteo :  CatDia2Database;
+BD_Conteo :  CatDiaDatabase;
 BD_Categoria : CategoDatabase;  
 BD_Pruebas : PruebasDatabase; 
 BD_Cal : CalDatabase;

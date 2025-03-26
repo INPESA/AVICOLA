@@ -15,11 +15,12 @@ begin
        PromptUser("Bascula: "); 
     ------------------------------------------------
                      
-    elsif PantallaActual = PantallaVelocidad then
-       PromptN := 9;
-       PromptUser("V. Activacion: ");    
+    elsif PantallaActual = PantallaVelocidad then 
+       PromptN := EntryBascula;
+       MenuEntry := MenuVActivacion;
+       PromptUser("Bascula: ");    
     elsif PantallaActual = 7 then
-       PromptN := 13;
+      PromptN := 13;
        PromptUser("Bascula");
     else
       DisplayStatus("OtraCosa");
@@ -41,9 +42,10 @@ begin
        PromptUser("Bascula: "); 
     ------------------------------------------------  
     
-    elsif PantallaActual = 5 then
-       PromptN := 10;
-       PromptUser("T. Piston: ");
+    elsif PantallaActual = PantallaVelocidad then 
+       PromptN := EntryBascula;
+       MenuEntry := MenuTActivacion;
+       PromptUser("Bascula: ");
     elsif PantallaActual = 7 then
        PromptN := 12;
        PromptUser("Peso Minimo: ");

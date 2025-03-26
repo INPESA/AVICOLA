@@ -39,11 +39,10 @@ end;
 
 procedure EncederTodosLosTemporizadores;
 begin 
-      --Lectura de Pollo
-      Temporizador(1, VOn, TimerContinuous, 10);
-      Temporizador(2, VOn, TimerContinuous, 10);
-      Temporizador(3, VOn, TimerContinuous, 10);
-      Temporizador(4, VOn, TimerContinuous, 10); 
+      EncenderTemporizador(1);
+      EncenderTemporizador(2);
+      EncenderTemporizador(3);
+      EncenderTemporizador(4); 
 end;       
 
 procedure ApagarTodosLosTemporizadores;
@@ -84,20 +83,27 @@ begin
     SetDigout(0,4,APAGADO);
   end if;
 end; 
-           
--- Esto no se debe tocar m�s                         
+                                    
 procedure BotarPollo(piston: integer);
 begin  
    if piston = 1 then  
-        Temporizador(Timer1, VOn, TimerOneShot, Accion);  
+        Temporizador(Timer1, VOn, TimerOneShot, Config[1].TActivacion);  
         if (Timer1 = 13) then
             Timer1 := 9;   
         else  
             Timer1 := Timer1 + 1;
         end if;    
+        
+  elsif piston = 2 then
+        Temporizador(Timer4, VOn, TimerOneShot, Config[4].TActivacion);  
+        if (Timer4 = 28) then
+            Timer4 := 24;   
+        else  
+            Timer4 := Timer4 + 1;
+        end if;
 
   elsif piston = 3 then
-        Temporizador(Timer2, VOn, TimerOneShot, Accion);  
+        Temporizador(Timer2, VOn, TimerOneShot, Config[2].TActivacion);  
         if (Timer2 = 18) then
             Timer2 := 14;   
         else  
@@ -105,113 +111,15 @@ begin
         end if;
 
   elsif piston = 4 then
-        Temporizador(Timer3, VOn, TimerOneShot, Accion);  
+        Temporizador(Timer3, VOn, TimerOneShot, Config[3].TActivacion);  
         if (Timer3 = 23) then
             Timer3 := 19;   
         else  
             Timer3 := Timer3 + 1;
         end if;
-
-  elsif piston = 2 then
-        Temporizador(Timer4, VOn, TimerOneShot, Accion);  
-        if (Timer4 = 28) then
-            Timer4 := 24;   
-        else  
-            Timer4 := Timer4 + 1;
-        end if;
   end if;
 end;
-
-  
-  function BuscarFecha : integer;
-  contador : integer := 1;
-  begin
-      if BasesDeDatos = 1 then
-        BD1_Conteo.GetFirst;
-        
-        if BD1_Conteo.Fecha = FechaGlobal then
-          return contador;
-        else
-          while(BD1_Conteo.GetNext <> SysNoSuchRecord)
-          loop
-             contador := contador + 1;
-              if BD1_Conteo.Fecha = FechaGlobal then
-                return contador;
-              end if;
-          end loop;
-          return 0;
-        end if;
-     else
-       BD2_Conteo.GetFirst;
-       
-       if BD2_Conteo.Fecha = FechaGlobal then
-        return contador;
-       else
-        while(BD2_Conteo.GetNext <> SysNoSuchRecord)
-        loop
-           contador := contador + 1;
-            if BD2_Conteo.Fecha = FechaGlobal then
-              return contador;
-            end if;
-        end loop;
-        return 0;
-       end if;
-       
-     end if;
-  end;
-  
-  procedure CargarLosContadores;
-  begin
-      if BasesDeDatos = 1 then
-        BD1_Conteo.GetFirst;
-        
-        if BD1_Conteo.Fecha = FechaGlobal then
-          cantCategoria1 := StringToInteger(BD1_Conteo.Cat1);
-          cantCategoria2 := StringToInteger(BD1_Conteo.Cat2);
-          cantCategoria3 := StringToInteger(BD1_Conteo.Cat3);
-          cantCategoria4 := StringToInteger(BD1_Conteo.Cat4);  
-        else
-          while(BD1_Conteo.GetNext <> SysNoSuchRecord)
-          loop
-              if BD1_Conteo.Fecha = FechaGlobal then
-                cantCategoria1 := StringToInteger(BD1_Conteo.Cat1);
-                cantCategoria2 := StringToInteger(BD1_Conteo.Cat2);
-                cantCategoria3 := StringToInteger(BD1_Conteo.Cat3);
-                cantCategoria4 := StringToInteger(BD1_Conteo.Cat4);
-              end if;
-          end loop;
-          cantCategoria1 := 0;
-          cantCategoria2 := 0;
-          cantCategoria3 := 0;
-          cantCategoria4 := 0;
-        end if;
-     else
-       BD2_Conteo.GetFirst;
-       
-       if BD2_Conteo.Fecha = FechaGlobal then
-          cantCategoria1 := StringToInteger(BD2_Conteo.Cat1);
-          cantCategoria2 := StringToInteger(BD2_Conteo.Cat2);
-          cantCategoria3 := StringToInteger(BD2_Conteo.Cat3);
-          cantCategoria4 := StringToInteger(BD2_Conteo.Cat4);
-       else
-        while(BD2_Conteo.GetNext <> SysNoSuchRecord)
-        loop
-            if BD2_Conteo.Fecha = FechaGlobal then
-              cantCategoria1 := StringToInteger(BD2_Conteo.Cat1);
-              cantCategoria2 := StringToInteger(BD2_Conteo.Cat2);
-              cantCategoria3 := StringToInteger(BD2_Conteo.Cat3);
-              cantCategoria4 := StringToInteger(BD2_Conteo.Cat4);
-            end if;
-        end loop;
-        cantCategoria1 := 0;
-        cantCategoria2 := 0;
-        cantCategoria3 := 0;
-        cantCategoria4 := 0;
-       end if;
-       
-     end if;
-  end;      
-                                                      
+                                              
 procedure GuardarTarasEnMatriz;
 contadores : integer := 1 ;
 begin
@@ -249,10 +157,12 @@ elsif Basculas[Bascula].Bajando = 1 and Peso < (Basculas[Bascula].LecMax - 0.2) 
              
     -- Valor de los Rodos 
     if (Basculas[Bascula].LecMax - Basculas[Bascula].LecMin) > (1.5) then 
-        SetLabelText(38,"Bascula " + IntegerToString(Bascula, 2) + " : " + RealToString(PesoReal,2,2));
+        SetLabelText(25,"Bascula " + IntegerToString(Bascula, 2) + " : " + RealToString(PesoReal,2,2));
         if PesoReal >= (Config[Bascula].CategoriaMin - 0.2) and PesoReal <= (Config[Bascula].CategoriaMax) + 0.2 then   
-            SetLabelText(39,"Bascula " + IntegerToString(Bascula, 2) + " : " + RealToString(PesoReal,2,2)); 
+            SetLabelText(26,"Bascula " + IntegerToString(Bascula, 2) + " : " + RealToString(PesoReal,2,2)); 
             BotarPollo(Bascula);
+            Config[Basc].ContadorCat := Config[Basc].ContadorCat + 1;
+            CargarCategorias;
         end if;
     end if;  
               

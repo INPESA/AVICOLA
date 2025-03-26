@@ -27,24 +27,24 @@ begin
   --DrawGraphic(3,30,0,g_Avicola,Black);   
   --ProgramDelay(500); 
 
-  -- Primero se apagan todos los pistones   
-  --if FechaGlobal <> "" then
-    --GuardarEnBD;
-  --end if;
-  
- -- FechaGlobal := ObtenerFechaHora(Fecha);
+  -- Primero se apagan todos los pistones 
+    -- ApagarTodosLosPistones; 
+
+  if FechaGlobal <> ObtenerFechaHora(Fecha) then
+    GuardarContadores;
+    FechaGlobal := ObtenerFechaHora(Fecha);
+  end if;
   
   --Extrae la informacion de las categorias   
   CargarCategorias;  
   CargarPistones;
   CambiarPantalla(PantallaPrincipal); 
   
-    Basc := 1;
+  Basc := 1;
   
   --Extrae la informacion de los contadores 
   --CargarLosContadores;
-  
-  -- ApagarTodosLosPistones;  
+
   -- GuardarTarasEnMatriz;
   
   EncederTodosLosTemporizadores;       

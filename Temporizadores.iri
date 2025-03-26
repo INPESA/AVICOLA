@@ -52,39 +52,36 @@ handler Timer9Trip;
 --Declaration Section
 begin
      EncenderPiston(1); 
-     Temporizador(5, VOn, TimerOneShot, Velocidad); 
+     Temporizador(5, VOn, TimerOneShot, Config[1].VActivacion); 
 return;
 end;
 
 handler Timer10Trip;
 begin
      EncenderPiston(1);
-     Temporizador(5, VOn, TimerOneShot, Velocidad); 
+     Temporizador(5, VOn, TimerOneShot, Config[1].VActivacion); 
 return;
 end;
 
 handler Timer11Trip;
 begin
-    EncenderPiston(1);
-    Temporizador(5, VOn, TimerOneShot, Velocidad); 
+     EncenderPiston(1);
+     Temporizador(5, VOn, TimerOneShot, Config[1].VActivacion); 
 return;
 end;
 
 handler Timer12Trip;
-
 begin
      EncenderPiston(1); 
-     Temporizador(5, VOn, TimerOneShot, Velocidad); 
+     Temporizador(5, VOn, TimerOneShot, Config[1].VActivacion); 
 return;
-
 end;
 
 handler Timer13Trip;
 --Declaration Section
-
 begin
      EncenderPiston(1); 
-     Temporizador(5, VOn, TimerOneShot, Velocidad);
+     Temporizador(5, VOn, TimerOneShot, Config[1].VActivacion);
 return; 
 end; 
 
@@ -92,28 +89,28 @@ handler Timer14Trip;
 --Declaration Section
 begin
      EncenderPiston(2); 
-     Temporizador(6, VOn, TimerOneShot, Velocidad); 
+     Temporizador(6, VOn, TimerOneShot, Config[2].VActivacion); 
 return;
 end;
 
 handler Timer15Trip;
 begin
      EncenderPiston(2);
-     Temporizador(6, VOn, TimerOneShot, Velocidad); 
+     Temporizador(6, VOn, TimerOneShot, Config[2].VActivacion); 
 return;
 end;
 
 handler Timer16Trip;
 begin
-    EncenderPiston(2);
-    Temporizador(6, VOn, TimerOneShot, Velocidad); 
+     EncenderPiston(2);
+     Temporizador(6, VOn, TimerOneShot, Config[2].VActivacion); 
 return;
 end;
 
 handler Timer17Trip;
 begin
      EncenderPiston(2); 
-     Temporizador(6, VOn, TimerOneShot, Velocidad); 
+     Temporizador(6, VOn, TimerOneShot, Config[2].VActivacion); 
 return;
 end;
 
@@ -121,37 +118,36 @@ handler Timer18Trip;
 --Declaration Section
 begin
      EncenderPiston(2); 
-     Temporizador(6, VOn, TimerOneShot, Velocidad);
+     Temporizador(6, VOn, TimerOneShot, Config[2].VActivacion);
 return; 
 end;   
-
 
 handler Timer19Trip;
 --Declaration Section
 begin
      EncenderPiston(3); 
-     Temporizador(7, VOn, TimerOneShot, Velocidad); 
+     Temporizador(7, VOn, TimerOneShot, Config[3].VActivacion); 
 return;
 end;
 
 handler Timer20Trip;
 begin
      EncenderPiston(3);
-     Temporizador(7, VOn, TimerOneShot, Velocidad); 
+     Temporizador(7, VOn, TimerOneShot, Config[3].VActivacion); 
 return;
 end;
 
 handler Timer21Trip;
 begin
-    EncenderPiston(3);
-    Temporizador(7, VOn, TimerOneShot, Velocidad); 
+     EncenderPiston(3);
+     Temporizador(7, VOn, TimerOneShot, Config[3].VActivacion); 
 return;
 end;
 
 handler Timer22Trip;
 begin
      EncenderPiston(3); 
-     Temporizador(7, VOn, TimerOneShot, Velocidad); 
+     Temporizador(7, VOn, TimerOneShot, Config[3].VActivacion); 
 return;
 end;
 
@@ -159,7 +155,7 @@ handler Timer23Trip;
 --Declaration Section
 begin
      EncenderPiston(3); 
-     Temporizador(7, VOn, TimerOneShot, Velocidad);
+     Temporizador(7, VOn, TimerOneShot, Config[3].VActivacion);
 return; 
 end;
 
@@ -167,28 +163,28 @@ handler Timer24Trip;
 --Declaration Section
 begin
      EncenderPiston(4); 
-     Temporizador(8, VOn, TimerOneShot, Velocidad); 
+     Temporizador(8, VOn, TimerOneShot, Config[4].VActivacion); 
 return;
 end;
 
 handler Timer25Trip;
 begin
      EncenderPiston(4);
-     Temporizador(8, VOn, TimerOneShot, Velocidad); 
+     Temporizador(8, VOn, TimerOneShot, Config[4].VActivacion); 
 return;
 end;
 
 handler Timer26Trip;
 begin
-    EncenderPiston(4);
-    Temporizador(8, VOn, TimerOneShot, Velocidad); 
+     EncenderPiston(4);
+     Temporizador(8, VOn, TimerOneShot, Config[4].VActivacion); 
 return;
 end;
 
 handler Timer27Trip;
 begin
      EncenderPiston(4); 
-     Temporizador(8, VOn, TimerOneShot, Velocidad); 
+     Temporizador(8, VOn, TimerOneShot, Config[4].VActivacion); 
 return;
 end;
 
@@ -196,11 +192,9 @@ handler Timer28Trip;
 --Declaration Section
 begin
      EncenderPiston(4); 
-     Temporizador(8, VOn, TimerOneShot, Velocidad);
+     Temporizador(8, VOn, TimerOneShot, Config[4].VActivacion);
 return; 
 end;
-
-
 
 handler Timer29Trip;
 Peso : real;
