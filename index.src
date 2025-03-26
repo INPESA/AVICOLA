@@ -35,11 +35,11 @@ begin
  -- FechaGlobal := ObtenerFechaHora(Fecha);
   
   --Extrae la informacion de las categorias   
-  -- CargarCategorias;  
-  -- CargarPistones;
-  -- CambiarPantalla(PantallaPrincipal); 
+  CargarCategorias;  
+  CargarPistones;
+  CambiarPantalla(PantallaPrincipal); 
   
-    -- Basc := 1;
+    Basc := 1;
   
   --Extrae la informacion de los contadores 
   --CargarLosContadores;
@@ -47,7 +47,7 @@ begin
   -- ApagarTodosLosPistones;  
   -- GuardarTarasEnMatriz;
   
-  -- EncederTodosLosTemporizadores;       
+  EncederTodosLosTemporizadores;       
   -- Basculas[1].PesoPromedio := 0;
   -- Basculas[2].PesoPromedio := 0;
   -- Basculas[3].PesoPromedio := 0;

@@ -85,7 +85,7 @@ begin
   end if;
 end; 
            
--- Esto no se debe tocar más                         
+-- Esto no se debe tocar mï¿½s                         
 procedure BotarPollo(piston: integer);
 begin  
    if piston = 1 then  
@@ -249,9 +249,9 @@ elsif Basculas[Bascula].Bajando = 1 and Peso < (Basculas[Bascula].LecMax - 0.2) 
              
     -- Valor de los Rodos 
     if (Basculas[Bascula].LecMax - Basculas[Bascula].LecMin) > (1.5) then 
-        SetLabelText(35,"Bascula " + IntegerToString(Bascula, 2) + " : " + RealToString(PesoReal,2,2));
+        SetLabelText(38,"Bascula " + IntegerToString(Bascula, 2) + " : " + RealToString(PesoReal,2,2));
         if PesoReal >= (Config[Bascula].CategoriaMin - 0.2) and PesoReal <= (Config[Bascula].CategoriaMax) + 0.2 then   
-            SetLabelText(36,"Bascula " + IntegerToString(Bascula, 2) + " : " + RealToString(PesoReal,2,2)); 
+            SetLabelText(39,"Bascula " + IntegerToString(Bascula, 2) + " : " + RealToString(PesoReal,2,2)); 
             BotarPollo(Bascula);
         end if;
     end if;  
