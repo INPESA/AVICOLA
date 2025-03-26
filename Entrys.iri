@@ -11,12 +11,16 @@ begin
             ClosePrompt;                                       
             DisplayStatus(IntegerToString(Basc,1));
             
-            if MenuEntry = MenuCategoria  then
+            if MenuEntry = MenuCategoria then
                 PromptN := EntryCategoriaMinima;
                 PromptUser("Rango Minimo: ");  
-            elsif MenuEntry = MenuPesoPromedio  then
+            elsif MenuEntry = MenuPesoPromedio then
                 PromptN := EntryPesoPromedio;
-                PromptUser("Peso Promedio: ");
+                PromptUser("Peso Promedio: "); 
+            elsif MenuEntry = MenuVActivacion then
+                PromptN := EntryVActivacion;
+            elsif MenuEntry = MenuTActivacion then
+                PromptN := EntryTActivacion;
             end if;              
    ------------------------------------------------------------------------     
     
@@ -37,14 +41,18 @@ begin
     
     --------------------Ajuste de Peso Promedio  
     elsif PromptN = EntryPesoPromedio then
-       Basculas[Basc].PesoPromedio := StringToReal(s); 
-      ClosePrompt; 
+        Basculas[Basc].PesoPromedio := StringToReal(s); 
+        ClosePrompt; 
           
-    elsif PromptN = 5 then
-         DisplayStatus("Vacio");
-         
-    elsif PromptN = 6 then
-           DisplayStatus("Vacio");
+    elsif PromptN = EntryVActivacion then
+        Basculas[Basc].VActivacion := StringToReal(s); 
+        ClosePrompt;         
+        SetLabelText((30 + Basc), "Vel 1: " + IntegerToString(Basculas[Basc].VActivacion,2));
+            
+    elsif PromptN = EntryTActivacion then
+        Basculas[Basc].TActivacion := StringToReal(s); 
+        ClosePrompt;         
+        SetLabelText((34 + Basc), "Tiem 1: " + IntegerToString(Basculas[Basc].TActivacion,2));
       
     elsif PromptN = 7 then
       DisplayStatus("Vacio");

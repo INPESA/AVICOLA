@@ -15,7 +15,7 @@ begin
        PromptUser("Bascula: "); 
     ------------------------------------------------
                      
-    elsif PantallaActual = 5 then
+    elsif PantallaActual = PantallaVelocidad then
        PromptN := 9;
        PromptUser("V. Activacion: ");    
     elsif PantallaActual = 7 then
@@ -126,8 +126,12 @@ begin
       CambiarPantalla(PantallaPrincipal); 
     ------------------------------------------  
     
-    elsif PantallaActual = 5 then
-      CambiarPantalla(PantallaPrincipal);    
+    elsif PantallaActual = PantallaVelocidad then  
+      GuardarPistones;
+      DisplayStatus("Pistones Actualizados");  
+      CambiarPantalla(PantallaPrincipal);  
+      
+        
       elsif PantallaActual = 6 then
       CambiarPantalla(PantallaPrincipal);
     elsif PantallaActual = 7 then

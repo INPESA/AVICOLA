@@ -65,13 +65,17 @@ Timer3 : integer := 19;
 Timer4 : integer := 24;
 --------------------------------------------------------------                                     
    
---Entrys
+--Entrys     
+MenuEntry : integer;    
 EntryBascula : integer := 1;  
 EntryCategoriaMinima : integer := 2;  
 EntryCategoriaMaxima : integer := 3; 
 EntryPesoPromedio : integer := 4;
-MenuEntry : integer;                 
+EntryVActivacion : integer := 5;
+EntryTActivacion : integer := 6;             
 
 -------------MenuEntry
 MenuCategoria : integer := 1;   
-MenuPesoPromedio : integer := 2; 
+MenuPesoPromedio : integer := 2;
+MenuVActivacion : integer := 3;
+MenuTActivacion : integer := 4; 

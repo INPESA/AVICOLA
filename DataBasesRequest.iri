@@ -33,6 +33,8 @@ begin
   for i := 1 to 4 loop
     Basculas[i].TActivacion := BD_Piston.Tiempo;
     Basculas[i].VActivacion := BD_Piston.Vel;
+    SetLabelText((30 + i), "Vel 1: " + IntegerToString(Basculas[i].VActivacion,2));
+    SetLabelText((34 + i), "Tiem 1: " + IntegerToString(Basculas[i].TActivacion,2));   
     BD_Piston.GetNext;
   end loop;
 end;
