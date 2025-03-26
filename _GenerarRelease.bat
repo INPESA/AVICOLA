@@ -10,7 +10,8 @@ set hour=%datetime:~8,2%
 
 rem Crear el formato de fecha para el mensaje de commit y el tag de release
 set date=%year%-%month%-%day%
-set tag=version %year:~2,2%.%month%.%day%.%hour%
+rem Se usa un guion bajo para evitar espacios
+set tag=version_%year:~2,2%.%month%.%day%.%hour%
 
 rem Mover los archivos index.cod e Indicador.920 a la carpeta Respaldos
 if not exist Respaldos mkdir Respaldos
