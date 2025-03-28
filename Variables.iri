@@ -76,4 +76,5 @@ EntryTActivacion : integer := 6;
 MenuCategoria : integer := 1;   
 MenuPesoPromedio : integer := 2;
 MenuVActivacion : integer := 3;
-MenuTActivacion : integer := 4; 
+MenuTActivacion : integer := 4;
+MenuCalibracion : integer := 5; 

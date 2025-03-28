@@ -18,7 +18,13 @@ begin
     elsif PantallaActual = PantallaVelocidad then 
        PromptN := EntryBascula;
        MenuEntry := MenuVActivacion;
-       PromptUser("Bascula: ");    
+       PromptUser("Bascula: ");
+                                                    
+    elsif PantallaActual = PantallaCalibracion then   
+       PromptN := EntryBascula;
+       MenuEntry := MenuCalibracion;
+       PromptUser("Bascula: ");
+        
     elsif PantallaActual = 7 then
       PromptN := 13;
        PromptUser("Bascula");
@@ -45,7 +51,12 @@ begin
     elsif PantallaActual = PantallaVelocidad then 
        PromptN := EntryBascula;
        MenuEntry := MenuTActivacion;
-       PromptUser("Bascula: ");
+       PromptUser("Bascula: "); 
+       
+    elsif PantallaActual = PantallaCalibracion then   
+      ApagarTemporizador(30);   
+      DisplayStatus("Apagando Prueba"); 
+       
     elsif PantallaActual = 7 then
        PromptN := 12;
        PromptUser("Peso Minimo: ");

@@ -75,11 +75,20 @@ begin
   end loop;
 end;
 
----------------------- PRUEBAS ----------------------
+---------------------- PRUEBAS ----------------------      
+procedure GuardarEnBD;
+begin
+    BD_Pruebas.Bascula := Basc;
+    BD_Pruebas.Tipo := 1;
+    BD_Pruebas.PesoMin := RealToString(Basculas[Basc].LecMin, 2, 3);
+    BD_Pruebas.PesoMax := RealToString(Basculas[Basc].LecMax, 2, 3);     
+  BD_Pruebas.Add;
+end;   
+
 procedure GuardarEnBDconTara(BasculaNum : integer; Tipo : integer);
 begin
     BD_Pruebas.Bascula := Basc;
-    BD_Pruebas.Tipo := Tipo;
+    BD_Pruebas.Tipo := 2;
     BD_Pruebas.PesoMin := RealToString(Basculas[Basc].LecMin, 2, 3);
     BD_Pruebas.PesoMax := RealToString(Basculas[Basc].LecMax - MatrizPesos[1, Basculas[Basc].Contador],2, 3);     
   BD_Pruebas.Add;

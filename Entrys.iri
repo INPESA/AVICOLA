@@ -6,23 +6,33 @@ begin
       s := GetEntry;  
       
     ------------------------------Principal------------------------    
-    if PromptN = EntryBascula then
-            Basc := StringToInteger(s);   
-            ClosePrompt;                                       
-            DisplayStatus(IntegerToString(Basc,1));
+    if PromptN = EntryBascula then  
             
-            if MenuEntry = MenuCategoria then
-                PromptN := EntryCategoriaMinima;
-                PromptUser("Rango Minimo: ");  
-            elsif MenuEntry = MenuPesoPromedio then
-                PromptN := EntryPesoPromedio;
-                PromptUser("Peso Promedio: "); 
-            elsif MenuEntry = MenuVActivacion then
-                PromptN := EntryVActivacion;
-                PromptUser("Vel. Activacion: ");
-            elsif MenuEntry = MenuTActivacion then
-                PromptN := EntryTActivacion;
-                PromptUser("T. Activacion: ");
+            Basc := StringToInteger(s);   
+            ClosePrompt;   
+            
+            if (Basc >= 1) and (Basc <= 4) then                                       
+                DisplayStatus(IntegerToString(Basc,1));
+            
+                if MenuEntry = MenuCategoria then
+                    PromptN := EntryCategoriaMinima;
+                    PromptUser("Rango Minimo: ");  
+                elsif MenuEntry = MenuPesoPromedio then
+                    PromptN := EntryPesoPromedio;
+                    PromptUser("Peso Promedio: "); 
+                elsif MenuEntry = MenuVActivacion then
+                    PromptN := EntryVActivacion;
+                    PromptUser("Vel. Activacion: ");
+                elsif MenuEntry = MenuTActivacion then
+                    PromptN := EntryTActivacion;
+                    PromptUser("T. Activacion: "); 
+                elsif MenuEntry = MenuCalibracion then
+                    BD_Pruebas.Clear;
+                    DisplayStatus("Iniciando Prueba");
+                    EncenderTemporizador(30);
+                end if;
+            else
+                DisplayStatus("Seleccione una bascula valida");
             end if;              
    ------------------------------------------------------------------------     
     
@@ -44,7 +54,10 @@ begin
     --------------------Ajuste de Peso Promedio  
     elsif PromptN = EntryPesoPromedio then
         Basculas[Basc].PesoPromedio := StringToReal(s); 
-        ClosePrompt; 
+        ClosePrompt;    
+   ---------------------------------------------------------                    
+        
+  -----------------------Ajuste de Pistones----------------------------
           
     elsif PromptN = EntryVActivacion then
         Config[Basc].VActivacion := StringToReal(s); 
@@ -55,20 +68,18 @@ begin
         Config[Basc].TActivacion := StringToReal(s); 
         ClosePrompt;         
         SetLabelText((12 + Basc), "Tiem 1: " + IntegerToString(Config[Basc].TActivacion,2));
-      
+                                                                                             
+  ----------------------------------------------------------------------------------
     elsif PromptN = 7 then
       DisplayStatus("Vacio");
     elsif PromptN = 8 then
       DisplayStatus("Vacio");
       
     elsif PromptN = 9 then
-      Velocidad := StringToInteger(s);
-      ClosePrompt; 
-      CambiarPantalla(PantallaVelocidad);
+           DisplayStatus("Vacio");
     elsif PromptN = 10 then
-      Accion := StringToInteger(s);
-      ClosePrompt;
-      CambiarPantalla(PantallaVelocidad);
+      DisplayStatus("Vacio");
+      
     elsif PromptN = 11 then
       Contrasena := StringToInteger(s);
       ClosePrompt;    

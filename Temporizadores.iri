@@ -1,21 +1,21 @@
 handler Timer1Trip;
 begin 
-    PesajeBascula(1);
+    PesajeBascula(1,0);
 end;
 
 handler Timer2Trip;
 begin
-     PesajeBascula(2);
+     PesajeBascula(2,0);
 end;
 
 handler Timer3Trip;
 begin
-    PesajeBascula(3);
+    PesajeBascula(3,0);
 end;
 
 handler Timer4Trip;
 begin
-     PesajeBascula(4);
+     PesajeBascula(4,0);
 end;
 
 handler Timer5Trip;
@@ -243,7 +243,7 @@ end;
 --Calibracion
 handler Timer30Trip;
 begin
-  PesajeBascula(Basc);
+  PesajeBascula(Basc, 1);
 end;                                     
 
 --Prueba de Calibracion

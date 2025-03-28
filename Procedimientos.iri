@@ -134,7 +134,7 @@ end;
 
 -----------------------Funcion Principal de Pesaje------------------------
 --**********************************************************************--
- procedure PesajeBascula(Bascula : integer); 
+ procedure PesajeBascula(Bascula : integer; Guardar : integer); 
  Peso : real; 
  PesoReal : real;
  begin
@@ -162,7 +162,11 @@ elsif Basculas[Bascula].Bajando = 1 and Peso < (Basculas[Bascula].LecMax - 0.2) 
             SetLabelText(26,"Bascula " + IntegerToString(Bascula, 2) + " : " + RealToString(PesoReal,2,2)); 
             BotarPollo(Bascula);
             Config[Basc].ContadorCat := Config[Basc].ContadorCat + 1;
-            CargarCategorias;
+            CargarContadores; 
+            if Guardar = 1 then
+                  GuardarEnBD; 
+                  DisplayStatus("Guardando");
+            end if;
         end if;
     end if;  
               

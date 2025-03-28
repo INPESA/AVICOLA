@@ -40,10 +40,10 @@ begin
     elsif pantalla = PantallaCalibracion then
         --InitGranjero;
         --DrawGraphic(1,230,100,g_Granjero,Black);
-        SetSoftkeyText(1,"Iniciar");
-        SetSoftkeyText(2,"Limpiar BD");  
-        SetSoftkeyText(3,"Cambiar Basc");
-        SetSoftkeyText(4,"Conteo"); 
+        SetSoftkeyText(1,"Ini. Prueba");
+        SetSoftkeyText(2,"Ter. Prueba");  
+        SetSoftkeyText(3,"");
+        SetSoftkeyText(4,""); 
         SetSoftkeyText(5,"Salir");
         
         SetLabelText(vel1, "Vel. de Activacion: " + IntegerToString(Velocidad,2));
