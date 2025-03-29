@@ -1,5 +1,3 @@
-
-
 -----------------------Funcion Principal de Pesaje------------------------
 --**********************************************************************--
  procedure PesajeBascula(Bascula : integer; Guardar : integer); 
