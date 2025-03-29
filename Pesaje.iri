@@ -1,0 +1,105 @@
+
+
+-----------------------Funcion Principal de Pesaje------------------------
+--**********************************************************************--
+ procedure PesajeBascula(Bascula : integer; Guardar : integer); 
+ Peso : real; 
+ PesoReal : real;
+ begin
+ 
+    GetNet(Bascula, Primary, Peso);
+      
+    -- Verificacion de Rodo
+    if Peso < (Basculas[Bascula].LecMin - 0.2) and Basculas[Bascula].Bajando = 0 then
+        Basculas[Bascula].LecMin := Peso;
+    elsif Basculas[Bascula].Bajando = 0 and Peso > (Basculas[Bascula].LecMin + 0.2) then 
+        Basculas[Bascula].LecMax := Basculas[Bascula].LecMin;
+        Basculas[Bascula].Bajando := 1;
+    end if;                 
+         
+    if Peso > (Basculas[Bascula].LecMax + 0.2) and Basculas[Bascula].Bajando = 1 then 
+        Basculas[Bascula].LecMax := Peso;
+    elsif Basculas[Bascula].Bajando = 1 and Peso < (Basculas[Bascula].LecMax - 0.2) then
+        Basculas[Bascula].Bajando := 0;  
+    
+     if UsarTaras = 0 then
+            PesoReal := (Basculas[Bascula].LecMax - Basculas[Bascula].LecMin) - Basculas[Bascula].PesoPromedio;  
+     else
+            PesoReal := (Basculas[Bascula].LecMax - Basculas[Bascula].LecMin) - MatrizPesos[Bascula, Basculas[Bascula].Contador];
+     end if;
+             
+    -- Valor de los Rodos 
+    if (Basculas[Bascula].LecMax - Basculas[Bascula].LecMin) > (1.5) then 
+        
+        SetLabelText(25,"Bascula " + IntegerToString(Bascula, 2) + " : " + RealToString(PesoReal,2,2));  
+        Basculas[Bascula].Contador := Basculas[Bascula].Contador + 1;
+          
+        if PesoReal >= (Config[Bascula].CategoriaMin - 0.2) and PesoReal <= (Config[Bascula].CategoriaMax) + 0.2 then   
+                SetLabelText(26,"Bascula " + IntegerToString(Bascula, 2) + " : " + RealToString(PesoReal,2,2)); 
+            
+                BotarPollo(Bascula);
+                Config[Basc].ContadorCat := Config[Basc].ContadorCat + 1;
+                CargarContadores; 
+            
+                if Guardar = 1 then
+                    GuardarEnBD; 
+                    DisplayStatus("Guardando");
+                end if;
+            
+        end if;
+        
+    end if;  
+              
+    Basculas[Bascula].LecMin := Basculas[Bascula].LecMax; 
+    
+    end if;
+ end;                                                                                 
+--**********************************************************************--
+--------------------------------------------------------------------------     
+
+
+--**********************************************************************--
+procedure PesarRodo(Bascula : integer);
+Peso : real; 
+PesoReal : real;
+begin
+  GetNet(Bascula, Primary, Peso);
+      
+  -- Verificaci�n de Rodo
+  if Peso < (Basculas[Bascula].LecMin - 0.2) and Basculas[Bascula].Bajando = 0 then
+      Basculas[Bascula].LecMin := Peso;
+  elsif Basculas[Bascula].Bajando = 0 and Peso > (Basculas[Bascula].LecMin + 0.2) then 
+      Basculas[Bascula].LecMax := Basculas[Bascula].LecMin;
+      Basculas[Bascula].Bajando := 1;
+  end if;                 
+         
+  if Peso > (Basculas[Bascula].LecMax + 0.2) and Basculas[Bascula].Bajando = 1 then 
+      Basculas[Bascula].LecMax := Peso;
+  elsif Basculas[Bascula].Bajando = 1 and Peso < (Basculas[Bascula].LecMax - 0.2) then
+      Basculas[Bascula].Bajando := 0;  
+      
+      PesoReal := (Basculas[Bascula].LecMax - Basculas[Bascula].LecMin);  
+              
+      -- Valor de los Rodos 
+      if (Basculas[Bascula].LecMax - Basculas[Bascula].LecMin) > 1.5 then 
+          Basculas[Bascula].Contador := Basculas[Bascula].Contador + 1;
+          
+          if PesoReal >= Rodo.Peso[Bascula] then  -- Peso del rodo de la bascula  
+             Basculas[Bascula].Contador := 2;
+             Basc := Basc + 1;
+             
+             if Basc = 5 then 
+                ApagarTemporizador(32);
+                EncederTodosLosTemporizadores;
+                CambiarPantalla(PantallaPrincipal);
+             end if;  
+          end if;
+      end if;  
+              
+      Basculas[Bascula].LecMin := Basculas[Bascula].LecMax;
+      Basculas[Bascula].Contador := Basculas[Bascula].Contador + 1; 
+  end if;
+end;
+                                                                              
+--**********************************************************************--
+------------------------------------------------

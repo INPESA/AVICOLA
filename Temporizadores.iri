@@ -274,5 +274,11 @@ begin
              
             Basculas[Basc].LecMin := Basculas[Basc].LecMax;
    end if;       
+end;    
+
+handler Timer32Trip;
+begin
+  PesarRodo(Basc);
 end;
+
 

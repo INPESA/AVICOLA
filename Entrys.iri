@@ -7,11 +7,9 @@ begin
       
     ------------------------------Principal------------------------    
     if PromptN = EntryBascula then  
-            
-            Basc := StringToInteger(s);   
-            ClosePrompt;   
-            
-            if (Basc >= 1) and (Basc <= 4) then                                       
+            if (Basc >= 1) and (Basc <= 4) then 
+                Basc := StringToInteger(s);   
+                ClosePrompt;                                      
                 DisplayStatus(IntegerToString(Basc,1));
             
                 if MenuEntry = MenuCategoria then
@@ -84,8 +82,7 @@ begin
       Contrasena := StringToInteger(s);
       ClosePrompt;    
     elsif PromptN = 12 then
-      MinPrueba := StringToInteger(s);
-      ClosePrompt;  
+       DisplayStatus("Vacio");  
     elsif PromptN = 13 then
       Bascula := StringToInteger(s);
       ClosePrompt; 

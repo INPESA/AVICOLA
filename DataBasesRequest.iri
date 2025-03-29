@@ -71,7 +71,7 @@ procedure CargarContadores;
 i : integer;
 begin
   for i := 1 to 4 loop
-    SetLabelText((41 + i),  IntegerToString(Config[i].ContadorCat,4));
+    SetLabelText((35 + i),  IntegerToString(Config[i].ContadorCat,4));
   end loop;
 end;
 

@@ -60,7 +60,7 @@ begin
     if PantallaActual = PantallaPrincipal then
         BotarPollo(1);
     elsif PantallaActual = PantallaVelocidad then
-        Temporizador(9, VOn, TimerOneShot, Accion);
+            DisplayStatus("Vacio");
     elsif PantallaActual = PantallaCalibracion then
         EncenderTemporizador(1);  
         DisplayStatus("Bascula 1 Encendida");
@@ -72,7 +72,7 @@ begin
     if PantallaActual = PantallaPrincipal then
         BotarPollo(2);
     elsif PantallaActual = PantallaVelocidad then
-        Temporizador(12, VOn, TimerOneShot, Accion);
+         DisplayStatus("Vacio");
     elsif PantallaActual = PantallaCalibracion then
         EncenderTemporizador(2);   
         DisplayStatus("Bascula 2 Encendida");
@@ -84,8 +84,7 @@ begin
     if PantallaActual = PantallaPrincipal then
         BotarPollo(3);
     elsif PantallaActual = PantallaVelocidad then
-        Temporizador(10, VOn, TimerOneShot, Accion);
-    elsif PantallaActual = PantallaCalibracion then
+         DisplayStatus("Vacio");
         EncenderTemporizador(3);  
         DisplayStatus("Bascula 3 Encendida");
     end if;
@@ -96,7 +95,7 @@ begin
     if PantallaActual = PantallaPrincipal then
         BotarPollo(4);
     elsif PantallaActual = PantallaVelocidad then
-        Temporizador(11, VOn, TimerOneShot, Accion);
+         DisplayStatus("Vacio");
     elsif PantallaActual = PantallaCalibracion then
         EncenderTemporizador(4); 
         DisplayStatus("Bascula 4 Encendida");
@@ -109,6 +108,6 @@ begin
     if PantallaActual = PantallaPrincipal then
         Temporizador(18, VOn, TimerContinuous, 10);
     elsif PantallaActual = PantallaVelocidad then
-        Temporizador(13, VOn, TimerOneShot, Accion);
+         DisplayStatus("Vacio");
     end if;
 end;

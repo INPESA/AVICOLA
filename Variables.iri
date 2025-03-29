@@ -6,33 +6,26 @@ BD_Pruebas : PruebasDatabase;
 BD_Cal : CalDatabase;
 BD_Piston : PistonDatabase;
 
-Basc : integer := 0;   
+-- Parametros
+Basc : integer := 0;
+UsarTaras : stored integer := 0;   
 
 -- Variables de Estructuras
-type MatrizPesos2 is array [4, 200] of real;     
+type MatrizPesos2 is array [4, 300] of real;     
 type Pesos is array [4] of real;
  
 Basculas : stored BasculasArray;
-Config : stored ConfigArray;
+Config : stored ConfigArray;       
+Rodo : stored RodoArray;
 
 MatrizPesos : MatrizPesos2;  
-PruebasMax : real := 0;
-PruebasMin : real := 0;
 
 Bascula : integer := 1;
 Cantidad : integer := 0;
-PesoPrueba7 : real := 0;
-MinPrueba : real := 0;
-                                  
-cantCategoria1 : stored integer := 0;
-cantCategoria2 : stored integer := 0;
-cantCategoria3 : stored integer := 0;
-cantCategoria4 : stored integer := 0;    
+                                 
 
 FechaGlobal : stored string;
  
-Velocidad : stored integer := 10;
-Accion : stored integer := 335;
 Contrasena : stored integer := 1743;                                                             
                                   
 BasesDeDatos : stored integer := 1;
@@ -48,7 +41,7 @@ ENCENDIDO :integer := 1;
 
 --------------------------- Pantallas---------------------------
 PantallaPrincipal : integer := 1; --Se accede al encendido o al salir de otra pantalla 
-PantallaPruebas : integer := 2;
+PantallaInicio : integer := 2;
 PantallaPresentacion :integer := 3;         
 PantallaCategoria : integer := 4; --Se accede con el SoftKey1
 PantallaVelocidad : integer := 5; --Se accede con el SoftKey2
@@ -77,4 +70,5 @@ MenuCategoria : integer := 1;
 MenuPesoPromedio : integer := 2;
 MenuVActivacion : integer := 3;
 MenuTActivacion : integer := 4;
-MenuCalibracion : integer := 5; 
+MenuCalibracion : integer := 5;      
+

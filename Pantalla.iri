@@ -8,13 +8,8 @@ begin
         SetSoftkeyText(3,"Pruebas");
         SetSoftkeyText(4,"Limpiar");
         SetSoftkeyText(5,"Salir");
-        
-        SetLabelText(cont1, IntegerToString(CantCategoria1,2));
-        SetLabelText(cont2, IntegerToString(CantCategoria2,2));
-        SetLabelText(cont3, IntegerToString(CantCategoria3,2));
-        SetLabelText(cont4, IntegerToString(CantCategoria4,2));
            
-  elsif pantalla = PantallaPruebas then      
+  elsif pantalla = PantallaInicio then      
         SetSoftkeyText(1,"Cal. Cero");
         SetSoftkeyText(2,"Cal. Rodo");
         SetSoftkeyText(3,"P. Tara");
@@ -46,8 +41,6 @@ begin
         SetSoftkeyText(4,""); 
         SetSoftkeyText(5,"Salir");
         
-        SetLabelText(vel1, "Vel. de Activacion: " + IntegerToString(Velocidad,2));
-        SetLabelText(vel2, "Tiempo del Piston: " + IntegerToString(Accion,2)); 
         SetLabelText(46, IntegerToString(Basculas[1].Contador, 1));           
     elsif pantalla = 7 then
         --InitGranjero;
@@ -57,9 +50,6 @@ begin
         SetSoftkeyText(3,"Reset");
         SetSoftkeyText(4,""); 
         SetSoftkeyText(5,"Salir");
-        
-        SetLabelText(cant7, "Cantidad: " + IntegerToString(Cantidad,2));
-        SetLabelText(peso7, "Peso: " + IntegerToString(PesoPrueba7,2));   
   end if; 
 end;
       

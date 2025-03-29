@@ -1,8 +1,9 @@
 handler User1Keypressed;
 begin
-    --Pantalla 1
+    -- Pantalla 1 --------------------------------
     if PantallaActual = PantallaPrincipal then
-      CambiarPantalla(PantallaCategoria);  
+      CambiarPantalla(PantallaCategoria);
+    ----------------------------------------------  
       
     elsif PantallaActual = 2 then
        PromptN := EntryBascula;
@@ -69,14 +70,18 @@ handler User3Keypressed;
 begin
     if PantallaActual = 1 then
       CambiarPantalla(PantallaCalibracion); 
-    elsif PantallaActual = PantallaPruebas then
-      CambiarPantalla(PantallaCalibracion);  
+    elsif PantallaActual = PantallaInicio then
+      DisplayStatus("Vacio");  
      
     -- Pantalla 4 ---------------------------------
     elsif PantallaActual = PantallaCategoria then
-       PromptN := EntryCategoriaMinima;
-       Basc := 3;
-       PromptUser("Rango Minimo: ");
+       if UsarTaras = 0 then
+        DisplayStatus("Usando Taras de los Rodos");  
+        UsarTaras := 1;
+       else
+        DisplayStatus("Usando Peso Promedio"); 
+        UsarTaras := 0;
+       end if;
     ------------------------------------------------ 
     
     elsif PantallaActual = 4 then
@@ -88,8 +93,7 @@ begin
     elsif PantallaActual = PantallaCalibracion then
         LimpiarBD;
     elsif PantallaActual = 7 then
-      Cantidad := 0;
-      PesoPrueba7 := 0;
+      DisplayStatus("Vacio");
     else
       DisplayStatus("OtraCosa");
     end if;
@@ -121,10 +125,7 @@ end;
 handler User5Keypressed;
 begin
     if PantallaActual = 1 then
-      cantCategoria1 := 0;
-      cantCategoria2 := 0;
-      cantCategoria3 := 0;
-      cantCategoria4 := 0;  
+      DisplayStatus("Vacio");
     elsif PantallaActual = 2 then     
       StopTimer(18);
       CambiarPantalla(PantallaPrincipal);  
