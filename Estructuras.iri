@@ -24,7 +24,7 @@ type ConfigArray is array[4] of ConfigData;
 type RodoData is 
 record
     Peso : real;
-    Encontrado : real
+    Encontrado : real;
 end record;
 
 type RodoArray is array [4] of RodoData;

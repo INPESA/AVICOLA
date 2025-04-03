@@ -23,7 +23,7 @@ begin
    elsif pantalla = PantallaCategoria then
         SetSoftkeyText(1,"Categoria");
         SetSoftkeyText(2,"Aj. Peso");  
-        SetSoftkeyText(3,"");
+        SetSoftkeyText(3,"Met. Pesaje");
         SetSoftkeyText(4,""); 
         SetSoftkeyText(5,"Salir");     
     elsif pantalla = PantallaVelocidad then

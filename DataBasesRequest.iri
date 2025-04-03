@@ -97,4 +97,16 @@ end;
 procedure LimpiarBD;
 begin
     BD_Pruebas.Clear;
-end;    
+end;                     
+
+procedure CargarMatrizPesos;
+i : integer;
+begin
+    BD_Cal.GetFirst; 
+    for i := 1 to NumeroRodos loop
+        MatrizPesos[1,i]  := BD_Cal.Peso;  
+        DisplayStatus(RealToString(BD_Cal.Peso,2,2) + " , " + RealToString(MatrizPesos[1,i],2,2) + " , " + IntegerToString(i,2));
+        ProgramDelay(10); 
+        Bd_Cal.GetNext;
+  end loop;
+end;

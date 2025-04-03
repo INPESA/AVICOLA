@@ -5,17 +5,17 @@ end;
 
 handler Timer2Trip;
 begin
-     PesajeBascula(2,0);
+     PesajeBascula2(2);
 end;
 
 handler Timer3Trip;
 begin
-    PesajeBascula(3,0);
+    PesajeBascula2(3);
 end;
 
 handler Timer4Trip;
 begin
-     PesajeBascula(4,0);
+     PesajeBascula2(4);
 end;
 
 handler Timer5Trip;
@@ -278,7 +278,7 @@ end;
 
 handler Timer32Trip;
 begin
-  PesarRodo(Basc);
+  PesarRodo(1);
 end;
 
 

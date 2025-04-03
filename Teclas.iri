@@ -1,7 +1,7 @@
 handler N0Keypressed;
 begin
     if PantallaActual = PantallaPrincipal then
-        DisplayStatus("Vacio");
+        DisplayStatus("Contadores: " + IntegerToString(Basculas[1].Contador, 2) + "," + IntegerToString(Basculas[2].Contador, 2) + "," + IntegerToString(Basculas[3].Contador, 2) + "," + IntegerToString(Basculas[4].Contador, 2));
     elsif PantallaActual = PantallaVelocidad then
         DisplayStatus("Pantalla Presentacion");
     end if;
@@ -24,7 +24,7 @@ begin
     if PantallaActual = PantallaPrincipal then
         ZeroScale(2);
     elsif PantallaActual = PantallaVelocidad then
-        Temporizador(14, VOn, TimerOneShot, Config[2].TActivacion);
+        Temporizador(Timer3, VOn, TimerOneShot, Config[2].TActivacion);
     elsif PantallaActual = PantallaCalibracion then
         ApagarTemporizador(2);
         DisplayStatus("Bascula 2 Apagada");
@@ -36,7 +36,7 @@ begin
     if PantallaActual = PantallaPrincipal then
         ZeroScale(3);
     elsif PantallaActual = PantallaVelocidad then
-        Temporizador(19, VOn, TimerOneShot, Config[3].TActivacion);
+        Temporizador(Timer4, VOn, TimerOneShot, Config[3].TActivacion);
     elsif PantallaActual = PantallaCalibracion then
         ApagarTemporizador(3);
         DisplayStatus("Bascula 3 Apagada");
@@ -48,7 +48,7 @@ begin
     if PantallaActual = PantallaPrincipal then
         ZeroScale(4);
     elsif PantallaActual = PantallaVelocidad then
-        Temporizador(24, VOn, TimerOneShot, Config[4].TActivacion);
+        Temporizador(Timer2, VOn, TimerOneShot, Config[4].TActivacion);
     elsif PantallaActual = PantallaCalibracion then
         ApagarTemporizador(4);   
         DisplayStatus("Bascula 4 Apagada");

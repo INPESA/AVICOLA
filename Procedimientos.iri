@@ -92,15 +92,16 @@ begin
             Timer1 := 9;   
         else  
             Timer1 := Timer1 + 1;
-        end if;    
+        end if; 
         
-  elsif piston = 2 then
+    elsif piston = 2 then
         Temporizador(Timer4, VOn, TimerOneShot, Config[4].TActivacion);  
         if (Timer4 = 28) then
             Timer4 := 24;   
         else  
             Timer4 := Timer4 + 1;
-        end if;
+        end if; 
+     
 
   elsif piston = 3 then
         Temporizador(Timer2, VOn, TimerOneShot, Config[2].TActivacion);  
@@ -117,7 +118,8 @@ begin
         else  
             Timer3 := Timer3 + 1;
         end if;
-  end if;
+ end if;  
+ 
 end;
                                               
 procedure GuardarTarasEnMatriz;
@@ -162,15 +164,7 @@ begin
                 
 procedure BuscarRodo;
 begin        
-  Rodo.Encontrado[1] := 0;
-  Rodo.Encontrado[2] := 0;
-  Rodo.Encontrado[3] := 0;
-  Rodo.Encontrado[4] := 0;
-  Rodo.Peso[1] := 7.8;
-  Rodo.Peso[2] := 9;
-  Rodo.Peso[3] := 9.4;
-  Rodo.Peso[4] := 9.6;
-  Basc := 10.8;
+  Basc := 1;
   EncenderTemporizador(32);
   
 end;                       

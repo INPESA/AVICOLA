@@ -23,22 +23,48 @@
      if UsarTaras = 0 then
             PesoReal := (Basculas[Bascula].LecMax - Basculas[Bascula].LecMin) - Basculas[Bascula].PesoPromedio;  
      else
-            PesoReal := (Basculas[Bascula].LecMax - Basculas[Bascula].LecMin) - MatrizPesos[Bascula, Basculas[Bascula].Contador];
+            PesoReal := (Basculas[Bascula].LecMax - Basculas[Bascula].LecMin) - MatrizPesos[Bascula, Basculas[Bascula].Contador];  
+            
+            if PesoReal > 3 then
+                PesoReal := PesoReal * 1.8;
+            elsif PesoReal > 2.7 then
+                PesoReal := PesoReal * 1.8; 
+            elsif PesoReal > 2.5 then
+                PesoReal := PesoReal * 1.8;                         
+            elsif PesoReal > 2 then
+                PesoReal := PesoReal * 1.8;      
+            elsif PesoReal > 1.7 then
+                PesoReal := PesoReal * 1.8;    
+            end if; 
+            
+            DisplayStatus(RealToString(PesoReal,2,2) + 
+            " (" + RealToString(MatrizPesos[Bascula, Basculas[Bascula].Contador],2,2) + ") Rodo " +
+            IntegerToString(Basculas[Bascula].Contador,2) + " , " + RealToString(PesoReal,2,2));
      end if;
              
     -- Valor de los Rodos 
     if (Basculas[Bascula].LecMax - Basculas[Bascula].LecMin) > (1.5) then 
         
-        SetLabelText(25,"Bascula " + IntegerToString(Bascula, 2) + " : " + RealToString(PesoReal,2,2));  
-        Basculas[Bascula].Contador := Basculas[Bascula].Contador + 1;
+        Pesajes[Basculas[Bascula].Contador] := PesoReal; 
+        DisplayStatus(RealToString(Pesajes[Basculas[Bascula].Contador],2,2));
+       SetLabelText(68 + Bascula, RealToString(Pesajes[Basculas[Bascula].Contador],2,2)); 
+        
+        if Basculas[Bascula].Contador = 220 then
+           Basculas[Bascula].Contador := 1; 
+        else
+           Basculas[Bascula].Contador := Basculas[Bascula].Contador + 1;
+        end if;
           
-        if PesoReal >= (Config[Bascula].CategoriaMin - 0.2) and PesoReal <= (Config[Bascula].CategoriaMax) + 0.2 then   
-                SetLabelText(26,"Bascula " + IntegerToString(Bascula, 2) + " : " + RealToString(PesoReal,2,2)); 
-            
+        if PesoReal >= Config[Bascula].CategoriaMin and PesoReal <= Config[Bascula].CategoriaMax then   
+                SetLabelText(26,"Bascula " + IntegerToString(Bascula, 2) + " : " + RealToString(PesoReal,2,2));
+                  
                 BotarPollo(Bascula);
-                Config[Basc].ContadorCat := Config[Basc].ContadorCat + 1;
-                CargarContadores; 
-            
+                if Basculas[Bascula].Contador mod 2 <> 0 then
+                    Config[Basc].ContadorCat := Config[Basc].ContadorCat + 1;
+                    CargarContadores; 
+                end if;
+                
+                
                 if Guardar = 1 then
                     GuardarEnBD; 
                     DisplayStatus("Guardando");
@@ -63,7 +89,7 @@ PesoReal : real;
 begin
   GetNet(Bascula, Primary, Peso);
       
-  -- Verificaci�n de Rodo
+  -- Verificacion de Rodo
   if Peso < (Basculas[Bascula].LecMin - 0.2) and Basculas[Bascula].Bajando = 0 then
       Basculas[Bascula].LecMin := Peso;
   elsif Basculas[Bascula].Bajando = 0 and Peso > (Basculas[Bascula].LecMin + 0.2) then 
@@ -80,17 +106,18 @@ begin
               
       -- Valor de los Rodos 
       if (Basculas[Bascula].LecMax - Basculas[Bascula].LecMin) > 1.5 then 
-          Basculas[Bascula].Contador := Basculas[Bascula].Contador + 1;
+          Basculas[Bascula].Contador := Basculas[Bascula].Contador + 1; 
+          DisplayStatus("Peso Real: " + RealToString(PesoReal,2,2));
           
-          if PesoReal >= Rodo.Peso[Bascula] then  -- Peso del rodo de la bascula  
-             Basculas[Bascula].Contador := 2;
-             Basc := Basc + 1;
+          if PesoReal >= 7 then  -- Peso del rodo de la bascula  
+             Basculas[1].Contador := 1;
+             Basculas[2].Contador := 199;
+             Basculas[3].Contador := 177;
+             Basculas[4].Contador := 116;
              
-             if Basc = 5 then 
                 ApagarTemporizador(32);
                 EncederTodosLosTemporizadores;
                 CambiarPantalla(PantallaPrincipal);
-             end if;  
           end if;
       end if;  
               
@@ -98,6 +125,48 @@ begin
       Basculas[Bascula].Contador := Basculas[Bascula].Contador + 1; 
   end if;
 end;
-                                                                              
---**********************************************************************--
-------------------------------------------------
+   
+procedure PesajeBascula2(Bascula : integer); 
+ Peso : real; 
+ begin
+ GetNet(Bascula, Primary, Peso);
+      
+    -- Verificacion de Rodo
+    if Peso < (Basculas[Bascula].LecMin - 0.2) and Basculas[Bascula].Bajando = 0 then
+        Basculas[Bascula].LecMin := Peso;
+    elsif Basculas[Bascula].Bajando = 0 and Peso > (Basculas[Bascula].LecMin + 0.2) then 
+        Basculas[Bascula].LecMax := Basculas[Bascula].LecMin;
+        Basculas[Bascula].Bajando := 1;
+    end if;                 
+         
+    if Peso > (Basculas[Bascula].LecMax + 0.2) and Basculas[Bascula].Bajando = 1 then 
+        Basculas[Bascula].LecMax := Peso;
+    elsif Basculas[Bascula].Bajando = 1 and Peso < (Basculas[Bascula].LecMax - 0.2) then
+        Basculas[Bascula].Bajando := 0;  
+             
+    -- Valor de los Rodos 
+    if (Basculas[Bascula].LecMax - Basculas[Bascula].LecMin) > (1.5) then 
+        
+        if Basculas[Bascula].Contador = 220 then
+           Basculas[Bascula].Contador := 1; 
+        else
+           Basculas[Bascula].Contador := Basculas[Bascula].Contador + 1;
+        end if;        
+        
+        SetLabelText(68 + Bascula, RealToString(Pesajes[Basculas[Bascula].Contador],2,2));
+          
+        if Pesajes[Basculas[Bascula].Contador] >= Config[Bascula].CategoriaMin and Pesajes[Basculas[Bascula].Contador] <= Config[Bascula].CategoriaMax then      
+            DisplayStatus("Botando " + IntegerToString(Bascula,1) );
+            BotarPollo(Bascula);
+            Pesajes[Basculas[Bascula].Contador] := 0; 
+            if Basculas[Bascula].Contador mod 2 <> 0 then    
+                Config[Basc].ContadorCat := Config[Basc].ContadorCat + 1;
+                CargarContadores; 
+            end if; 
+        end if;    
+    end if;  
+              
+    Basculas[Bascula].LecMin := Basculas[Bascula].LecMax; 
+    
+    end if;
+ end;                                                                                          

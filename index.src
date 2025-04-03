@@ -18,7 +18,7 @@ program AvicolaLaVida;
 #include Entrys.iri  
                                                                       
 begin      
-  CambiarPantalla(PantallaPresentacion);
+  CambiarPantalla(PantallaInicio);
   
   --initINPESA;
   --DrawGraphic(3,0,30,g_INPESA,Black); 
@@ -50,8 +50,8 @@ begin
   
   -- Inicializar la bascula 1
   
-
- 
+  NumeroRodos := 220;
+  CargarMatrizPesos;
   BuscarRodo;
     
   end AvicolaLaVida;

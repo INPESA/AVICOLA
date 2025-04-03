@@ -9,16 +9,19 @@ BD_Piston : PistonDatabase;
 -- Parametros
 Basc : integer := 0;
 UsarTaras : stored integer := 0;   
+NumeroRodos : stored integer := 220;
 
 -- Variables de Estructuras
 type MatrizPesos2 is array [4, 300] of real;     
-type Pesos is array [4] of real;
+type Pesos is array [4] of real; 
+type Pesajes2 is array [300] of real;
  
 Basculas : stored BasculasArray;
 Config : stored ConfigArray;       
 Rodo : stored RodoArray;
 
-MatrizPesos : MatrizPesos2;  
+MatrizPesos : MatrizPesos2;
+Pesajes : Pesajes2;  
 
 Bascula : integer := 1;
 Cantidad : integer := 0;
